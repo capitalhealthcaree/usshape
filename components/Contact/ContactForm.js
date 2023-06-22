@@ -9,7 +9,7 @@ const alertContent = () => {
     title: "Congratulations!",
     text: "Your message was successfully send and will back to you soon",
     icon: "success",
-    timer: 2000,
+    timer: 4000,
     timerProgressBar: true,
     showConfirmButton: false,
   });
