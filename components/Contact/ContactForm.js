@@ -63,7 +63,7 @@ const ContactForm = () => {
         return;
       }
       const payload = { name, email, phone: number, subject, message: text };
-      const response = await api.post("create/contact", payload);
+      const response = await api.post("/create/contact", payload);
       if (response.status === 200) {
         setFormData(INITIAL_STATE);
         alertContent();
