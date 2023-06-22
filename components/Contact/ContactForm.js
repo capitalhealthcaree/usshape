@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "../../utils/api";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
-import baseUrl from "../../utils/baseUrl";
 
 const alertContent = () => {
   MySwal.fire({
@@ -31,19 +30,44 @@ const ContactForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setContact((prevState) => ({ ...prevState, [name]: value }));
-    // console.log(contact)
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = `${baseUrl}/api/contact`;
       const { name, email, number, subject, text } = contact;
+      // Validate required fields
+      if (!name || !email || !number || !subject || !text) {
+        MySwal.fire({
+          title: "Error",
+          text: "Please fill all fields.",
+          icon: "error",
+          timer: 5000,
+          timerProgressBar: true,
+          showConfirmButton: false,
+        });
+        return;
+      }
+
+      // Validate email format
+      const emailRegex = /^\S+@\S+\.\S+$/;
+      if (!emailRegex.test(email)) {
+        MySwal.fire({
+          title: "Error",
+          text: "Please enter a valid email address.",
+          icon: "error",
+          timer: 5000,
+          timerProgressBar: true,
+          showConfirmButton: false,
+        });
+        return;
+      }
       const payload = { name, email, number, subject, text };
-      const response = await axios.post(url, payload);
-      console.log(response);
-      setContact(INITIAL_STATE);
-      alertContent();
+      const response = await api.post("create/contact", payload);
+      if (response.status === 200) {
+        setFormData(INITIAL_STATE);
+        alertContent();
+      }
     } catch (error) {
       console.log(error);
     }
@@ -70,7 +94,6 @@ const ContactForm = () => {
                             placeholder="Your name"
                             value={contact.name}
                             onChange={handleChange}
-                            required
                           />
                         </div>
                       </div>
@@ -84,7 +107,6 @@ const ContactForm = () => {
                             placeholder="Your email address"
                             value={contact.email}
                             onChange={handleChange}
-                            required
                           />
                         </div>
                       </div>
@@ -98,7 +120,6 @@ const ContactForm = () => {
                             value={contact.number}
                             onChange={handleChange}
                             placeholder="Your Phone"
-                            required
                           />
                         </div>
                       </div>
@@ -112,7 +133,6 @@ const ContactForm = () => {
                             placeholder="Your Subject"
                             value={contact.subject}
                             onChange={handleChange}
-                            required
                           />
                         </div>
                       </div>
@@ -127,7 +147,6 @@ const ContactForm = () => {
                             placeholder="Your message..."
                             value={contact.text}
                             onChange={handleChange}
-                            required
                           ></textarea>
                         </div>
                       </div>
