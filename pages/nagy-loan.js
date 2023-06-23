@@ -2,7 +2,7 @@ import React from "react";
 import TopHeader from "../components/_App/TopHeader";
 import Navbar from "../components/_App/Navbar";
 import PageBanner from "../components/Common/PageBanner";
-import AboutContent from "../components/About/AboutContent";
+import NagyLoan from "../components/NagyLoan";
 import LatestBlogPost from "../components/Common/LatestBlogPost";
 import Footer from "../components/_App/Footer";
 
@@ -21,7 +21,7 @@ const About = () => {
         bgImage="/images/about-bg.jpg"
       />
 
-      <AboutContent />
+      <NagyLoan />
 
       <LatestBlogPost />
 
