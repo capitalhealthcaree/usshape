@@ -1,77 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import api from "../../utils/api";
 
 const BlogSidebar = () => {
+  const [list, setList] = useState([]);
+
+  async function fetchData() {
+    const res = await api.get("/blog/getLastFive");
+    if (res.status === 200) {
+      if (res && res.data && res.data.data) {
+        setList(res.data.data);
+      }
+    }
+  }
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <>
       <div className="blog-details-item">
         <div className="blog-details-recent">
           <h3>Recent Blogs</h3>
           <ul>
-            <li>
-              <img src="/images/blog/blog1.jpg" alt="Recent" />
-              <Link href="/blog-details">
-                World AIDS Day, designated on 1 December.
-              </Link>
-              <ul>
-                <li>
-                  <Link href="/blog">
-                    <i className="icofont-businessman"></i> Admin
-                  </Link>
+            {list.map((item, i) => {
+              return (
+                <li key={i}>
+                  <img src={item.image} alt={item.category} />
+                  <Link href={`/blog${item.slug}`}>{item.seoTitle[0]}</Link>
+                  <ul>
+                    <li>
+                      <Link href="#" onClick={(e) => e.preventDefault()}>
+                        {item.category}
+                      </Link>
+                    </li>
+                    <li></li>
+                  </ul>
                 </li>
-                <li>
-                  <i className="icofont-calendar"></i> Jan 03, 2022
-                </li>
-              </ul>
-            </li>
-            <li>
-              <img src="/images/blog/blog2.jpg" alt="Recent" />
-              <Link href="/blog-details">
-                World AIDS Day, designated on 1 December.
-              </Link>
-              <ul>
-                <li>
-                  <Link href="/blog">
-                    <i className="icofont-businessman"></i> Admin
-                  </Link>
-                </li>
-                <li>
-                  <i className="icofont-calendar"></i> Jan 03, 2022
-                </li>
-              </ul>
-            </li>
-            <li>
-              <img src="/images/blog/blog3.jpg" alt="Recent" />
-              <Link href="/blog-details">
-                World AIDS Day, designated on 1 December.
-              </Link>
-              <ul>
-                <li>
-                  <Link href="/blog">
-                    <i className="icofont-businessman"></i> Admin
-                  </Link>
-                </li>
-                <li>
-                  <i className="icofont-calendar"></i> Jan 03, 2022
-                </li>
-              </ul>
-            </li>
-            <li>
-              <img src="/images/blog/blog1.jpg" alt="Recent" />
-              <Link href="/blog-details">
-                World AIDS Day, designated on 1 December.
-              </Link>
-              <ul>
-                <li>
-                  <Link href="/blog">
-                    <i className="icofont-businessman"></i> Admin
-                  </Link>
-                </li>
-                <li>
-                  <i className="icofont-calendar"></i> Jan 03, 2022
-                </li>
-              </ul>
-            </li>
+              );
+            })}
           </ul>
         </div>
 

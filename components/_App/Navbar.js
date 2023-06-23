@@ -207,10 +207,14 @@ const Navbar = () => {
                       </li>
                       <li className="nav-item">
                         <Link
-                          href="/news"
+                          href="#"
                           className={`nav-link ${
-                            currentPath == "/news/" && "active"
+                            currentPath == "/news-letter/" && "active"
                           }`}
+                          // href="/news"
+                          // className={`nav-link ${
+                          //   currentPath == "/news/" && "active"
+                          // }`}
                         >
                           News
                         </Link>
