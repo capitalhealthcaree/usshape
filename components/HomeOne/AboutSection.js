@@ -67,7 +67,7 @@ const AboutSection = () => {
                   </div>
                 </ul>
 
-                <Link href="/donate">DONATE</Link>
+                <Link href="/donation">DONATE</Link>
               </div>
             </div>
           </div>

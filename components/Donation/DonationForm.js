@@ -1,7 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function Paypal() {
   const paypal = useRef();
+  const router = useRouter();
+
   const [amount, setAmount] = useState("");
   const [error, setError] = useState("");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -66,6 +69,7 @@ export default function Paypal() {
           onApprove: async (data, actions) => {
             const order = await actions.order.capture();
             console.log(order);
+            router.push("/thank-you");
           },
           onError: (err) => {
             console.log(err);
@@ -80,7 +84,7 @@ export default function Paypal() {
       <div className="container appointment-item appointment-item-two row">
         <div className="appointment-form">
           <div className="row">
-            <div className="col-lg-8">
+            <div className="col-8">
               <div className="form-group">
                 <i className="icofont-pay"></i>
                 <input
@@ -93,13 +97,20 @@ export default function Paypal() {
                 {error && <small className="text-danger">{error}</small>}
               </div>
             </div>
-            <div className="col-lg-3">
+            <div className="col-3">
               <div className="common-btn">
                 <button
                   onClick={handleButtonClick}
                   style={{
+                    display: "inline-block",
+                    fontSize: "15px",
+                    fontWeight: "500",
+                    padding: "12px 18px",
+                    borderRadius: "5px",
+                    border: "2px solid transparent",
                     backgroundColor: "#0046c0",
                     color: "white",
+                    cursor: "pointer",
                   }}
                   disabled={isButtonDisabled && amount === previousAmount}
                 >

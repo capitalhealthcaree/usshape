@@ -36,7 +36,7 @@ const HeroSlider = () => {
                     </p>
 
                     <div className="common-btn">
-                      <Link href="/donate">DONATE</Link>
+                      <Link href="/donation">DONATE</Link>
                       <Link href="/contact" className="cmn-btn-right">
                         Contact Us
                       </Link>

@@ -256,7 +256,7 @@ const Navbar = () => {
               </div>
               <div className="common-btn">
                 <Link
-                  href="/donate"
+                  href="/donation"
                   style={{ backgroundColor: "#0046c0", color: "white" }}
                 >
                   DONATE

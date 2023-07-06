@@ -5,7 +5,7 @@ import DonationForm from "../components/Donation/DonationForm";
 import FaqSection from "../components/Common/FaqSection";
 import Footer from "../components/_App/Footer";
 
-const Appointment = () => {
+const Donation = () => {
   return (
     <>
       <TopHeader />
@@ -16,5 +16,4 @@ const Appointment = () => {
     </>
   );
 };
-
-export default Appointment;
+export default Donation;
