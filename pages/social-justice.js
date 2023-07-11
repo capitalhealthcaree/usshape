@@ -28,71 +28,86 @@ const SocialJustice = () => {
             />
 
             <p>
-              Fairness in society is social justice.In addition to healthcare,
-              employment, and housing, this includes fairness in other
-              areas.Socially just societies respect human rights and prevent
-              discrimination.The phrase "social justice" originated in the
-              1780s.In The Federalist Papers, Paper #7, it appears to have first
-              been used in the 1780s.At the end of the Industrial Revolution,
-              economic scholars applied this term to the study of economics.Its
-              use has expanded significantly and is now applicable to all facets
-              of society.Race, class, sexuality, and gender contribute.
+              The concept of social injustice refers to the situation when
+              equals are treated unequally and unequals are treated equally by
+              the system. Social justice is based on the principles of human
+              rights, equity, participation, and accessibility. The process of
+              achieving social justice is not easy since there are a number of
+              issues that need to be addressed.
             </p>
-
-            <h1> Principles of Social Justice </h1>
             <p>
-              The following main principles can help you better understand
-              social justice.
+              An individual who is a member of a nation is entitled to certain
+              basic and equal rights. In our nation, we are unfortunate that our
+              fundamental rights are not recognized as equal for everyone. A
+              person's rights are determined by his or her power, self-esteem,
+              and status, and many people do not know how to go about obtaining
+              them. Pakistan has numerous social injustice issues, including
+              gender inequality socioeconomic disparities, religious
+              discrimination, and lack of access to education and healthcare.
+              Governments, civil society organizations, and individuals must
+              collaborate to address social injustice.
             </p>
-            <h2>Access to resources</h2>
+            <h2>Pakistan has numerous Social Injustice issues like :</h2>
+            <h4>Gender Inequality:</h4>
             <p>
-              Social justice requires resource access.Achieving equality of
-              opportunity means giving everyone an equal start in life.Society
-              offers a variety of resources and services to its citizens, such
-              as healthcare, food, shelter, education, and recreation.Uneven
-              access to such services is common. Wealthy households are likely
-              to have better access to schools and post-secondary education,
-              leading to better chances of higher-paying jobs.People from the
-              lower classes have fewer opportunities.As a result, future
-              generations are limited in their ability to access education.
+              Pakistan faces significant gender disparities, with women and
+              girls often experiencing discrimination and violence. They have
+              limited access to education, healthcare, employment opportunities,
+              and political participation. Harmful practices such as child
+              marriage, honor killings, and domestic violence are prevalent.
             </p>
-            <h2>Human Rights</h2>
+            <h4>Religious discrimination:</h4>
             <p>
-              The concept of social justice is based on human rights, its
-              foundational principles.Human rights and social justice are
-              interdependent. Societies that respect civil, economic, cultural,
-              political, and legal rights are fundamental to their
-              development.All individuals, organizations, and governments are
-              responsible for ensuring the protection of these rights. In
-              addition, the International Criminal Court recognizes their
-              influence in many societies around the world.
+              Pakistan is an Islamic Republic, and religious minorities,
+              including Christians, Hindus, Sikhs, and Ahmadis, face
+              discrimination and persecution. They often experience restrictions
+              on religious freedom, targeted violence, and blasphemy laws that
+              can oppress minority communities.
             </p>
-            <h2>Equity</h2>
+            <h4>Socioeconomic Disparities:</h4>
             <p>
-              Equity is about giving individuals the tools to achieve similar
-              outcomes.In contrast to equality, in which everyone receives the
-              same tools.The need for more advanced services makes equal
-              services inequitable. Social justice policies may address systemic
-              barriers.
+              Pakistan has a large wealth gap, with a significant portion of the
+              population living in poverty. Rural areas, particularly in
+              provinces like Balochistan and Sindh, face higher levels of
+              poverty and lack basic amenities such as clean water, sanitation,
+              and healthcare facilities. Urban-rural divide exacerbates social
+              injustice, as urban areas enjoy better infrastructure and
+              resources.
             </p>
-            <h2>Diversity</h2>
+            <h4>Quality Education:</h4>
             <p>
-              Cultural differences require understanding diversity.Policies
-              constructed by policymakers often take into account differences
-              among societal groups.Identifying the barriers some groups face in
-              society is essential.Policymakers must consider equity if
-              marginalized groups are to be expanded. Throughout society,
-              racial, gender, ethnic, sex, and age discrimination in the
-              workplace is a constant concern.Diverse practices can be prevented
-              by policies.
+              Although Pakistan has made significant efforts to improve
+              education, quality education remains a challenge for its citizens.
+              Due to poverty, cultural norms, and inadequate infrastructure,
+              many children, particularly girls and those from marginalized
+              communities, cannot attend school. A lack of access to education
+              and illiteracy perpetuate social inequalities.
             </p>
-            <h2>Participation</h2>
+            <h4>Human Rights:</h4>
             <p>
-              Everyone in society has a voice to voice their opinions and
-              concerns.Additionally, they participate in decisions affecting
-              their livelihoods.People in small groups make decisions on behalf
-              of large groups, while others are unable to express their
-              opinions.
+              A number of human rights violations persist in Pakistan, including
+              extrajudicial killings, forced disappearances, torture, and
+              restrictions on freedom of expression. Dissenting voices,
+              journalists, and activists often face threats, harassment, and
+              intimidation.
+            </p>
+            <h4>Injustice based on caste:</h4>
+            <p>
+              Caste discrimination is prevalent in Pakistan, although not as
+              prevalent as in some other South Asian countries. A great deal of
+              marginalization and social mobility restrictions are experienced
+              by people of lower castes and their access to resources is
+              limited.
+            </p>
+            <p>
+              The objective of <b>US SHAPE</b> is to promote equal rights,
+              improving access to educational and healthcare opportunities,
+              empowering women, protecting religious minorities and creating a
+              democratic society where all citizens can participate in and
+              benefit from their rights. Our society and state should maintain
+              vigilance when administering justice. Governments, civil society
+              organizations, and individuals must collaborate to address social
+              injustice.
             </p>
           </div>
         </div>

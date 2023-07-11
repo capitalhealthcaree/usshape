@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
+import StripeCheckout from "react-stripe-checkout";
 
 export default function Paypal() {
   const paypal = useRef();
@@ -21,7 +22,7 @@ export default function Paypal() {
       setError("Please enter an amount");
     } else if (!/^\d+$/.test(value)) {
       setAmount("");
-      setError("Please enter a valid integer amount");
+      setError("Please enter a valid amount");
     } else {
       setAmount(value);
       setError("");
@@ -79,6 +80,10 @@ export default function Paypal() {
     }
   }, [renderPaypalButton]);
 
+  const handleToken = (token) => {
+    router.push("/thank-you");
+  };
+
   return (
     <div>
       <div className="container appointment-item appointment-item-two row">
@@ -120,7 +125,33 @@ export default function Paypal() {
             </div>
           </div>
         </div>
-        {showPaypalButton && <div className="col-12" ref={paypal}></div>}
+        {showPaypalButton && (
+          <div className="row">
+            <div className="col-12" ref={paypal}></div>{" "}
+            <div
+              className="col-12"
+              style={{
+                textAlign: "center",
+                fontWeight: "bolder",
+                fontSize: "20px",
+              }}
+            >
+              OR
+            </div>
+            <div
+              className="col-12"
+              style={{ textAlign: "center", fontFamily: "sans-serif" }}
+            >
+              <StripeCheckout
+                token={handleToken}
+                stripeKey="pk_live_51N8KA8FaT4GpKUOlXN3diyo2DOVdI2AMYmdzMrMK8wvFMy3AROWu0EE2AFTiqB8tMo6kK741fQkPdLi3lJm0onQg00QoFXm3ft"
+                amount={amount * 100}
+                name="USSHAPE"
+                className="custom-button-stripe"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
