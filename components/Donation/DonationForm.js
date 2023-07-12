@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import StripeCheckout from "react-stripe-checkout";
+import axios from "axios";
 
 export default function Paypal() {
   const paypal = useRef();
@@ -79,9 +80,16 @@ export default function Paypal() {
         .render(paypal.current);
     }
   }, [renderPaypalButton]);
-
-  const handleToken = (token) => {
-    router.push("/thank-you");
+// to handle Stripe payment
+  let am = amount * 100;
+  const handleToken = async (token) => {
+    const res = await axios.post("https://usshape-stripe.vercel.app/payment", {
+      amount: am,
+      token: token,
+    });
+    if (res.status === 200) {
+      router.push("/thank-you");
+    }
   };
 
   return (
