@@ -4,6 +4,8 @@ import Navbar from "../components/_App/Navbar";
 import PageBanner from "../components/Common/PageBanner";
 import NagyLoan from "../components/NagyLoan";
 import LatestBlogPost from "../components/Common/LatestBlogPost";
+import Faq from "../components/Common/Faq";
+
 import Footer from "../components/_App/Footer";
 
 const About = () => {
@@ -14,7 +16,7 @@ const About = () => {
       <Navbar />
 
       <PageBanner
-        pageTitle="Nagy Loan Program For Physicians"
+        pageTitle="Nagy Loan Program For Young Physicians"
         homePageUrl="/"
         homePageText="Home"
         activePageText="nagy-loan"
@@ -22,6 +24,8 @@ const About = () => {
       />
 
       <NagyLoan />
+      
+      <Faq />
 
       <LatestBlogPost />
 

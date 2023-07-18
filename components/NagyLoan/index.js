@@ -16,7 +16,7 @@ const NagyLoan = () => {
 
             <div className="col-lg-6">
               <div className="about-item about-right">
-                <h2>Nagy Loan Program for Physicians</h2>
+                <h2>Nagy Loan Program for Young Physicians</h2>
                 <p>
                   A dedicated team of Pakistani Physicians came together to help
                   physicians for to fullfil their USMLE dream and founded a

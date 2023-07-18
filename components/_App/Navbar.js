@@ -238,7 +238,7 @@ const Navbar = () => {
                         currentPath == "/nagy-loan/" && "active"
                       }`}
                     >
-                      Nagy Loan Program for Physicians
+                      Nagy Loan Program for Young Physicians
                     </Link>
                   </li>
 

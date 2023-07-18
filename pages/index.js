@@ -10,6 +10,8 @@ import LatestBlogPost from "../components/Common/LatestBlogPost";
 import Gallery from "../components/Common/Gallery";
 import Footer from "../components/_App/Footer";
 import FaqSection from "../components/Common/FaqSection";
+import Faq from "../components/Common/Faq";
+
 import StrategicObjectives from "../components/HomeOne/StrategicObjectives";
 const Index = () => {
   return (
@@ -32,7 +34,9 @@ const Index = () => {
 
       <Gallery />
 
-      <FaqSection />
+      {/* <FaqSection /> */}
+
+      <Faq />
 
       <LatestBlogPost />
 
