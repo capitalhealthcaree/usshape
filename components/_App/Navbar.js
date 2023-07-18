@@ -252,6 +252,17 @@ const Navbar = () => {
                       Contact
                     </Link>
                   </li>
+
+                  <li className="nav-item">
+                    <Link
+                      href="/faqs"
+                      className={`nav-link ${
+                        currentPath == "/blog/" && "active"
+                      }`}
+                    >
+                      FAQs
+                    </Link>
+                  </li>
                 </ul>
               </div>
               <div className="common-btn">

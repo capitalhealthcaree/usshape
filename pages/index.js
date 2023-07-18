@@ -34,9 +34,9 @@ const Index = () => {
 
       <Gallery />
 
-      {/* <FaqSection /> */}
+      <FaqSection />
 
-      <Faq />
+      {/* <Faq /> */}
 
       <LatestBlogPost />
 
