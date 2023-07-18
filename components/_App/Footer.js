@@ -70,6 +70,9 @@ const Footer = () => {
                     <li>
                       <Link href="/blog">Blog</Link>
                     </li>
+                    <li>
+                      <Link href="/faqs">FAQs</Link>
+                    </li>
                   </ul>
                 </div>
               </div>
