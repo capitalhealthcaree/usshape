@@ -177,44 +177,6 @@ const FaqSection = () => {
             <AccordionItem uuid="h">
               <AccordionItemHeading>
                 <AccordionItemButton>
-                  <span>
-                    What if I don’t disclose my parents real income or previous
-                    electives/externship
-                  </span>
-                </AccordionItemButton>
-              </AccordionItemHeading>
-              <AccordionItemPanel>
-                <p>
-                  We use US state medical board disclosure agreement. In case of
-                  false or incorrect information or non disclosure; legal action
-                  will be taken accordingly in USA as well as in country of
-                  origin.
-                </p>
-              </AccordionItemPanel>
-            </AccordionItem>
-
-            <AccordionItem uuid="i">
-              <AccordionItemHeading>
-                <AccordionItemButton>
-                  <span>
-                    What if I don’t disclose my parents real income or previous
-                    electives/externship?
-                  </span>
-                </AccordionItemButton>
-              </AccordionItemHeading>
-              <AccordionItemPanel>
-                <p>
-                  We use US state medical board disclosure agreement. In case of
-                  false or incorrect information or non disclosure; legal action
-                  will be taken accordingly in USA as well as in country of
-                  origin.
-                </p>
-              </AccordionItemPanel>
-            </AccordionItem>
-
-            <AccordionItem uuid="j">
-              <AccordionItemHeading>
-                <AccordionItemButton>
                   <span>How will I return loan after I get matched?</span>
                 </AccordionItemButton>
               </AccordionItemHeading>
@@ -226,7 +188,7 @@ const FaqSection = () => {
               </AccordionItemPanel>
             </AccordionItem>
 
-            <AccordionItem uuid="k">
+            <AccordionItem uuid="i">
               <AccordionItemHeading>
                 <AccordionItemButton>
                   <span>
@@ -243,7 +205,7 @@ const FaqSection = () => {
               </AccordionItemPanel>
             </AccordionItem>
 
-            <AccordionItem uuid="l">
+            <AccordionItem uuid="j">
               <AccordionItemHeading>
                 <AccordionItemButton>
                   <span>
