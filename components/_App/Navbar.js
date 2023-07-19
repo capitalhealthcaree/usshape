@@ -88,7 +88,7 @@ const Navbar = () => {
                         <Link
                           href="/social-justice"
                           className={`nav-link ${
-                            currentPath == "/social-justice/" && "active"
+                            currentPath == "/social-justice" && "active"
                           }`}
                         >
                           <span
@@ -104,7 +104,7 @@ const Navbar = () => {
                         <Link
                           href="/health-care"
                           className={`nav-link ${
-                            currentPath == "/health-care/" && "active"
+                            currentPath == "/health-care" && "active"
                           }`}
                         >
                           <span
@@ -120,7 +120,7 @@ const Navbar = () => {
                         <Link
                           href="/advocacy"
                           className={`nav-link ${
-                            currentPath == "/advocacy/" && "active"
+                            currentPath == "/advocacy" && "active"
                           }`}
                         >
                           <span
@@ -134,9 +134,9 @@ const Navbar = () => {
 
                       <li className="nav-item">
                         <Link
-                          href="/poverty-alleviation/"
+                          href="/poverty-alleviation"
                           className={`nav-link ${
-                            currentPath == "/poverty-alleviation/" && "active"
+                            currentPath == "/poverty-alleviation" && "active"
                           }`}
                         >
                           <span
@@ -150,9 +150,9 @@ const Navbar = () => {
 
                       <li className="nav-item">
                         <Link
-                          href="/education/"
+                          href="/education"
                           className={`nav-link ${
-                            currentPath == "/education/" && "active"
+                            currentPath == "/education" && "active"
                           }`}
                         >
                           <span
@@ -185,22 +185,25 @@ const Navbar = () => {
                       {" "}
                       <li className="nav-item">
                         <Link
-                          // href="/success-stories/"
                           href="#"
-                          className={`nav-link ${
-                            currentPath == "/success-stories/" && "active"
-                          }`}
+                          onClick={(e) => e.preventDefault()}
+                          // href="/success-stories/"
+
+                          // className={`nav-link ${
+                          //   currentPath == "/success-stories/" && "active"
+                          // }`}
                         >
                           Success Stories
                         </Link>
                       </li>
                       <li className="nav-item">
                         <Link
-                          // href="/news-letter/"
                           href="#"
-                          className={`nav-link ${
-                            currentPath == "/news-letter/" && "active"
-                          }`}
+                          onClick={(e) => e.preventDefault()}
+                          // href="/news-letter/"
+                          // className={`nav-link ${
+                          //   currentPath == "/news-letter/" && "active"
+                          // }`}
                         >
                           NewsLetter
                         </Link>
@@ -208,9 +211,11 @@ const Navbar = () => {
                       <li className="nav-item">
                         <Link
                           href="#"
-                          className={`nav-link ${
-                            currentPath == "/news-letter/" && "active"
-                          }`}
+                          onClick={(e) => e.preventDefault()}
+                          // href="#"
+                          // className={`nav-link ${
+                          //   currentPath == "/news-letter/" && "active"
+                          // }`}
                           // href="/news"
                           // className={`nav-link ${
                           //   currentPath == "/news/" && "active"
@@ -223,19 +228,19 @@ const Navbar = () => {
                         <Link
                           href="/blog"
                           className={`nav-link ${
-                            currentPath == "/blog/" && "active"
+                            currentPath == "/blog" && "active"
                           }`}
                         >
-                          Blog
+                          Blogs
                         </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item">
                     <Link
-                      href="/nagy-loan/"
+                      href="/nagy-loan"
                       className={`nav-link ${
-                        currentPath == "/nagy-loan/" && "active"
+                        currentPath == "/nagy-loan" && "active"
                       }`}
                     >
                       Nagy Loan Program for Young Physicians
@@ -246,7 +251,7 @@ const Navbar = () => {
                     <Link
                       href="/contact"
                       className={`nav-link ${
-                        currentPath == "/blog/" && "active"
+                        currentPath == "/contact" && "active"
                       }`}
                     >
                       Contact
@@ -257,7 +262,7 @@ const Navbar = () => {
                     <Link
                       href="/faqs"
                       className={`nav-link ${
-                        currentPath == "/blog/" && "active"
+                        currentPath == "/faqs" && "active"
                       }`}
                     >
                       FAQs

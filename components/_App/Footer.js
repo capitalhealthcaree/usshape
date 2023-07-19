@@ -65,7 +65,9 @@ const Footer = () => {
                       <Link href="/contact">Contact</Link>
                     </li>
                     <li>
-                      <Link href="/news">News</Link>
+                      <Link href="#" onClick={(e) => e.preventDefault()}>
+                        News
+                      </Link>
                     </li>
                     <li>
                       <Link href="/blog">Blog</Link>

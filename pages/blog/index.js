@@ -23,7 +23,7 @@ const Blog = ({ item }) => {
       <Navbar />
 
       <PageBanner
-        pageTitle="Blog"
+        pageTitle="Blogs"
         homePageUrl="/"
         homePageText="Home"
         activePageText="blog"
