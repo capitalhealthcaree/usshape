@@ -13,7 +13,7 @@ const FaqSection = () => {
 
   return (
     <>
-      <div className="faq-area-two ptb-100">
+      <div className="faq-area-two ptb-100 mb-5">
         <div className="faq-shape">
           {/* <img src="/images/faq-shape1.png" alt="Faq" />
           // <img src="/images/faq-shape2.png" alt="Faq" /> */}

@@ -209,28 +209,12 @@ const Navbar = () => {
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <Link
-                          href="#"
-                          onClick={(e) => e.preventDefault()}
-                          // href="#"
-                          // className={`nav-link ${
-                          //   currentPath == "/news-letter/" && "active"
-                          // }`}
-                          // href="/news"
-                          // className={`nav-link ${
-                          //   currentPath == "/news/" && "active"
-                          // }`}
-                        >
+                        <Link href="#" onClick={(e) => e.preventDefault()}>
                           News
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <Link
-                          href="/blog"
-                          className={`nav-link ${
-                            currentPath == "/blog" && "active"
-                          }`}
-                        >
+                        <Link href="#" onClick={(e) => e.preventDefault()}>
                           Blogs
                         </Link>
                       </li>

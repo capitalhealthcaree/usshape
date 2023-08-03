@@ -3,7 +3,7 @@ import TopHeader from "../components/_App/TopHeader";
 import Navbar from "../components/_App/Navbar";
 import PageBanner from "../components/Common/PageBanner";
 import NagyLoan from "../components/NagyLoan";
-import LatestBlogPost from "../components/Common/LatestBlogPost";
+// import LatestBlogPost from "../components/Common/LatestBlogPost";
 import Faq from "../components/Common/Faq";
 
 import Footer from "../components/_App/Footer";
@@ -24,10 +24,10 @@ const About = () => {
       />
 
       <NagyLoan />
-      
+
       <Faq />
 
-      <LatestBlogPost />
+      {/* <LatestBlogPost /> */}
 
       <Footer />
     </>

@@ -5,14 +5,16 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <>
-      <footer className="pt-100 pb-70">
+      <footer className="pt-5 pb-70">
         <div className="container">
           <div className="row">
             {" "}
             <div className="col-sm-6 col-lg-5">
               <div className="footer-item">
                 <div className="footer-feedback">
-                  <h1 style={{ color: "white" }}>US SHAPE</h1>
+                  <Link href="/">
+                    <h1 style={{ color: "white" }}>US SHAPE</h1>
+                  </Link>
                   <span style={{ color: "white" }}>
                     Our organization is dedicated to serving the less fortunate
                     and facilitating meaningful connections with them. Our name
@@ -70,7 +72,9 @@ const Footer = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link href="/blog">Blogs</Link>
+                      <Link href="#" onClick={(e) => e.preventDefault()}>
+                        Blogs
+                      </Link>
                     </li>
                     <li>
                       <Link href="/faqs">FAQs</Link>

@@ -19,7 +19,7 @@ const SocialJustice = () => {
         bgImage="/images/education/education-bg.jpg"
       />
 
-      <div className="service-details-area ptb-100">
+      <div className="service-details-area mt-5 pb-3">
         <div className="container">
           <div className="services-details-img">
             <img src="/images/education/education.jpg" alt="Education" />
