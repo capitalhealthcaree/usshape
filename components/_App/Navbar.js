@@ -182,7 +182,16 @@ const Navbar = () => {
                       Media
                     </div>
                     <ul className="dropdown-menu">
-                      {" "}
+                      {/* <li className="nav-item">
+                        <Link
+                          href="/application-form/"
+                          className={`nav-link ${
+                            currentPath == "/application-form/" && "active"
+                          }`}
+                        >
+                          Application Form
+                        </Link>
+                      </li> */}
                       <li className="nav-item">
                         <Link
                           href="#"
