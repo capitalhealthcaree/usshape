@@ -8,7 +8,7 @@ const FormData = ({ item }) => {
     <>
       <Navbar />
 
-      <div className="blog-area-two ">
+      <div className="blog-area-two">
         <div className="container">
           <div className="row justify-content-center">
             {item.map((item, i) => {
@@ -74,10 +74,12 @@ const FormData = ({ item }) => {
                         professional reasons to attend conferences or to do
                         electives? <b>: {item.travelledInternationally}</b>
                       </p>
-                      <p>
-                        If "Yes", Please Provide details{" "}
-                        <b>: {item.travelledInternationallyDetails}</b>
-                      </p>
+                      {item.travelledInternationally == "Yes" && (
+                        <p>
+                          If "Yes", Please Provide details{" "}
+                          <b>: {item.travelledInternationallyDetails}</b>
+                        </p>
+                      )}
                       <p>
                         Why you should be considered{" "}
                         <b>: {item.whyWeConsidered}</b>

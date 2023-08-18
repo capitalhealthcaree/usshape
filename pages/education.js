@@ -5,6 +5,7 @@ import PageBanner from "../components/Common/PageBanner";
 import Footer from "../components/_App/Footer";
 
 const SocialJustice = () => {
+  const isReserve = true;
   return (
     <>
       <TopHeader />
@@ -79,7 +80,7 @@ const SocialJustice = () => {
               <b>paindfw@gmail.com</b>
             </div>
 
-            <div className="col-12">
+            <div className="mt-2">
               <div className="form-group">
                 <div className="row align-items-center">
                   <div className="col-auto">
@@ -100,6 +101,49 @@ const SocialJustice = () => {
                       I agree to all terms and conditions.
                     </label>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div className="row mt-4">
+              <div className="col-lg-6 col-md-6 col-sm-6">
+                <div className="form-group">
+                  <label>
+                    <b> Please reserve a rotation</b>
+                  </label>
+                  <select
+                    className="form-control"
+                    name="appliedToOtherOrganization"
+                    // value={contact.appliedToOtherOrganization}
+                    // onChange={handleChange}
+                  >
+                    <option value="">Select month</option>
+                    <option disabled style={{ color: isReserve && "red" }}>
+                      January 1-15 {isReserve && "Reserved"}
+                    </option>
+                    <option>January 16-31</option>
+                    <option>February 1-15</option>
+                    <option>February 16-28</option>
+                    <option>March 1-15</option>
+                    <option>March 16-31</option>
+                    <option>April 1-15</option>
+                    <option>April 16-30</option>
+                    <option>May 1-15</option>
+                    <option>May 16-31</option>
+                    <option>June 1-15</option>
+                    <option>June 16-30</option>
+                    <option>July 1-15</option>
+                    <option>July 16-31</option>
+                    <option>August 1-15</option>
+                    <option>August 16-31</option>
+                    <option>September 1-15</option>
+                    <option>September 16-30</option>
+                    <option>October 1-15</option>
+                    <option>October 16-31</option>
+                    <option>November 1-15</option>
+                    <option>November 16-30</option>
+                    <option>December 1-15</option>
+                    <option>December 16-31</option>
+                  </select>
                 </div>
               </div>
             </div>
