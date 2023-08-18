@@ -33,7 +33,7 @@ const SocialJustice = () => {
                 surgery.
               </li>
               <li>
-                If you are a non Pakistani physicians,; $2000 per month will be
+                If you are a non Pakistani physicians, $2000 per month will be
                 charged. For Pakistani and students their near relatives its
                 free of charge. Exceptions can be made for those who can’t
                 afford fees.

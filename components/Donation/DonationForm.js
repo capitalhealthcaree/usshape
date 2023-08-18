@@ -80,13 +80,25 @@ export default function Paypal() {
         .render(paypal.current);
     }
   }, [renderPaypalButton]);
-// to handle Stripe payment
+  // to handle Stripe payment
   let am = amount * 100;
   const handleToken = async (token) => {
-    const res = await axios.post("https://usshape-stripe.vercel.app/payment", {
-      amount: am,
-      token: token,
-    });
+    const res = await axios.post(
+      "https://usshape-stripe.vercel.app/payment",
+      {
+        amount: am,
+        token: token,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json", // Make sure to set the correct content type
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+          "Access-Control-Allow-Headers":
+            "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+        },
+      }
+    );
     if (res.status === 200) {
       router.push("/thank-you");
     }
