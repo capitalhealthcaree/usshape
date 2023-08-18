@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import api from "../../utils/api";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { storage } from "../../firebase";
 const MySwal = withReactContent(Swal);
 
 const alertContent = () => {
   MySwal.fire({
     title: "Congratulations!",
-    text: "Your message was successfully send and will back to you soon",
+    text: "Your Application Form submitted successfully",
     icon: "success",
     timer: 4000,
     timerProgressBar: true,
@@ -17,14 +18,51 @@ const alertContent = () => {
 
 // Form initial state
 const INITIAL_STATE = {
-  name: "",
+  firstName: "",
+  lastName: "",
   email: "",
-  number: "",
-  subject: "",
-  text: "",
+  phoneNumber: "",
+  dob: "",
+  permanentAddress: "",
+  temporaryAddress: "",
+  fatherName: "",
+  fatherOccupation: "",
+  fatherIncome: "",
+  passportNumber: "",
+  bankAccountNumber: "",
+  swiftCode: "",
+  appliedToOtherOrganization: "",
+  nationalityOtherThanPakistan: "",
+  travelledInternationally: "",
+  travelledInternationallyDetails: "",
+  whyWeConsidered: "",
+
+  collegeName: "",
+  graduationYear: "",
+  firstYearGrade: "",
+  secondYearGrade: "",
+  thirdYearGrade: "",
+  finalYearGrade: "",
+  otherQualifications: "",
+  awardsHonors: "",
+
+  step1Score: "",
+  step1Attempt: "",
+  step2CKScore: "",
+  step2CKAttempt: "",
+  step2CSScore: "",
+  step2CSAttempt: "",
+  step3Score: "",
+  step3Attempt: "",
+
+  signature: "",
 };
 
 const ApplicationForms = () => {
+  const [termsConditions, setTermsConditions] = useState(false);
+  const [billImages, setBillImages] = useState([]);
+  const [certificateFile, setCertificateFile] = useState();
+  const [loading, setLoading] = useState(false);
   const [contact, setContact] = useState(INITIAL_STATE);
 
   const handleChange = (e) => {
@@ -32,12 +70,94 @@ const ApplicationForms = () => {
     setContact((prevState) => ({ ...prevState, [name]: value }));
   };
 
+  const handleBillFileChange = (e) => {
+    const selectedFiles = e.target.files;
+    const fileList = Array.from(selectedFiles);
+    setBillImages(fileList);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      const { name, email, number, subject, text } = contact;
+      const {
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        dob,
+        permanentAddress,
+        temporaryAddress,
+        fatherName,
+        fatherOccupation,
+        fatherIncome,
+        passportNumber,
+        bankAccountNumber,
+        swiftCode,
+        appliedToOtherOrganization,
+        nationalityOtherThanPakistan,
+        travelledInternationally,
+        travelledInternationallyDetails,
+        whyWeConsidered,
+
+        collegeName,
+        graduationYear,
+        firstYearGrade,
+        secondYearGrade,
+        thirdYearGrade,
+        finalYearGrade,
+        otherQualifications,
+        awardsHonors,
+
+        step1Score,
+        step1Attempt,
+        step2CKScore,
+        step2CKAttempt,
+        step2CSScore,
+        step2CSAttempt,
+        step3Score,
+        step3Attempt,
+
+        signature,
+      } = contact;
       // Validate required fields
-      if (!name || !email || !number || !subject || !text) {
+      if (
+        !firstName ||
+        !lastName ||
+        !email ||
+        !phoneNumber ||
+        !dob ||
+        !permanentAddress ||
+        !temporaryAddress ||
+        !fatherName ||
+        !fatherOccupation ||
+        !fatherIncome ||
+        !passportNumber ||
+        !bankAccountNumber ||
+        !swiftCode ||
+        !appliedToOtherOrganization ||
+        !nationalityOtherThanPakistan ||
+        !travelledInternationally ||
+        !whyWeConsidered ||
+        !collegeName ||
+        !graduationYear ||
+        !firstYearGrade ||
+        !secondYearGrade ||
+        !thirdYearGrade ||
+        !finalYearGrade ||
+        !otherQualifications ||
+        !awardsHonors ||
+        !step1Score ||
+        !step1Attempt ||
+        !step2CKScore ||
+        !step2CKAttempt ||
+        !step2CSScore ||
+        !step2CSAttempt ||
+        !step2CSAttempt ||
+        !step3Score ||
+        !signature ||
+        !termsConditions
+      ) {
         MySwal.fire({
           title: "Error",
           text: "Please fill all fields.",
@@ -62,14 +182,95 @@ const ApplicationForms = () => {
         });
         return;
       }
-      const payload = { name, email, phone: number, subject, message: text };
-      const response = await api.post("/create/contact", payload);
+      const payload = {
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        dob,
+        permanentAddress,
+        temporaryAddress,
+        fatherName,
+        fatherOccupation,
+        fatherIncome,
+        passportNumber,
+        bankAccountNumber,
+        swiftCode,
+        appliedToOtherOrganization,
+        nationalityOtherThanPakistan,
+        travelledInternationally,
+        travelledInternationallyDetails,
+        whyWeConsidered,
+
+        collegeName,
+        graduationYear,
+        firstYearGrade,
+        secondYearGrade,
+        thirdYearGrade,
+        finalYearGrade,
+        otherQualifications,
+        awardsHonors,
+
+        step1Score,
+        step1Attempt,
+        step2CKScore,
+        step2CKAttempt,
+        step2CSScore,
+        step2CSAttempt,
+        step3Score,
+        step3Attempt,
+
+        signature,
+
+        termsConditions,
+      };
+      // Upload files to Firebase storage
+      const billImageUrls = [];
+      if (billImages.length > 0) {
+        // Create the "billImages" folder
+        await storage.ref().child("billImages/").child("dummy").put(new Blob());
+
+        for (const image of billImages) {
+          const imageRef = storage.ref().child(`billImages/${image.name}`);
+          await imageRef.put(image);
+          const imageUrl = await imageRef.getDownloadURL();
+          billImageUrls.push(imageUrl);
+        }
+      }
+
+      // Upload certificate file to Firebase storage
+      let certificateFileUrl = "";
+      if (certificateFile) {
+        // Create the "certificateFiles" folder
+        await storage
+          .ref()
+          .child("certificateFiles/")
+          .child("dummy")
+          .put(new Blob());
+
+        const fileRef = storage
+          .ref()
+          .child(`certificateFiles/${certificateFile.name}`);
+        await fileRef.put(certificateFile);
+        certificateFileUrl = await fileRef.getDownloadURL();
+      }
+
+      // Add URLs to payload
+      payload.billImageUrls = billImageUrls;
+      payload.certificateFileUrl = certificateFileUrl;
+
+      const response = await api.post("/create/applicationForm", payload);
       if (response.status === 200) {
         setContact(INITIAL_STATE);
         alertContent();
+        setTermsConditions(false);
+        setBillImages([]);
+        setCertificateFile("");
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -77,18 +278,18 @@ const ApplicationForms = () => {
     <>
       <div className="container-fluid">
         <div className="drop-item drop-img">
-          <div className="drop-left">
+          <div className="drop-left" style={{ maxWidth: "1100px" }}>
             <form onSubmit={handleSubmit}>
               <div className="row">
-                <h4>Personal Info:</h4>
+                <h4 className="fw-bold">Personal Info:</h4>
                 <div className="col-lg-6 col-md-6">
                   <div className="form-group">
                     <label>First Name</label>
                     <input
                       type="text"
-                      name="name"
+                      name="firstName"
                       className="form-control"
-                      value={contact.name}
+                      value={contact.firstName}
                       onChange={handleChange}
                     />
                   </div>
@@ -98,9 +299,9 @@ const ApplicationForms = () => {
                     <label>Last Name</label>
                     <input
                       type="text"
-                      name="name"
+                      name="lastName"
                       className="form-control"
-                      value={contact.name}
+                      value={contact.lastName}
                       onChange={handleChange}
                     />
                   </div>
@@ -123,81 +324,9 @@ const ApplicationForms = () => {
                     <label>Phone Number</label>
                     <input
                       type="text"
-                      name="number"
+                      name="phoneNumber"
                       className="form-control"
-                      value={contact.number}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-6">
-                  <div className="form-group">
-                    <label>Father Name</label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="form-control"
-                      value={contact.name}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-6">
-                  <div className="form-group">
-                    <label>Father's Occupation</label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="form-control"
-                      value={contact.name}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-6">
-                  <div className="form-group">
-                    <label>Monthly Household Income</label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="form-control"
-                      value={contact.name}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-6">
-                  <div className="form-group">
-                    <label>Passport Number</label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="form-control"
-                      value={contact.name}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-6">
-                  <div className="form-group">
-                    <label>Bank Account Number (IBAN)</label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="form-control"
-                      value={contact.name}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-6">
-                  <div className="form-group">
-                    <label>Swift Code</label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="form-control"
-                      value={contact.name}
+                      value={contact.phoneNumber}
                       onChange={handleChange}
                     />
                   </div>
@@ -207,34 +336,21 @@ const ApplicationForms = () => {
                     <label>Date of Birth</label>
                     <input
                       type="date"
-                      name="name"
+                      name="dob"
                       className="form-control"
-                      value={contact.name}
+                      value={contact.dob}
                       onChange={handleChange}
                     />
                   </div>
                 </div>
-                {/* <div className="col-lg-6 col-md-6">
-                  <div className="form-group">
-                    <label>Swift Code</label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="form-control"
-                      value={contact.name}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div> */}
                 <div className="col-12">
                   <div className="form-group">
                     <label>Permanent Address</label>
                     <input
                       type="text"
-                      name="subject"
+                      name="permanentAddress"
                       className="form-control"
-                      // placeholder="Your Subject"
-                      value={contact.subject}
+                      value={contact.permanentAddress}
                       onChange={handleChange}
                     />
                   </div>
@@ -244,12 +360,129 @@ const ApplicationForms = () => {
                     <label>Temporary Address</label>
                     <input
                       type="text"
-                      name="subject"
+                      name="temporaryAddress"
                       className="form-control"
-                      // placeholder="Your Subject"
-                      value={contact.subject}
+                      value={contact.temporaryAddress}
                       onChange={handleChange}
                     />
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                  <div className="form-group">
+                    <label>Father Name</label>
+                    <input
+                      type="text"
+                      name="fatherName"
+                      className="form-control"
+                      value={contact.fatherName}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                  <div className="form-group">
+                    <label>Father's Occupation</label>
+                    <input
+                      type="text"
+                      name="fatherOccupation"
+                      className="form-control"
+                      value={contact.fatherOccupation}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="col-12">
+                  <div className="form-group">
+                    <label>Monthly Household Income</label>
+                    <input
+                      type="text"
+                      name="fatherIncome"
+                      className="form-control"
+                      value={contact.fatherIncome}
+                      onChange={handleChange}
+                    />
+                    <ul style={{ color: "red", marginTop: "10px" }}>
+                      <li>
+                        USSHAPE uses a few variables to determine that. For
+                        example a household with monthly income of Pakistani
+                        Rupees 100k with one Child may not be eligible for the
+                        loan but 150k income with five members may be eligible.
+                        Due Diligence is done by the team.
+                      </li>
+                      <br />
+                      <li>
+                        In case of false or incorrect information or
+                        non-disclosure; legal action will be taken accordingly
+                        in USA as well as in country of origin.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                  <div className="form-group">
+                    <label>Upload Last Three Electric Bill</label>
+                    <input
+                      type="file"
+                      name="billFiles"
+                      className="form-control"
+                      onChange={handleBillFileChange}
+                      multiple
+                    />
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                  <div className="form-group">
+                    <label>Passport Number</label>
+                    <input
+                      type="text"
+                      name="passportNumber"
+                      className="form-control"
+                      value={contact.passportNumber}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                  <div className="form-group">
+                    <label>Bank Account Number (IBAN)</label>
+                    <input
+                      type="text"
+                      name="bankAccountNumber"
+                      className="form-control"
+                      value={contact.bankAccountNumber}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                  <div className="form-group">
+                    <label>Swift Code</label>
+                    <input
+                      type="text"
+                      name="swiftCode"
+                      className="form-control"
+                      value={contact.swiftCode}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="col-12">
+                  <div className="form-group">
+                    <label>
+                      Have you applied for a loan from any other organization
+                      such as your medical college, alumni, or any physician
+                      working in the USA or Pakistan?
+                    </label>
+                    <select
+                      className="form-control"
+                      name="appliedToOtherOrganization"
+                      value={contact.appliedToOtherOrganization}
+                      onChange={handleChange}
+                    >
+                      <option value="">Select an option</option>
+                      <option>Yes</option>
+                      <option>No</option>
+                    </select>
                   </div>
                 </div>
                 <div className="col-12">
@@ -260,10 +493,11 @@ const ApplicationForms = () => {
                     </label>
                     <select
                       className="form-control"
-                      name="patientType"
-                      // value={formData.patientType}
+                      name="nationalityOtherThanPakistan"
+                      value={contact.nationalityOtherThanPakistan}
                       onChange={handleChange}
                     >
+                      <option value="">Select an option</option>
                       <option>Yes</option>
                       <option>No</option>
                     </select>
@@ -278,53 +512,60 @@ const ApplicationForms = () => {
                     </label>
                     <select
                       className="form-control"
-                      name="patientType"
-                      // value={formData.patientType}
+                      name="travelledInternationally"
+                      value={contact.travelledInternationally}
                       onChange={handleChange}
                     >
+                      <option value="">Select an option</option>
                       <option>Yes</option>
                       <option>No</option>
                     </select>
                   </div>
                 </div>
-
-                <div className="col-12">
-                  <div className="form-group">
-                    <label>If "Yes", Please Provide details</label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="form-control"
-                      value={contact.name}
-                      onChange={handleChange}
-                    />
+                {contact.travelledInternationally == "Yes" && (
+                  <div className="col-12">
+                    <div className="form-group">
+                      <label>If "Yes", Please Provide details</label>
+                      <input
+                        type="text"
+                        name="travelledInternationallyDetails"
+                        className="form-control"
+                        value={contact.travelledInternationallyDetails}
+                        onChange={handleChange}
+                      />
+                    </div>
                   </div>
-                </div>
+                )}
                 <div className="col-lg-12 col-md-12 col-sm-12">
                   <div className="form-group">
                     <label>Describe briefly why you should be considered</label>
                     <textarea
-                      name="text"
+                      name="whyWeConsidered"
                       cols="30"
                       rows="5"
                       className="form-control"
-                      value={contact.text}
+                      value={contact.whyWeConsidered}
                       onChange={handleChange}
                     ></textarea>
                   </div>
                 </div>
-                <h4>Educational Info:</h4>
+                <h4 className="fw-bold">Educational Info:</h4>
                 <div className="col-12">
                   <div className="form-group">
                     <label>Medical College Name</label>
                     <input
                       type="text"
-                      name="subject"
+                      name="collegeName"
                       className="form-control"
-                      // placeholder="Your Subject"
-                      value={contact.subject}
+                      value={contact.collegeName}
                       onChange={handleChange}
                     />
+                    <ul style={{ color: "red", marginTop: "10px" }}>
+                      <li>
+                        Only students who graduated from government medical
+                        colleges are eligible
+                      </li>
+                    </ul>
                   </div>
                 </div>
                 <div className="col-lg-6 col-md-6">
@@ -332,10 +573,9 @@ const ApplicationForms = () => {
                     <label>Graduation Year</label>
                     <input
                       type="number"
-                      name="subject"
+                      name="graduationYear"
                       className="form-control"
-                      // placeholder="Your Subject"
-                      value={contact.subject}
+                      value={contact.graduationYear}
                       onChange={handleChange}
                     />
                   </div>
@@ -345,9 +585,9 @@ const ApplicationForms = () => {
                     <label>1st Professional MBBS Grade</label>
                     <input
                       type="text"
-                      name="name"
+                      name="firstYearGrade"
                       className="form-control"
-                      value={contact.name}
+                      value={contact.firstYearGrade}
                       onChange={handleChange}
                     />
                   </div>
@@ -357,9 +597,9 @@ const ApplicationForms = () => {
                     <label>2nd Professional MBBS Grade</label>
                     <input
                       type="text"
-                      name="name"
+                      name="secondYearGrade"
                       className="form-control"
-                      value={contact.name}
+                      value={contact.secondYearGrade}
                       onChange={handleChange}
                     />
                   </div>
@@ -369,9 +609,9 @@ const ApplicationForms = () => {
                     <label>3rd Professional MBBS Grade</label>
                     <input
                       type="text"
-                      name="name"
+                      name="thirdYearGrade"
                       className="form-control"
-                      value={contact.name}
+                      value={contact.thirdYearGrade}
                       onChange={handleChange}
                     />
                   </div>
@@ -381,10 +621,24 @@ const ApplicationForms = () => {
                     <label>Final Professional MBBS Grade</label>
                     <input
                       type="text"
-                      name="name"
+                      name="finalYearGrade"
                       className="form-control"
-                      value={contact.name}
+                      value={contact.finalYearGrade}
                       onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                  <div className="form-group">
+                    <label>
+                      Upload Character Certificate from Medical College:
+                    </label>
+                    <input
+                      type="file"
+                      name="certificateFile"
+                      className="form-control"
+                      onChange={(e) => setCertificateFile(e.target.files[0])}
+                      multiple
                     />
                   </div>
                 </div>
@@ -392,11 +646,11 @@ const ApplicationForms = () => {
                   <div className="form-group">
                     <label>Other Qualifications (if any):</label>
                     <textarea
-                      name="text"
+                      name="otherQualifications"
                       cols="30"
                       rows="5"
                       className="form-control"
-                      value={contact.text}
+                      value={contact.otherQualifications}
                       onChange={handleChange}
                     ></textarea>
                   </div>
@@ -405,25 +659,25 @@ const ApplicationForms = () => {
                   <div className="form-group">
                     <label>Awards & Honors (if any):</label>
                     <textarea
-                      name="text"
+                      name="awardsHonors"
                       cols="30"
                       rows="5"
                       className="form-control"
-                      value={contact.text}
+                      value={contact.awardsHonors}
                       onChange={handleChange}
                     ></textarea>
                   </div>
                 </div>
-                <h4>USMLE Scores:</h4>
+                <h4 className="fw-bold">USMLE Scores:</h4>
                 <h5>Step 1</h5>
                 <div className="col-lg-6 col-md-6">
                   <div className="form-group">
                     <label>Score</label>
                     <input
                       type="text"
-                      name="name"
+                      name="step1Score"
                       className="form-control"
-                      value={contact.name}
+                      value={contact.step1Score}
                       onChange={handleChange}
                     />
                   </div>
@@ -433,9 +687,9 @@ const ApplicationForms = () => {
                     <label>Attempt</label>
                     <input
                       type="text"
-                      name="name"
+                      name="step1Attempt"
                       className="form-control"
-                      value={contact.name}
+                      value={contact.step1Attempt}
                       onChange={handleChange}
                     />
                   </div>
@@ -446,9 +700,9 @@ const ApplicationForms = () => {
                     <label>Score</label>
                     <input
                       type="text"
-                      name="name"
+                      name="step2CKScore"
                       className="form-control"
-                      value={contact.name}
+                      value={contact.step2CKScore}
                       onChange={handleChange}
                     />
                   </div>
@@ -458,9 +712,9 @@ const ApplicationForms = () => {
                     <label>Attempt</label>
                     <input
                       type="text"
-                      name="name"
+                      name="step2CKAttempt"
                       className="form-control"
-                      value={contact.name}
+                      value={contact.step2CKAttempt}
                       onChange={handleChange}
                     />
                   </div>
@@ -471,9 +725,9 @@ const ApplicationForms = () => {
                     <label>Score</label>
                     <input
                       type="text"
-                      name="name"
+                      name="step2CSScore"
                       className="form-control"
-                      value={contact.name}
+                      value={contact.step2CSScore}
                       onChange={handleChange}
                     />
                   </div>
@@ -483,9 +737,9 @@ const ApplicationForms = () => {
                     <label>Attempt</label>
                     <input
                       type="text"
-                      name="name"
+                      name="step2CSAttempt"
                       className="form-control"
-                      value={contact.name}
+                      value={contact.step2CSAttempt}
                       onChange={handleChange}
                     />
                   </div>
@@ -496,9 +750,9 @@ const ApplicationForms = () => {
                     <label>Score</label>
                     <input
                       type="text"
-                      name="name"
+                      name="step3Score"
                       className="form-control"
-                      value={contact.name}
+                      value={contact.step3Score}
                       onChange={handleChange}
                     />
                   </div>
@@ -508,28 +762,105 @@ const ApplicationForms = () => {
                     <label>Attempt</label>
                     <input
                       type="text"
-                      name="name"
+                      name="step3Attempt"
                       className="form-control"
-                      value={contact.name}
+                      value={contact.step3Attempt}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <h4 className="fw-bold">NOTE:</h4>
+                <div>
+                  <ul style={{ color: "red", marginTop: "10px" }}>
+                    <li>
+                      Physicians who graduated within last three years can apply
+                      for this program.
+                    </li>
+                    <li>
+                      A physician or medical student who has done
+                      elective/observership/externship in USA is NOT eligible
+                      for loan.
+                    </li>
+                    <li>
+                      Any MPH, PhD. Research or any other healthcare higher
+                      studies candidates are not eligible for this loan.
+                    </li>
+                    <li>
+                      You will start paying back $500 a month starting first
+                      month of internship.
+                    </li>
+                    <li>
+                      No one who has working permit to work in USA is eligible
+                      for loan.
+                    </li>
+                    <li>
+                      Any overseas Pakistani who went to do MBBS in Pakistan is
+                      not eligible for this loan
+                    </li>
+                    <li>
+                      USSHAPE only offers loan once. If get unmatched; it will
+                      be your own responsibility to arrange finances for next
+                      match.
+                    </li>
+                    <li>
+                      This is a loan and must be paid back whether you don’t get
+                      matched or your visa is rejected. However we are here to
+                      help you and make things easier for you! Installments will
+                      be made easier according to circumstances.
+                    </li>
+                  </ul>
+                </div>
+                <div className="col-12">
+                  <div className="form-group">
+                    <label>Electronic Signature (Type Full Name):</label>
+                    <input
+                      type="text"
+                      name="signature"
+                      className="form-control"
+                      value={contact.signature}
                       onChange={handleChange}
                     />
                   </div>
                 </div>
                 <div className="col-12">
                   <div className="form-group">
-                    <label>Electronic Signature (Type Full Name):</label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="form-control"
-                      value={contact.name}
-                      onChange={handleChange}
-                    />
+                    <div className="row align-items-center">
+                      <div className="col-auto">
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          checked={termsConditions}
+                          onChange={() =>
+                            setTermsConditions((prevValue) => !prevValue)
+                          }
+                        />
+                      </div>
+                      <div className="col">
+                        <label
+                          className="form-check-label"
+                          htmlFor="flexCheckDefault"
+                        >
+                          I agree to all terms and conditions and will provide
+                          accurate information.
+                        </label>
+                      </div>
+                    </div>
                   </div>
                 </div>
+
                 <div className="col-lg-12 col-md-12 col-sm-12">
-                  <button type="submit" className="drop-btn">
-                    Send Message
+                  <button
+                    type="submit"
+                    className="drop-btn"
+                    disabled={loading ? true : false}
+                  >
+                    Submit
+                    {loading && (
+                      <div
+                        className="spinner-border spinner-grow-sm ms-3"
+                        role="status"
+                      ></div>
+                    )}
                   </button>
                 </div>
               </div>

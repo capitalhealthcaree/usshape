@@ -182,7 +182,7 @@ const Navbar = () => {
                       Media
                     </div>
                     <ul className="dropdown-menu">
-                      {/* <li className="nav-item">
+                      <li className="nav-item">
                         <Link
                           href="/application-form/"
                           className={`nav-link ${
@@ -191,7 +191,7 @@ const Navbar = () => {
                         >
                           Application Form
                         </Link>
-                      </li> */}
+                      </li>
                       <li className="nav-item">
                         <Link
                           href="#"
