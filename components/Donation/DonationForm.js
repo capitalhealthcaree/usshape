@@ -83,22 +83,10 @@ export default function Paypal() {
   // to handle Stripe payment
   let am = amount * 100;
   const handleToken = async (token) => {
-    const res = await axios.post(
-      "https://usshape-stripe.vercel.app/payment",
-      {
-        amount: am,
-        token: token,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-          "Access-Control-Allow-Headers":
-            "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
-        },
-      }
-    );
+    const res = await axios.post("https://usshape-stripe.vercel.app/payment", {
+      amount: am,
+      token: token,
+    });
     if (res.status === 200) {
       router.push("/thank-you");
     }
