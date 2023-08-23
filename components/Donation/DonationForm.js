@@ -84,14 +84,14 @@ export default function Paypal() {
   let am = amount * 100;
   const handleToken = async (token) => {
     const res = await axios.post(
-      "https://usshape-stripe.vercel.app/payment",
+      "https://usshape-stripe.vercel.app/payment/",
       {
         amount: am,
         token: token,
       },
       {
         headers: {
-          "Content-Type": "application/json", // Make sure to set the correct content type
+          "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
           "Access-Control-Allow-Headers":
