@@ -283,7 +283,7 @@ const ApplicationForms = () => {
               <div className="row">
                 <span className="mt-1" style={{ color: "red" }}>
                   Please read FAQs before applying for the loan program at
-                  <a href="https://usshape.org/faqs"> usshape.org/faqs</a>
+                  <a href="https://usshape.org/faqs"> faqs</a>
                 </span>
 
                 <h4 className="fw-bold">Personal Info:</h4>

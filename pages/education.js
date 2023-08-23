@@ -45,7 +45,7 @@ const SocialJustice = () => {
               <li>
                 Main campus is in Richardson where you will spend 3 to 4 days a
                 week but please be Willing to rotate at 2-3 locations on website{" "}
-                <a href="http://mypremierpain.com/">mypremierpain.com</a>.
+                <a href="http://mypremierpain.com/">mypremierpain.com</a>
               </li>
               <li>
                 Being a private practice, we don’t offer any kind of letter to
@@ -79,7 +79,15 @@ const SocialJustice = () => {
             <div>
               <b>paindfw@gmail.com</b>
             </div>
-
+            <div className="mt-4">
+              <span>
+                Before reserving a rotation, please make a payment of{" "}
+                <b>250$</b> by clicking
+                <a href="https://usshape.org/donation">
+                  <b> Pay Now</b>
+                </a>
+              </span>
+            </div>
             <div className="mt-2">
               <div className="form-group">
                 <div className="row align-items-center">
@@ -105,7 +113,7 @@ const SocialJustice = () => {
               </div>
             </div>
             <div className="row mt-4">
-              <div className="col-lg-6 col-md-6 col-sm-6">
+              <div className="col-lg-3 col-md-6 col-sm-6">
                 <div className="form-group">
                   <label>
                     <b> Please reserve a rotation</b>
@@ -144,6 +152,21 @@ const SocialJustice = () => {
                     <option>December 1-15</option>
                     <option>December 16-31</option>
                   </select>
+                </div>
+              </div>
+              <div className="col-lg-3 col-md-6 col-sm-6">
+                <div className="form-group">
+                  <label>
+                    <b>Please enter an Email</b>
+                  </label>
+                  <input
+                    type="text"
+                    name="email"
+                    className="form-control"
+                    placeholder="Enter an Email"
+                    // value={contact.email}
+                    // onChange={handleChange}
+                  />
                 </div>
               </div>
             </div>
