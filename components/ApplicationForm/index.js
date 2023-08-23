@@ -281,6 +281,11 @@ const ApplicationForms = () => {
           <div className="drop-left" style={{ maxWidth: "1100px" }}>
             <form onSubmit={handleSubmit}>
               <div className="row">
+                <span className="mt-1" style={{ color: "red" }}>
+                  Please read FAQs before applying for the loan program at
+                  <a href="https://usshape.org/faqs"> usshape.org/faqs</a>
+                </span>
+
                 <h4 className="fw-bold">Personal Info:</h4>
                 <div className="col-lg-6 col-md-6">
                   <div className="form-group">
@@ -847,7 +852,6 @@ const ApplicationForms = () => {
                     </div>
                   </div>
                 </div>
-
                 <div className="col-lg-12 col-md-12 col-sm-12">
                   <button
                     type="submit"

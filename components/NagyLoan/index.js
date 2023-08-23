@@ -50,7 +50,7 @@ const NagyLoan = () => {
                 <p>
                   Best regards
                   <br />
-                  <b>Rao Kamran Ali</b>
+                  <b>Rao Kamran Ali MD</b>
                   <br />
                   <b>contact@usshape.org</b>
                 </p>

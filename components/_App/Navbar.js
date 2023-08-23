@@ -184,16 +184,6 @@ const Navbar = () => {
                     <ul className="dropdown-menu">
                       <li className="nav-item">
                         <Link
-                          href="/application-form/"
-                          className={`nav-link ${
-                            currentPath == "/application-form/" && "active"
-                          }`}
-                        >
-                          Application Form
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link
                           href="#"
                           onClick={(e) => e.preventDefault()}
                           // href="/success-stories/"
@@ -238,6 +228,18 @@ const Navbar = () => {
                     >
                       Nagy Loan Program for Young Physicians
                     </Link>
+                    <ul className="dropdown-menu">
+                      <li className="nav-item">
+                        <Link
+                          href="/application-form/"
+                          className={`nav-link ${
+                            currentPath == "/application-form/" && "active"
+                          }`}
+                        >
+                          Application Form
+                        </Link>
+                      </li>
+                    </ul>
                   </li>
 
                   <li className="nav-item">
