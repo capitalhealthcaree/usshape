@@ -166,7 +166,7 @@ const Navbar = () => {
                     </ul>
                   </li>
 
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <div
                       className="nav-link dropdown-toggle"
                       style={{
@@ -218,7 +218,7 @@ const Navbar = () => {
                         </Link>
                       </li>
                     </ul>
-                  </li>
+                  </li> */}
                   <li className="nav-item">
                     <Link
                       href="/nagy-loan"
@@ -241,7 +241,16 @@ const Navbar = () => {
                       </li>
                     </ul>
                   </li>
-
+                  <li className="nav-item">
+                    <Link
+                      href="/tahira-khatoon"
+                      className={`nav-link ${
+                        currentPath == "/tahira-khatoon" && "active"
+                      }`}
+                    >
+                      Tahira Khatoon Educational Program
+                    </Link>
+                  </li>
                   <li className="nav-item">
                     <Link
                       href="/contact"
