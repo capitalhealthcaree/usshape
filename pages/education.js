@@ -78,6 +78,10 @@ const SocialJustice = () => {
               showConfirmButton: false,
             });
           }
+          setName("");
+          setEmail("");
+          setReservation("");
+          setTermsConditions(false);
         }
       } catch (error) {
         MySwal.fire({
