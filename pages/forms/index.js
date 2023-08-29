@@ -177,13 +177,29 @@ const FormData = ({ item }) => {
                       <u>
                         <b>Character Certificate</b>
                       </u>
-                      <img src={item.certificateFileUrl} />
+                      <iframe
+                        src={item.certificateFileUrl}
+                        height="600"
+                        width="100%"
+                      ></iframe>
                       <u>
                         <b>Last Three Electric Bill</b>
                       </u>
-                      <img src={item.billImageUrls[0]} />
-                      <img src={item.billImageUrls[1]} />
-                      <img src={item.billImageUrls[2]} />
+                      <iframe
+                        src={item.billImageUrls[0]}
+                        height="600"
+                        width="100%"
+                      ></iframe>
+                      <iframe
+                        src={item.billImageUrls[1]}
+                        height="600"
+                        width="100%"
+                      ></iframe>
+                      <iframe
+                        src={item.billImageUrls[2]}
+                        height="600"
+                        width="100%"
+                      ></iframe>
                     </div>
                   </div>
                 </div>

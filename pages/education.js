@@ -121,9 +121,9 @@ const SocialJustice = () => {
                 surgery.
               </li>
               <li>
-                If you are a non Pakistani physicians, $2000 per month will be
-                charged. For Pakistani and students their near relatives its
-                free of charge. Exceptions can be made for those who can’t
+                If you are a non Pakistani physicians, <b>$2000</b> per month
+                will be charged. For Pakistani and students their near relatives
+                its free of charge. Exceptions can be made for those who can’t
                 afford fees.
               </li>
               <li>
@@ -149,11 +149,11 @@ const SocialJustice = () => {
             </ol>
             <h4 className="fw-bold">NOTE:</h4>
             <div style={{ color: "red", marginTop: "10px" }}>
-              Starting January 2024! Each applicant will pay $250 to reserve a
-              spot. If they join on time; it will be reimbursed after rotation
-              ends. Many have reserved spots taking it granted and cancelled it
-              a few days before which takes away right of other serious
-              candidates.
+              Starting January 2024! Each applicant will pay <b>$100</b> to
+              reserve a spot. If they join on time; it will be reimbursed after
+              rotation ends. Many have reserved spots taking it granted and
+              cancelled it a few days before which takes away right of other
+              serious candidates.
             </div>
             <br />
             <div>Thanks</div>
@@ -170,7 +170,7 @@ const SocialJustice = () => {
             <div className="mt-4">
               <span>
                 Before reserving a rotation, please make a payment of{" "}
-                <b>250$</b> by clicking
+                <b>$100</b> by clicking
                 <span
                   onClick={handlePayNowClick}
                   style={{ color: "#0046c0", cursor: "pointer" }}

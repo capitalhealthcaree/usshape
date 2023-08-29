@@ -70,10 +70,60 @@ const ApplicationForms = () => {
     setContact((prevState) => ({ ...prevState, [name]: value }));
   };
 
+  const handleCertificateChange = (e) => {
+    const selectedFile = e.target.files[0];
+
+    if (selectedFile.type !== "application/pdf") {
+      MySwal.fire({
+        title: "Error",
+        text: "Please upload only PDF file.",
+        icon: "error",
+        timer: 5000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      });
+      setCertificateFile(null);
+      e.target.value = null;
+    } else {
+      setCertificateFile(selectedFile);
+    }
+  };
   const handleBillFileChange = (e) => {
     const selectedFiles = e.target.files;
-    const fileList = Array.from(selectedFiles);
-    setBillImages(fileList);
+
+    if (selectedFiles.length !== 3) {
+      MySwal.fire({
+        title: "Error",
+        text: "Please upload only last Three Electric Bill separately.",
+        icon: "error",
+        timer: 5000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      });
+      e.target.value = null;
+      return;
+    }
+
+    const validTypes = ["application/pdf"]; // Array of valid MIME types for PDF files
+
+    const validFiles = Array.from(selectedFiles).filter((file) =>
+      validTypes.includes(file.type)
+    );
+
+    if (validFiles.length !== 3) {
+      MySwal.fire({
+        title: "Error",
+        text: "Please upload only PDF files.",
+        icon: "error",
+        timer: 5000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      });
+      e.target.value = null;
+      return;
+    }
+
+    setBillImages(validFiles);
   };
 
   const handleSubmit = async (e) => {
@@ -156,7 +206,9 @@ const ApplicationForms = () => {
         !step2CSAttempt ||
         !step3Score ||
         !signature ||
-        !termsConditions
+        !termsConditions ||
+        !certificateFile ||
+        billImages.length === 0
       ) {
         MySwal.fire({
           title: "Error",
@@ -264,8 +316,8 @@ const ApplicationForms = () => {
         setContact(INITIAL_STATE);
         alertContent();
         setTermsConditions(false);
-        setBillImages([]);
-        setCertificateFile("");
+        setBillImages(null);
+        setCertificateFile(null);
       }
     } catch (error) {
       console.log(error);
@@ -642,8 +694,7 @@ const ApplicationForms = () => {
                       type="file"
                       name="certificateFile"
                       className="form-control"
-                      onChange={(e) => setCertificateFile(e.target.files[0])}
-                      multiple
+                      onChange={handleCertificateChange}
                     />
                   </div>
                 </div>
