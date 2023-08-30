@@ -25,60 +25,60 @@ const FormData = ({ item }) => {
               Application Date <b>: {formattedDate}</b>
             </p>
             <h4>Personal Info:</h4>
-            <div class="col-md-4">
+            <div className="col-md-4">
               First Name <b>: {item.firstName}</b>
             </div>
-            <div class="col-md-4">
+            <div className="col-md-4">
               Last Name <b>: {item.lastName}</b>
             </div>
-            <div class="col-md-4">
+            <div className="col-md-4">
               Email <b> : {item.email}</b>
             </div>
-            <div class="col-md-4">
+            <div className="col-md-4">
               Phone <b> : {item.phoneNumber}</b>
             </div>
-            <div class="col-md-4">
+            <div className="col-md-4">
               Date of Birth <b>: {item.dob}</b>
             </div>
-            <div class="col-md-4">
+            <div className="col-md-4">
               Permanent Address <b>: {item.permanentAddress}</b>
             </div>{" "}
-            <div class="col-md-4">
+            <div className="col-md-4">
               Temporary Address <b>: {item.temporaryAddress}</b>
             </div>
-            <div class="col-md-4">
+            <div className="col-md-4">
               Father Name <b>: {item.fatherName}</b>
             </div>
-            <div class="col-md-4">
+            <div className="col-md-4">
               Father's Occupation <b>: {item.fatherOccupation}</b>
             </div>
-            <div class="col-md-4">
+            <div className="col-md-4">
               Monthly Household Income <b>: {item.fatherIncome}</b>
             </div>
-            <div class="col-md-4">
+            <div className="col-md-4">
               Passport Number <b>: {item.passportNumber}</b>
             </div>
-            <div class="col-md-4">
+            <div className="col-md-4">
               Bank Account Number <b>: {item.bankAccountNumber}</b>
             </div>
-            <div class="col-md-4">
+            <div className="col-md-4">
               Swift Code <b>: {item.swiftCode}</b>
             </div>
-            <div class="col-12">
+            <div className="col-12">
               Have you applied for a loan from any other organization such as
               your medical college, alumni, or any physician working in the USA
               or Pakistan? <b>: {item.appliedToOtherOrganization}</b>
             </div>
-            <div class="col-12">
+            <div className="col-12">
               Nationality/Permanent Residency/Work Permit of any country other
               than Pakistan <b>: {item.nationalityOtherThanPakistan}</b>
             </div>
-            <div class="col-12">
+            <div className="col-12">
               Have you travelled internationally for personal or professional
               reasons to attend conferences or to do electives?{" "}
               <b>: {item.travelledInternationally}</b>
             </div>
-            <div class="col-12">
+            <div className="col-12">
               {item.travelledInternationally == "Yes" && (
                 <p>
                   If "Yes", Please Provide details{" "}
@@ -86,37 +86,37 @@ const FormData = ({ item }) => {
                 </p>
               )}
             </div>
-            <div class="col-12">
+            <div className="col-12">
               Why you should be considered <b>: {item.whyWeConsidered}</b>
             </div>
             <h4>Educational Info:</h4>
-            <div class="col-md-2">
+            <div className="col-md-2">
               Graduation Year <b>: {item.graduationYear}</b>
             </div>
-            <div class="col-md-10">
+            <div className="col-md-10">
               College Name <b>: {item.collegeName}</b>
             </div>
-            <div class="col-md-3">
+            <div className="col-md-3">
               1st Professional MBBS Grade
               <b>: {item.firstYearGrade}</b>
             </div>
-            <div class="col-md-3">
+            <div className="col-md-3">
               2nd Professional MBBS Grade
               <b>: {item.secondYearGrade}</b>
             </div>
-            <div class="col-md-3">
+            <div className="col-md-3">
               3rd Professional MBBS Grade
               <b>: {item.thirdYearGrade}</b>
             </div>
-            <div class="col-md-3">
+            <div className="col-md-3">
               Final Professional MBBS Grade
               <b>: {item.finalYearGrade}</b>
             </div>
-            <div class="col-12">
+            <div className="col-12">
               Other Qualifications (if any)
               <b>: {item.otherQualifications}</b>
             </div>
-            <div class="col-12">
+            <div className="col-12">
               Awards & Honors (if any)
               <b>: {item.awardsHonors}</b>
             </div>
