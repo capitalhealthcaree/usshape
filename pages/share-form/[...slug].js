@@ -21,9 +21,6 @@ const FormData = ({ item }) => {
       <div className="blog-area-two">
         <div className="container">
           <div className="row">
-            <p>
-              Application Date <b>: {formattedDate}</b>
-            </p>
             <div
               style={{
                 border: "2px solid #0046c0",
@@ -31,6 +28,9 @@ const FormData = ({ item }) => {
                 color: "black",
               }}
             >
+              <p className="m-1">
+                <b> Application Date :</b> {formattedDate}
+              </p>
               <h4>
                 <u>Personal Info:</u>
               </h4>
