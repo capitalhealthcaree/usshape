@@ -108,21 +108,23 @@ const FormData = ({ item }) => {
                 reasons to attend conferences or to do electives?{" "}
                 <b>: {item.travelledInternationally}</b>
               </div>
-              <div
-                className="m-1 p-1"
-                style={{
-                  border: "1px solid #0046c0",
-                  borderRadius: "10px",
-                  color: "black",
-                }}
-              >
-                {item.travelledInternationally == "Yes" && (
+
+              {item.travelledInternationally == "Yes" && (
+                <div
+                  className="m-1 p-1"
+                  style={{
+                    border: "1px solid #0046c0",
+                    borderRadius: "10px",
+                    color: "black",
+                  }}
+                >
                   <p>
                     <b>If "Yes", Please Provide details :</b>{" "}
                     {item.travelledInternationallyDetails}
                   </p>
-                )}
-              </div>
+                </div>
+              )}
+
               <div
                 className="m-1 p-1"
                 style={{
