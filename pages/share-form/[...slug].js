@@ -201,7 +201,7 @@ const FormData = ({ item }) => {
               <h4>
                 <u>USMLE Scores:</u>
               </h4>
-              <div class="d-flex align-content-start flex-wrap p-1">
+              <div className="d-flex align-content-start flex-wrap p-1">
                 <div>
                   <b>Step 1 : </b> Score <b>: {item.step1Score}</b>
                 </div>
@@ -211,7 +211,7 @@ const FormData = ({ item }) => {
                 </div>
               </div>
 
-              <div class="d-flex align-content-start flex-wrap p-1">
+              <div className="d-flex align-content-start flex-wrap p-1">
                 <div>
                   <b>Step 2 CK : </b> Score <b>: {item.step2CKScore}</b>
                 </div>
@@ -220,7 +220,7 @@ const FormData = ({ item }) => {
                   Attempt <b>: {item.step2CKAttempt}</b>
                 </div>
               </div>
-              <div class="d-flex align-content-start flex-wrap p-1">
+              <div className="d-flex align-content-start flex-wrap p-1">
                 <div>
                   <b>Step 2 CS : </b> Score <b>: {item.step2CSScore}</b>
                 </div>
@@ -229,7 +229,7 @@ const FormData = ({ item }) => {
                   Attempt <b>: {item.step2CSAttempt}</b>
                 </div>
               </div>
-              <div class="d-flex align-content-start flex-wrap p-1">
+              <div className="d-flex align-content-start flex-wrap p-1">
                 <div>
                   <b>Step 3 : </b> Score <b>: {item.step3Score}</b>
                 </div>
