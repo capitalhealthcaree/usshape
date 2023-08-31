@@ -20,134 +20,222 @@ const FormData = ({ item }) => {
 
       <div className="blog-area-two">
         <div className="container">
-          <div className="row bg-info">
+          <div className="row">
             <p>
               Application Date <b>: {formattedDate}</b>
             </p>
-            <h4>Personal Info:</h4>
-            <div className="col-md-4">
-              First Name <b>: {item.firstName}</b>
+            <div
+              style={{
+                border: "2px solid #0046c0",
+                borderRadius: "10px",
+                color: "black",
+              }}
+            >
+              <h4>
+                <u>Personal Info:</u>
+              </h4>
+              <div className="m-2">
+                <b> First Name :</b> {item.firstName}
+              </div>
+              <div className="m-2">
+                <b> Last Name :</b> {item.lastName}
+              </div>
+              <div className="m-2">
+                <b> Email :</b> {item.email}
+              </div>
+              <div className="m-2">
+                <b> Phone :</b> {item.phoneNumber}
+              </div>
+              <div className="m-2">
+                <b> Date of Birth </b>: {item.dob}
+              </div>
+              <div className="m-2">
+                <b> Permanent Address :</b> {item.permanentAddress}
+              </div>
+              <div className="m-2">
+                <b> Temporary Address :</b> {item.temporaryAddress}
+              </div>
+              <div className="m-2">
+                <b> Father Name :</b> {item.fatherName}
+              </div>
+              <div className="m-2">
+                <b>Father's Occupation:</b> {item.fatherOccupation}
+              </div>
+              <div className="m-2">
+                <b> Monthly Household Income :</b> {item.fatherIncome}
+              </div>
+              <div className="m-2">
+                <b> Passport Number :</b> {item.passportNumber}
+              </div>
+              <div className="m-2">
+                <b> Bank Acc. Number :</b> {item.bankAccountNumber}
+              </div>
+              <div className="m-2">
+                <b> Swift Code :</b> {item.swiftCode}
+              </div>
+              <div
+                className="m-1 p-1"
+                style={{
+                  border: "1px solid #0046c0",
+                  borderRadius: "10px",
+                  color: "black",
+                }}
+              >
+                Have you applied for a loan from any other organization such as
+                your medical college, alumni, or any physician working in the
+                USA or Pakistan? <b>: {item.appliedToOtherOrganization}</b>
+              </div>
+              <div
+                className="m-1 p-1"
+                style={{
+                  border: "1px solid #0046c0",
+                  borderRadius: "10px",
+                  color: "black",
+                }}
+              >
+                Nationality/Permanent Residency/Work Permit of any country other
+                than Pakistan <b>: {item.nationalityOtherThanPakistan}</b>
+              </div>
+              <div
+                className="m-1 p-1"
+                style={{
+                  border: "1px solid #0046c0",
+                  borderRadius: "10px",
+                  color: "black",
+                }}
+              >
+                Have you travelled internationally for personal or professional
+                reasons to attend conferences or to do electives?{" "}
+                <b>: {item.travelledInternationally}</b>
+              </div>
+              <div
+                className="m-1 p-1"
+                style={{
+                  border: "1px solid #0046c0",
+                  borderRadius: "10px",
+                  color: "black",
+                }}
+              >
+                {item.travelledInternationally == "Yes" && (
+                  <p>
+                    <b>If "Yes", Please Provide details :</b>{" "}
+                    {item.travelledInternationallyDetails}
+                  </p>
+                )}
+              </div>
+              <div
+                className="m-1 p-1"
+                style={{
+                  border: "1px solid #0046c0",
+                  borderRadius: "10px",
+                  color: "black",
+                }}
+              >
+                <b> Why you should be considered :</b>
+                <br /> {item.whyWeConsidered}
+              </div>
             </div>
-            <div className="col-md-4">
-              Last Name <b>: {item.lastName}</b>
+            <div
+              className="mt-2"
+              style={{
+                border: "2px solid #0046c0",
+                borderRadius: "10px",
+                color: "black",
+              }}
+            >
+              <h4>
+                <u>Educational Info:</u>
+              </h4>
+              <div className="m-2">
+                <b>Graduation Year :</b> {item.graduationYear}
+              </div>
+              <div className="m-2">
+                <b> College Name : </b>
+                {item.collegeName}
+              </div>
+              <div className="m-2">
+                <b> 1st Professional MBBS Grade :</b> {item.firstYearGrade}
+              </div>
+              <div className="m-2">
+                <b> 2nd Professional MBBS Grade</b>: {item.secondYearGrade}
+              </div>
+              <div className="m-2">
+                <b> 3rd Professional MBBS Grade :</b> {item.thirdYearGrade}
+              </div>
+              <div className="m-2">
+                <b> Final Professional MBBS Grade :</b> {item.finalYearGrade}
+              </div>
+              <div
+                className="m-1 p-1"
+                style={{
+                  border: "1px solid #0046c0",
+                  borderRadius: "10px",
+                  color: "black",
+                }}
+              >
+                <b> Other Qualifications (if any)</b>:<br />
+                {item.otherQualifications}
+              </div>
+              <div
+                className="m-1 p-1"
+                style={{
+                  border: "1px solid #0046c0",
+                  borderRadius: "10px",
+                  color: "black",
+                }}
+              >
+                <b> Awards & Honors (if any) :</b>
+                <br /> {item.awardsHonors}
+              </div>
             </div>
-            <div className="col-md-4">
-              Email <b> : {item.email}</b>
-            </div>
-            <div className="col-md-4">
-              Phone <b> : {item.phoneNumber}</b>
-            </div>
-            <div className="col-md-4">
-              Date of Birth <b>: {item.dob}</b>
-            </div>
-            <div className="col-md-4">
-              Permanent Address <b>: {item.permanentAddress}</b>
-            </div>{" "}
-            <div className="col-md-4">
-              Temporary Address <b>: {item.temporaryAddress}</b>
-            </div>
-            <div className="col-md-4">
-              Father Name <b>: {item.fatherName}</b>
-            </div>
-            <div className="col-md-4">
-              Father's Occupation <b>: {item.fatherOccupation}</b>
-            </div>
-            <div className="col-md-4">
-              Monthly Household Income <b>: {item.fatherIncome}</b>
-            </div>
-            <div className="col-md-4">
-              Passport Number <b>: {item.passportNumber}</b>
-            </div>
-            <div className="col-md-4">
-              Bank Account Number <b>: {item.bankAccountNumber}</b>
-            </div>
-            <div className="col-md-4">
-              Swift Code <b>: {item.swiftCode}</b>
-            </div>
-            <div className="col-12">
-              Have you applied for a loan from any other organization such as
-              your medical college, alumni, or any physician working in the USA
-              or Pakistan? <b>: {item.appliedToOtherOrganization}</b>
-            </div>
-            <div className="col-12">
-              Nationality/Permanent Residency/Work Permit of any country other
-              than Pakistan <b>: {item.nationalityOtherThanPakistan}</b>
-            </div>
-            <div className="col-12">
-              Have you travelled internationally for personal or professional
-              reasons to attend conferences or to do electives?{" "}
-              <b>: {item.travelledInternationally}</b>
-            </div>
-            <div className="col-12">
-              {item.travelledInternationally == "Yes" && (
-                <p>
-                  If "Yes", Please Provide details{" "}
-                  <b>: {item.travelledInternationallyDetails}</b>
-                </p>
-              )}
-            </div>
-            <div className="col-12">
-              Why you should be considered <b>: {item.whyWeConsidered}</b>
-            </div>
-            <h4>Educational Info:</h4>
-            <div className="col-md-2">
-              Graduation Year <b>: {item.graduationYear}</b>
-            </div>
-            <div className="col-md-10">
-              College Name <b>: {item.collegeName}</b>
-            </div>
-            <div className="col-md-3">
-              1st Professional MBBS Grade
-              <b>: {item.firstYearGrade}</b>
-            </div>
-            <div className="col-md-3">
-              2nd Professional MBBS Grade
-              <b>: {item.secondYearGrade}</b>
-            </div>
-            <div className="col-md-3">
-              3rd Professional MBBS Grade
-              <b>: {item.thirdYearGrade}</b>
-            </div>
-            <div className="col-md-3">
-              Final Professional MBBS Grade
-              <b>: {item.finalYearGrade}</b>
-            </div>
-            <div className="col-12">
-              Other Qualifications (if any)
-              <b>: {item.otherQualifications}</b>
-            </div>
-            <div className="col-12">
-              Awards & Honors (if any)
-              <b>: {item.awardsHonors}</b>
-            </div>
-            <h4>USMLE Scores:</h4>
-            <b>Step 1</b>
-            <div className="col-6">
-              Score <b>: {item.step1Score}</b>
-            </div>
-            <div className="col-6">
-              Attempt <b>: {item.step1Attempt}</b>
-            </div>
-            <b>Step 2 - CK</b>
-            <div className="col-6">
-              Score <b>: {item.step2CKScore}</b>
-            </div>
-            <div className="col-6">
-              Attempt <b>: {item.step2CKAttempt}</b>
-            </div>
-            <b>Step 2 - CS</b>
-            <div className="col-6">
-              Score <b> : {item.step2CSScore}</b>
-            </div>
-            <div className="col-6">
-              Attempt <b>: {item.step2CSAttempt}</b>
-            </div>
-            <b>Step 3</b>
-            <div className="col-6">
-              Score <b>: {item.step3Score}</b>
-            </div>
-            <div className="col-6">
-              Attempt <b>: {item.step3Attempt}</b>
+            <div
+              className="mt-2"
+              style={{
+                border: "2px solid #0046c0",
+                borderRadius: "10px",
+                color: "black",
+              }}
+            >
+              <h4>
+                <u>USMLE Scores:</u>
+              </h4>
+              <div class="d-flex align-content-start flex-wrap p-1">
+                <div>
+                  <b>Step 1 : </b> Score <b>: {item.step1Score}</b>
+                </div>
+                <div className="ms-1">|</div>
+                <div className="ms-1">
+                  Attempt <b>: {item.step1Attempt}</b>
+                </div>
+              </div>
+
+              <div class="d-flex align-content-start flex-wrap p-1">
+                <div>
+                  <b>Step 2 CK : </b> Score <b>: {item.step2CKScore}</b>
+                </div>
+                <div className="ms-1">|</div>
+                <div className="ms-1">
+                  Attempt <b>: {item.step2CKAttempt}</b>
+                </div>
+              </div>
+              <div class="d-flex align-content-start flex-wrap p-1">
+                <div>
+                  <b>Step 2 CS : </b> Score <b>: {item.step2CSScore}</b>
+                </div>
+                <div className="ms-1">|</div>
+                <div className="ms-1">
+                  Attempt <b>: {item.step2CSAttempt}</b>
+                </div>
+              </div>
+              <div class="d-flex align-content-start flex-wrap p-1">
+                <div>
+                  <b>Step 3 : </b> Score <b>: {item.step3Score}</b>
+                </div>
+                <div className="ms-1">|</div>
+                <div className="ms-1">
+                  Attempt <b>: {item.step3Attempt}</b>
+                </div>
+              </div>
             </div>
             <h4>Character Certificate</h4>
             <div className="col-12">
