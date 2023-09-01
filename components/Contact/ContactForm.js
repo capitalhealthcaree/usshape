@@ -26,6 +26,7 @@ const INITIAL_STATE = {
 
 const ContactForm = () => {
   const [contact, setContact] = useState(INITIAL_STATE);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,6 +35,8 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
     try {
       const { name, email, number, subject, text } = contact;
       // Validate required fields
@@ -70,6 +73,8 @@ const ContactForm = () => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -154,6 +159,12 @@ const ContactForm = () => {
                       <div className="col-lg-12 col-md-12 col-sm-12">
                         <button type="submit" className="drop-btn">
                           Send Message
+                          {loading && (
+                            <div
+                              className="spinner-border spinner-grow-sm ms-3"
+                              role="status"
+                            ></div>
+                          )}
                         </button>
                       </div>
                     </div>
