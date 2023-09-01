@@ -239,6 +239,9 @@ const FormData = ({ item }) => {
                 </div>
               </div>
             </div>
+            <div>
+              <b>Electronic Signature :</b> {item.signature}
+            </div>
             <h4>Character Certificate</h4>
             <div className="col-12">
               <iframe
