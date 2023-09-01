@@ -239,7 +239,15 @@ const FormData = ({ item }) => {
                 </div>
               </div>
             </div>
-            <div>
+            <div
+              className="mt-2 p-2"
+              style={{
+                backgroundColor: "rgb(135, 206, 250)",
+                border: "2px solid #0046c0",
+                borderRadius: "10px",
+                color: "black",
+              }}
+            >
               <b>Electronic Signature :</b> {item.signature}
             </div>
             <h4>Character Certificate</h4>
