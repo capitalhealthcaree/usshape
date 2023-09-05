@@ -162,17 +162,17 @@ const Navbar = () => {
                           </span>
                           ducation
                         </Link>
-                      </li>
-
-                      <li className="nav-item">
-                        <Link
-                          href="/externship-application-form"
-                          className={`nav-link ${
-                            currentPath == "/externship-application-form" && "active"
-                          }`}
-                        >
-                          Externship Application Form
-                        </Link>
+                        <li className="nav-item ms-2">
+                          <Link
+                            href="/externship-application-form"
+                            className={`nav-link ${
+                              currentPath == "/externship-application-form" &&
+                              "active"
+                            }`}
+                          >
+                            Externship Application Form
+                          </Link>
+                        </li>
                       </li>
                     </ul>
                   </li>
@@ -244,7 +244,8 @@ const Navbar = () => {
                         <Link
                           href="/nagy-loan-application-form/"
                           className={`nav-link ${
-                            currentPath == "/nagy-loan-application-form/" && "active"
+                            currentPath == "/nagy-loan-application-form/" &&
+                            "active"
                           }`}
                         >
                           Application Form
