@@ -163,6 +163,17 @@ const Navbar = () => {
                           ducation
                         </Link>
                       </li>
+
+                      <li className="nav-item">
+                        <Link
+                          href="/externship-application-form"
+                          className={`nav-link ${
+                            currentPath == "/externship-application-form" && "active"
+                          }`}
+                        >
+                          Externship Application Form
+                        </Link>
+                      </li>
                     </ul>
                   </li>
 
@@ -231,9 +242,9 @@ const Navbar = () => {
                     <ul className="dropdown-menu">
                       <li className="nav-item">
                         <Link
-                          href="/application-form/"
+                          href="/nagy-loan-application-form/"
                           className={`nav-link ${
-                            currentPath == "/application-form/" && "active"
+                            currentPath == "/nagy-loan-application-form/" && "active"
                           }`}
                         >
                           Application Form

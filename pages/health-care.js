@@ -4,7 +4,7 @@ import Navbar from "../components/_App/Navbar";
 import PageBanner from "../components/Common/PageBanner";
 import Footer from "../components/_App/Footer";
 
-const SocialJustice = () => {
+const HealthCare = () => {
   return (
     <>
       <TopHeader />
@@ -107,4 +107,4 @@ const SocialJustice = () => {
     </>
   );
 };
-export default SocialJustice;
+export default HealthCare;

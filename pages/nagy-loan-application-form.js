@@ -2,10 +2,10 @@ import React from "react";
 import TopHeader from "../components/_App/TopHeader";
 import Navbar from "../components/_App/Navbar";
 import PageBanner from "../components/Common/PageBanner";
+import ApplicationForm from "../components/ApplicationForm";
 import Footer from "../components/_App/Footer";
-import DepartmentsCard from "../components/Departments/DepartmentsCard";
 
-const Departments = () => {
+const ApplicationForms = () => {
   return (
     <>
       <TopHeader />
@@ -13,18 +13,18 @@ const Departments = () => {
       <Navbar />
 
       <PageBanner
-        pageTitle="Departments"
+        pageTitle="Need Based Limited Term Loan for Medical Graduates (NBLTLMG)"
         homePageUrl="/"
         homePageText="Home"
-        activePageText="Departments"
-        bgImage="page-title-one"
+        activePageText="nagy-loan-application-form"
+        bgImage="/images/contact-bg.jpg"
       />
 
-      <DepartmentsCard />
+      <ApplicationForm />
 
       <Footer />
     </>
   );
 };
 
-export default Departments;
+export default ApplicationForms;

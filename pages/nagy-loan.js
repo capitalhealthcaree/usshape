@@ -3,12 +3,10 @@ import TopHeader from "../components/_App/TopHeader";
 import Navbar from "../components/_App/Navbar";
 import PageBanner from "../components/Common/PageBanner";
 import NagyLoan from "../components/NagyLoan";
-// import LatestBlogPost from "../components/Common/LatestBlogPost";
 import Faq from "../components/Common/Faq";
-
 import Footer from "../components/_App/Footer";
 
-const About = () => {
+const NagyLoanContent = () => {
   return (
     <>
       <TopHeader />
@@ -27,11 +25,9 @@ const About = () => {
 
       <Faq />
 
-      {/* <LatestBlogPost /> */}
-
       <Footer />
     </>
   );
 };
 
-export default About;
+export default NagyLoanContent;
