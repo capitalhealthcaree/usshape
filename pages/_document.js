@@ -12,7 +12,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <link rel="icon" type="image/png" href="/images/favicon.png"></link>
-          <script src="https://www.paypal.com/sdk/js?client-id=AXVHach6gezXNGcCaAXZOZm8Db9N5VJt8ga9nW1pJ9Iokx7QMbbhdeIsixtpDaBC0WP4Vy2E2Nz7_Pfl&disable-funding=credit,card"></script>
+          <script src="https://www.paypal.com/sdk/js?client-id=AXVHach6gezXNGcCaAXZOZm8Db9N5VJt8ga9nW1pJ9Iokx7QMbbhdeIsixtpDaBC0WP4Vy2E2Nz7_Pfl&disable-funding=venmo,paylater,credit,card"></script>
         </Head>
         <body>
           <Main />

@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
-import StripeCheckout from "react-stripe-checkout";
-import axios from "axios";
 
 export default function Paypal() {
   const paypal = useRef();
@@ -66,11 +64,16 @@ export default function Paypal() {
                   },
                 },
               ],
+              application_context: {
+                shipping_preference: "NO_SHIPPING", // To hide shipping address
+              },
             });
           },
           onApprove: async (data, actions) => {
             const order = await actions.order.capture();
             console.log(order);
+            localStorage.setItem("paypal payment ->order", order);
+            localStorage.setItem("paypal payment ->data", data);
             router.push("/thank-you");
           },
           onError: (err) => {
@@ -80,17 +83,6 @@ export default function Paypal() {
         .render(paypal.current);
     }
   }, [renderPaypalButton]);
-  // to handle Stripe payment
-  let am = amount * 100;
-  const handleToken = async (token) => {
-    const res = await axios.post("https://usshape-stripe.vercel.app/payment", {
-      amount: am,
-      token: token,
-    });
-    if (res.status === 200) {
-      router.push("/thank-you");
-    }
-  };
 
   return (
     <div>
@@ -143,21 +135,7 @@ export default function Paypal() {
                 fontWeight: "bolder",
                 fontSize: "20px",
               }}
-            >
-              OR
-            </div>
-            <div
-              className="col-12"
-              style={{ textAlign: "center", fontFamily: "sans-serif" }}
-            >
-              <StripeCheckout
-                token={handleToken}
-                stripeKey="pk_live_51N8KA8FaT4GpKUOlXN3diyo2DOVdI2AMYmdzMrMK8wvFMy3AROWu0EE2AFTiqB8tMo6kK741fQkPdLi3lJm0onQg00QoFXm3ft"
-                amount={amount * 100}
-                name="USSHAPE"
-                className="custom-button-stripe"
-              />
-            </div>
+            ></div>
           </div>
         )}
       </div>
