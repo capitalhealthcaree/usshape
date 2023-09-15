@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
+import api from "../../utils/api";
 
 export default function Paypal() {
   const paypal = useRef();
@@ -71,9 +72,15 @@ export default function Paypal() {
           },
           onApprove: async (data, actions) => {
             const order = await actions.order.capture();
-            console.log(order);
-            localStorage.setItem("paypal payment ->order", order);
-            localStorage.setItem("paypal payment ->data", data);
+
+            if (order) {
+              const payload = { order, data };
+              const resp = await api.post(
+                "/create/rotationFormWithPaypal",
+                payload
+              );
+            }
+
             router.push("/thank-you");
           },
           onError: (err) => {

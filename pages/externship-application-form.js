@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 import axios from "axios";
+import api from "../utils/api";
 
 const ExternshipForm = () => {
   const router = useRouter();
@@ -64,8 +65,8 @@ const ExternshipForm = () => {
         );
         if (res.status == 200) {
           const payload = { name, email, termsConditions, reservation };
-          const resp = await axios.post(
-            `https://usshape-stripe.vercel.app/reserveRotation`,
+          const resp = await api.post(
+            "/create/rotationFormWithPaypal",
             payload
           );
           if (resp.status == 200) {
