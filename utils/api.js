@@ -14,3 +14,7 @@ const api = axios.create({
   config,
 });
 export default api;
+//For Nagy Loan
+//https://usshape.org/nagy-loan-forms
+//For Externship Form
+//https://usshape.org/externship-forms
