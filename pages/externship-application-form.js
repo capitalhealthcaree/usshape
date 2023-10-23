@@ -120,7 +120,7 @@ const ExternshipForm = () => {
               <li>
                 Applicant must be interested in interventional pain medicine
                 rotation. Our LOR will be applicable to most of the residency
-                programs particularly in Internal Medicine, Family Medicien,
+                programs particularly in Internal Medicine, Family Medicine,
                 Neurology, PM&R, Radiology, Surgery, Anesthesia, Orthopedic
                 surgery.
               </li>
