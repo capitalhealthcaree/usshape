@@ -17,7 +17,7 @@ const TopHeader = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="mailto:contact@usshape.com">
+                      <a href="mailto:contact@usshape.org">
                         <i className="icofont-ui-message"></i>
                         contact@usshape.org
                       </a>

@@ -137,7 +137,7 @@ const ExternshipForm = () => {
               <li>
                 Main campus is in Richardson where you will spend 3 to 4 days a
                 week but please be Willing to rotate at 2-3 locations on website{" "}
-                <a href="http://mypremierpain.com/">mypremierpain.com</a>
+                <a href="http://mypremierpain.com/" target="_blank">mypremierpain.com</a>
               </li>
               <li>
                 Being a private practice, we don’t offer any kind of letter to
@@ -169,12 +169,12 @@ const ExternshipForm = () => {
               <b>Muhammad Zulqarnain MD</b>
             </div>
             <div>
-              <b>paindfw@gmail.com</b>
+              <b>contact@usshape.org</b>
             </div>
             <div className="mt-4">
               <span>
-                Before reserving a rotation, please make a payment of{" "}
-                <b>$50</b> by clicking
+                Before reserving a rotation, please make a payment of <b>$50</b>{" "}
+                by clicking
                 <span
                   onClick={handlePayNowClick}
                   style={{ color: "#0046c0", cursor: "pointer" }}
