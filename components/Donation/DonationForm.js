@@ -72,7 +72,9 @@ export default function Paypal() {
           },
           onApprove: async (data, actions) => {
             const order = await actions.order.capture();
-            
+            console.log("data-----", data);
+            console.log("order-----", order);
+
             if (order) {
               const resp = await api.post("/create/paymentWithPaypal/", {
                 order,
