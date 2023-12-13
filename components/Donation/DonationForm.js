@@ -72,16 +72,16 @@ export default function Paypal() {
           },
           onApprove: async (data, actions) => {
             const order = await actions.order.capture();
-
+            
             if (order) {
-              const payload = { order, data };
-              const resp = await api.post(
-                "/create/rotationFormWithPaypal",
-                payload
-              );
+              const resp = await api.post("/create/paymentWithPaypal/", {
+                order,
+                data,
+              });
+              if (resp.status === 200) {
+                router.push("/thank-you");
+              }
             }
-
-            router.push("/thank-you");
           },
           onError: (err) => {
             console.log(err);
