@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
-import axios from "axios";
 import api from "../utils/api";
 
 const ExternshipForm = () => {
@@ -18,12 +17,11 @@ const ExternshipForm = () => {
   const [reservation, setReservation] = useState("");
   const [loading, setLoading] = useState(false);
   const [bookedMonths, setBookedMonths] = useState([]);
+  const [merchantTransactionId, setMerchantTransactionId] = useState("");
 
   const fetchData = async () => {
     try {
-      const res = await axios.get(
-        "https://usshape-stripe.vercel.app/rotation/getAll"
-      );
+      const res = await api.get("/rotation/getAll");
       setBookedMonths(res.data.reservationList);
     } catch (error) {
       // Handle error
@@ -46,7 +44,13 @@ const ExternshipForm = () => {
     e.preventDefault();
 
     // Validate required fields
-    if (!name || !email || !termsConditions || !reservation) {
+    if (
+      !name ||
+      !email ||
+      !termsConditions ||
+      !reservation ||
+      !merchantTransactionId
+    ) {
       MySwal.fire({
         title: "Error",
         text: "Please fill all required(*) fields.",
@@ -58,45 +62,42 @@ const ExternshipForm = () => {
       return;
     }
     setLoading(true);
-    if (email) {
-      try {
-        const res = await axios.get(
-          `https://usshape-stripe.vercel.app/getStripe/${email}`
-        );
-        if (res.status == 200) {
-          const payload = { name, email, termsConditions, reservation };
-          const resp = await api.post(
-            "/create/rotationFormWithPaypal",
-            payload
-          );
-          if (resp.status == 200) {
-            MySwal.fire({
-              title: "Congratulations!",
-              text: resp?.data?.message,
-              icon: "success",
-              timer: 4000,
-              timerProgressBar: true,
-              showConfirmButton: false,
-            });
-          }
-          setName("");
-          setEmail("");
-          setReservation("");
-          setTermsConditions(false);
-        }
-      } catch (error) {
+    try {
+      const payload = {
+        name,
+        email,
+        termsConditions,
+        reservation,
+        merchantTransactionId,
+      };
+      const resp = await api.post("/create/rotationFormWithPaypal", payload);
+      if (resp.status == 200) {
         MySwal.fire({
-          title: "Error",
-          text: error.response.data.message,
-          icon: "error",
-          timer: 5000,
+          title: "Congratulations!",
+          text: resp?.data?.message,
+          icon: "success",
+          timer: 4000,
           timerProgressBar: true,
           showConfirmButton: false,
         });
-        return;
-      } finally {
-        setLoading(false);
       }
+      setName("");
+      setEmail("");
+      setReservation("");
+      setMerchantTransactionId("");
+      setTermsConditions(false);
+    } catch (error) {
+      MySwal.fire({
+        title: "Error",
+        text: error.response.data.message,
+        icon: "error",
+        timer: 5000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      });
+      return;
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -137,7 +138,9 @@ const ExternshipForm = () => {
               <li>
                 Main campus is in Richardson where you will spend 3 to 4 days a
                 week but please be Willing to rotate at 2-3 locations on website{" "}
-                <a href="http://mypremierpain.com/" target="_blank">mypremierpain.com</a>
+                <a href="http://mypremierpain.com/" target="_blank">
+                  mypremierpain.com
+                </a>
               </li>
               <li>
                 Being a private practice, we don’t offer any kind of letter to
@@ -188,7 +191,7 @@ const ExternshipForm = () => {
               <div className="col-lg-3 col-md-6 col-sm-6">
                 <div className="form-group">
                   <label>
-                    <b>
+                    <b className="text-dark">
                       Please enter a Name<span className="text-danger">*</span>
                     </b>
                   </label>
@@ -205,7 +208,7 @@ const ExternshipForm = () => {
               <div className="col-lg-3 col-md-6 col-sm-6">
                 <div className="form-group">
                   <label>
-                    <b>
+                    <b className="text-dark">
                       Please enter an Email
                       <span className="text-danger">*</span>
                     </b>
@@ -223,7 +226,27 @@ const ExternshipForm = () => {
               <div className="col-lg-3 col-md-6 col-sm-6">
                 <div className="form-group">
                   <label>
-                    <b>
+                    <b className="text-dark">
+                      Enter Merchant/Seller Transaction ID:
+                      <span className="text-danger">*</span>
+                    </b>
+                  </label>
+                  <input
+                    type="text"
+                    name="merchantTransactionId"
+                    className="form-control"
+                    placeholder="Enter Merchant Transaction ID"
+                    value={merchantTransactionId}
+                    onChange={(event) =>
+                      setMerchantTransactionId(event.target.value)
+                    }
+                  />
+                </div>
+              </div>
+              <div className="col-lg-3 col-md-6 col-sm-6">
+                <div className="form-group">
+                  <label>
+                    <b className="text-dark">
                       Please reserve a rotation
                       <span className="text-danger">*</span>
                     </b>
@@ -240,9 +263,9 @@ const ExternshipForm = () => {
                     {/* 1 */}
                     <option
                       value="January 1-15 2024"
-                      disabled={isMonthDisabled("January 1-15 2024")}
+                      disabled={true}
                       style={{
-                        color: isMonthDisabled("January 1-15 2024") && "red",
+                        color: "red",
                       }}
                     >
                       January 1-15 2024{" "}
@@ -251,9 +274,9 @@ const ExternshipForm = () => {
                     {/* 2 */}
                     <option
                       value="January 16-31 2024"
-                      disabled={isMonthDisabled("January 16-31 2024")}
+                      disabled={true}
                       style={{
-                        color: isMonthDisabled("January 16-31 2024") && "red",
+                        color: "red",
                       }}
                     >
                       January 16-31 2024{" "}
@@ -262,9 +285,9 @@ const ExternshipForm = () => {
                     {/* 3 */}
                     <option
                       value="February 1-15 2024"
-                      disabled={isMonthDisabled("February 1-15 2024")}
+                      disabled={true}
                       style={{
-                        color: isMonthDisabled("February 1-15 2024") && "red",
+                        color: "red",
                       }}
                     >
                       February 1-15 2024{" "}

@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import api from "../../utils/api";
 import Navbar from "../../components/_App/Navbar";
 import Footer from "../../components/_App/Footer";
 
@@ -21,7 +21,8 @@ const FormData = ({ item }) => {
       <div className="blog-area-two">
         <div className="container">
           <div className="row">
-            <div className="mb-2"
+            <div
+              className="mb-2"
               style={{
                 border: "2px solid #0046c0",
                 borderRadius: "10px",
@@ -53,9 +54,7 @@ const FormData = ({ item }) => {
 export default FormData;
 
 export const getServerSideProps = async ({ query: { slug } }) => {
-  const formData = await axios.get(
-    `https://usshape-stripe.vercel.app/personsrotation/getByName?url=${slug}`
-  );
+  const formData = await api.get(`/personsrotation/getByName?url=${slug}`);
   const data = await formData.data.data;
   return {
     props: {
