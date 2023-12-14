@@ -166,18 +166,18 @@ const ExternshipForm = () => {
             <div>Thanks</div>
             <div>Contact</div>
             <div>
-              <b>Rao K Ali MD</b>
+              <b className="text-dark">Rao K Ali MD</b>
             </div>
             <div>
-              <b>Muhammad Zulqarnain MD</b>
+              <b className="text-dark">Muhammad Zulqarnain MD</b>
             </div>
             <div>
-              <b>contact@usshape.org</b>
+              <b className="text-dark">contact@usshape.org</b>
             </div>
             <div className="mt-4">
               <span>
-                Before reserving a rotation, please make a payment of <b>$50</b>{" "}
-                by clicking
+                Before reserving a rotation, please make a payment of{" "}
+                <b className="text-dark">$50</b> by clicking
                 <span
                   onClick={handlePayNowClick}
                   style={{ color: "#0046c0", cursor: "pointer" }}
