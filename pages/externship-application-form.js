@@ -268,8 +268,7 @@ const ExternshipForm = () => {
                         color: "red",
                       }}
                     >
-                      January 1-15 2024{" "}
-                      {isMonthDisabled("January 1-15 2024") && "Reserved"}
+                      January 1-15 2024 {"Reserved"}
                     </option>
                     {/* 2 */}
                     <option
@@ -280,7 +279,7 @@ const ExternshipForm = () => {
                       }}
                     >
                       January 16-31 2024{" "}
-                      {isMonthDisabled("January 16-31 2024") && "Reserved"}
+                      { "Reserved"}
                     </option>
                     {/* 3 */}
                     <option
@@ -291,7 +290,7 @@ const ExternshipForm = () => {
                       }}
                     >
                       February 1-15 2024{" "}
-                      {isMonthDisabled("February 1-15 2024") && "Reserved"}
+                      { "Reserved"}
                     </option>
                     {/* 4 */}
                     <option
