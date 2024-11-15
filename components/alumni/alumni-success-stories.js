@@ -139,7 +139,7 @@ const alumniSuccessStoriesData = [
         </p>
       </div>
     ),
-    image: "/images/alumni/stories/march-bach.png",
+    image: "/images/alumni/stories/march-bach-2023.png",
     date: "March 13, 2023",
   },
   {
