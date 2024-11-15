@@ -866,6 +866,17 @@ const ApplicationForms = () => {
                     </li>
                   </ul>
                 </div>
+                <h4 className="fw-bold">Disclaimer:</h4>
+                <div>
+                  <ul style={{ color: "red", marginTop: "0px" }}>
+                    By submitting this form, you agree that{" "}
+                    <a href="/">usshape.org</a> may display your name, photo,
+                    and contact information on the <b>USSHAPE</b> alumni page as
+                    part of our alumni network. This information will be used to
+                    recognize your participation in our externship or loan
+                    program and to help connect you within our community.
+                  </ul>
+                </div>
                 <div className="col-12">
                   <div className="form-group">
                     <label>Electronic Signature (Type Full Name):</label>

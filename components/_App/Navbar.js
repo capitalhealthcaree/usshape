@@ -265,24 +265,51 @@ const Navbar = () => {
                   </li>
                   <li className="nav-item">
                     <Link
-                      href="/contact"
+                      href="/usshape-alumni"
                       className={`nav-link ${
-                        currentPath == "/contact" && "active"
+                        currentPath == "/usshape-alumni" && "active"
                       }`}
                     >
-                      Contact
+                      USSHAPE Alumni
                     </Link>
                   </li>
-
                   <li className="nav-item">
-                    <Link
-                      href="/faqs"
-                      className={`nav-link ${
-                        currentPath == "/faqs" && "active"
-                      }`}
+                    <div
+                      className="nav-link dropdown-toggle"
+                      style={{
+                        fontWeight: "500",
+                        fontSize: "20px",
+                        color: "#344c5d",
+                        textTransform: "capitalize",
+                        margin: "0 10px",
+                        padding: "0",
+                        position: "relative",
+                      }}
                     >
-                      FAQs
-                    </Link>
+                      More
+                    </div>
+                    <ul className="dropdown-menu">
+                      <li className="nav-item">
+                        <Link
+                          href="/contact"
+                          className={`nav-link ${
+                            currentPath == "/contact" && "active"
+                          }`}
+                        >
+                          Contact
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link
+                          href="/faqs"
+                          className={`nav-link ${
+                            currentPath == "/faqs" && "active"
+                          }`}
+                        >
+                          FAQs
+                        </Link>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </div>
