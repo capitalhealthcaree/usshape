@@ -250,7 +250,16 @@ const FormData = ({ item }) => {
             >
               <b>Electronic Signature :</b> {item.signature}
             </div>
-            <h4>Character Certificate</h4>
+            <h4
+              className="m-1 p-1"
+              style={{
+                border: "1px solid #0046c0",
+                borderRadius: "10px",
+                color: "black",
+              }}
+            >
+              Character Certificate
+            </h4>
             <div className="col-12">
               <iframe
                 src={item.certificateFileUrl}
@@ -258,7 +267,17 @@ const FormData = ({ item }) => {
                 width="100%"
               ></iframe>
             </div>
-            <h4>Last Three Electric Bill</h4>
+            <h4
+              className="mt-2 p-2"
+              style={{
+                backgroundColor: "rgb(135, 206, 250)",
+                border: "2px solid #0046c0",
+                borderRadius: "10px",
+                color: "black",
+              }}
+            >
+              Last Three Electric Bill
+            </h4>
             <div className="col-12">
               <iframe
                 src={item.billImageUrls[0]}

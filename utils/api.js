@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "https://usshape-api.vercel.app/";
+const BASE_URL = "https://usshape-api-new-version.vercel.app/";
 const LOCAL_URL = "http://localhost:7500";
 const config = {
   headers: {
