@@ -164,7 +164,7 @@ const AlumniSuccessStories = () => {
     <>
       <div className="container">
         <div className="section-title">
-          <h2>Alumni Success Stories</h2>
+          <h2>Physicians Externship and Success Stories</h2>
           <p>
             Read how <b>USSHAPE</b> has helped physicians advance their careers
             and make a difference in healthcare. Alumni share their experiences

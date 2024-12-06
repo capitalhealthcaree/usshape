@@ -118,42 +118,100 @@ const ExternshipForm = () => {
         <div className="container">
           <div className="services-details-img">
             <ol type="i">
-              <li>
-                Applicant must be interested in interventional pain medicine
-                rotation. Our LOR will be applicable to most of the residency
-                programs particularly in Internal Medicine, Family Medicine,
-                Neurology, PM&R, Radiology, Surgery, Anesthesia, Orthopedic
-                surgery.
+              <b>
+                Below are the detailed terms and conditions to help you
+                understand the process and expectations:
+              </b>
+              <li className="mt-3">
+                Program Focus: Applicants must demonstrate a genuine interest in
+                interventional pain medicine rotations.
               </li>
               <li>
-                If you are a non Pakistani physicians, <b>$2000</b> per month
-                will be charged. For Pakistani and students their near relatives
-                its free of charge. Exceptions can be made for those who can’t
-                afford fees.
+                Letter of Recommendation (LOR): Upon successful completion of
+                the rotation, participants will receive a Letter of
+                Recommendation (LOR) applicable to most residency programs,
+                including Internal Medicine, Family Medicine, Neurology, PM&R,
+                Radiology, Surgery, Anesthesiology, and Orthopedic Surgery.
               </li>
               <li>
-                Please arrange your own accommodation. We don’t provide and or
-                recommend any place.
+                Fee Structure: The program fee is <b>$1,500</b> per rotation.
+              </li>
+            </ol>
+
+            <ul>
+              <b>
+                This fee is waived for Pakistani physicians, provided they
+                fulfill the following conditions:
+              </b>
+              <li className="mt-3">
+                Acknowledge the role of{" "}
+                <a href="/" target="_blank">
+                  USSHAPE
+                </a>{" "}
+                in their success upon residency matching, Inshallah.
               </li>
               <li>
-                Main campus is in Richardson where you will spend 3 to 4 days a
-                week but please be Willing to rotate at 2-3 locations on website{" "}
+                Agree to have their details listed on the USSHAPE website as an{" "}
+                <a href="/usshape-alumni" target="_blank">
+                  alumnus
+                </a>{" "}
+                for others to contact them for guidance.
+              </li>
+              <li>
+                Submit a public review about their experience in the program.
+              </li>
+              <li>
+                Cancellation Policy: If a rotation is canceled without at least
+                one month’s notice, a <b>$250</b> fine will be charged to
+                account for the wasted opportunity that could have been offered
+                to another candidate.
+              </li>
+              <li>
+                A <b>$50</b> fee is required to reserve a slot, which will be
+                reimbursed at the end of the rotation.
+              </li>
+              <li>
+                Please read all{" "}
+                <a href="/faqs" target="_blank">
+                  FAQs
+                </a>{" "}
+                thoroughly. Questions already addressed in the FAQs will not be
+                entertained.
+              </li>
+              <li>
+                Visa Support: We do not provide visa letters. However, an LOR
+                will be provided upon successful completion of the program.
+              </li>
+              <li>
+                Rotation Site: The main rotation site is{" "}
+                <a
+                  href="https://www.mypremierpain.com/contact-locations/richardson/"
+                  target="_blank"
+                >
+                  2071 N Collins Blvd, Richardson, TX 75080
+                </a>
+                . Some commutes to 1-2 additional locations may be required.
+                Check website{" "}
                 <a href="http://mypremierpain.com/" target="_blank">
                   mypremierpain.com
                 </a>
               </li>
               <li>
-                Being a private practice, we don’t offer any kind of letter to
-                support visa application for observership. No letter to even
-                show on airport. Remember we are not and do not want to be the
-                reason you are coming to United States.
+                Applicants are responsible for arranging their own
+                accommodation, as we do not provide or recommend specific
+                housing options.
               </li>
-              <li>If you do not complete two weeks, you may not get LOR.</li>
               <li>
-                Please don't insist for any help in getting residency
-                interviews. Will help if feasible.
+                Completion Requirements: A minimum of two weeks is required to
+                qualify for an LOR.
               </li>
-            </ol>
+              <li>
+                Residency Assistance: While we cannot guarantee help in
+                obtaining residency interviews, guidance may be provided if
+                feasible.
+              </li>
+            </ul>
+
             <h4 className="fw-bold">NOTE:</h4>
             <div style={{ color: "red", marginTop: "10px" }}>
               Starting January 2024! Each applicant will pay <b>$50</b> to
@@ -278,8 +336,7 @@ const ExternshipForm = () => {
                         color: "red",
                       }}
                     >
-                      January 16-31 2024{" "}
-                      { "Reserved"}
+                      January 16-31 2024 {"Reserved"}
                     </option>
                     {/* 3 */}
                     <option
@@ -289,8 +346,7 @@ const ExternshipForm = () => {
                         color: "red",
                       }}
                     >
-                      February 1-15 2024{" "}
-                      { "Reserved"}
+                      February 1-15 2024 {"Reserved"}
                     </option>
                     {/* 4 */}
                     <option
