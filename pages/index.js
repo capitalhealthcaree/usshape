@@ -5,6 +5,7 @@ import HeroSlider from "../components/HomeOne/HeroSlider";
 // import Stats from "../components/HomeOne/Stats";
 import AboutSection from "../components/HomeOne/AboutSection";
 import OurRoles from "../components/OurRoles";
+import Alumnis from "../components/HomeOne/Alumnis";
 import UsShapeTab from "../components/Common/UsShapeTab";
 // import LatestBlogPost from "../components/Common/LatestBlogPost";
 import Gallery from "../components/Common/Gallery";
@@ -39,6 +40,7 @@ const Index = () => {
       {/* <Faq /> */}
 
       {/* <LatestBlogPost /> */}
+      {/* <Alumnis /> */}
 
       <Footer />
     </>

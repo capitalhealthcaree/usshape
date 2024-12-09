@@ -3,25 +3,47 @@ import TopHeader from "../components/_App/TopHeader";
 import Navbar from "../components/_App/Navbar";
 import PageBanner from "../components/Common/PageBanner";
 import Footer from "../components/_App/Footer";
-import { useRouter } from "next/router";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 import api from "../utils/api";
+import { storage } from "../firebase";
 
 const ExternshipForm = () => {
-  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [termsConditions, setTermsConditions] = useState(false);
   const [reservation, setReservation] = useState("");
-  const [loading, setLoading] = useState(false);
   const [bookedMonths, setBookedMonths] = useState([]);
-  const [merchantTransactionId, setMerchantTransactionId] = useState("");
+
+  const [fileUploading, setFileUploading] = useState(false);
+  const [formSubmitting, setFormSubmitting] = useState(false);
+
+  const [externshipPDFForm, setExternshipPDFForm] = useState();
+
+  const handleExternshipForm = (e) => {
+    const selectedFile = e.target.files[0];
+
+    if (selectedFile.type !== "application/pdf") {
+      MySwal.fire({
+        title: "Error",
+        text: "Please upload only PDF file.",
+        icon: "error",
+        timer: 5000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      });
+      setExternshipPDFForm(null);
+      e.target.value = null;
+    } else {
+      setExternshipPDFForm(selectedFile);
+    }
+  };
 
   const fetchData = async () => {
     try {
-      const res = await api.get("/rotation/getAll");
+      const res = await api.get("/getReservedRotation");
+      debugger
       setBookedMonths(res.data.reservationList);
     } catch (error) {
       // Handle error
@@ -36,9 +58,77 @@ const ExternshipForm = () => {
   const isMonthDisabled = (month) => {
     return bookedMonths.includes(month);
   };
-  const handlePayNowClick = () => {
-    router.push("/donation");
-  };
+
+  // const handleButtonClick = async (e) => {
+  //   e.preventDefault();
+
+  //   // Validate required fields
+  //   if (
+  //     !name ||
+  //     !email ||
+  //     !termsConditions ||
+  //     !reservation ||
+  //     !externshipPDFForm
+  //   ) {
+  //     MySwal.fire({
+  //       title: "Error",
+  //       text: "Please fill all required(*) fields.",
+  //       icon: "error",
+  //       timer: 5000,
+  //       timerProgressBar: true,
+  //       showConfirmButton: false,
+  //     });
+  //     return;
+  //   }
+  //   setLoading(true);
+  //   try {
+  //     // Upload the file to Firebase Storage
+  //     const fileRef = storage.ref(
+  //       `usshapeExternshipForm/${externshipPDFForm.name}`
+  //     );
+  //     const uploadTask = await fileRef.put(externshipPDFForm);
+
+  //     // Get the file's download URL
+  //     const fileURL = await uploadTask.ref.getDownloadURL();
+
+  //     const payload = {
+  //       name,
+  //       email,
+  //       termsConditions,
+  //       reservation,
+  //       externshipPDFForm: fileURL,
+  //     };
+  //     debugger;
+  //     const resp = await api.post("/create/rotationFormWithPaypal", payload);
+  //     if (resp.status == 200) {
+  //       MySwal.fire({
+  //         title: "Congratulations!",
+  //         text: resp?.data?.message,
+  //         icon: "success",
+  //         timer: 4000,
+  //         timerProgressBar: true,
+  //         showConfirmButton: false,
+  //       });
+  //     }
+  //     setName("");
+  //     setEmail("");
+  //     setReservation("");
+  //     setExternshipPDFForm(null);
+  //     setTermsConditions(false);
+  //   } catch (error) {
+  //     MySwal.fire({
+  //       title: "Error",
+  //       text: error.response.data.message,
+  //       icon: "error",
+  //       timer: 5000,
+  //       timerProgressBar: true,
+  //       showConfirmButton: false,
+  //     });
+  //     return;
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   const handleButtonClick = async (e) => {
     e.preventDefault();
@@ -49,7 +139,7 @@ const ExternshipForm = () => {
       !email ||
       !termsConditions ||
       !reservation ||
-      !merchantTransactionId
+      !externshipPDFForm
     ) {
       MySwal.fire({
         title: "Error",
@@ -61,16 +151,31 @@ const ExternshipForm = () => {
       });
       return;
     }
-    setLoading(true);
+
+    setFileUploading(true); // Start file uploading loader
     try {
+      // Upload the file to Firebase Storage
+      const fileRef = storage.ref(
+        `usshapeExternshipForm/${externshipPDFForm.name}`
+      );
+      const uploadTask = await fileRef.put(externshipPDFForm);
+
+      // Get the file's download URL
+      const fileURL = await uploadTask.ref.getDownloadURL();
+
+      setFileUploading(false); // Stop file uploading loader
+      setFormSubmitting(true); // Start form submission loader
+
       const payload = {
         name,
         email,
         termsConditions,
         reservation,
-        merchantTransactionId,
+        externshipPDFForm: fileURL,
       };
-      const resp = await api.post("/create/rotationFormWithPaypal", payload);
+      debugger;
+      const resp = await api.post("createRotationForm", payload);
+      debugger;
       if (resp.status == 200) {
         MySwal.fire({
           title: "Congratulations!",
@@ -81,23 +186,26 @@ const ExternshipForm = () => {
           showConfirmButton: false,
         });
       }
+
+      // Reset form fields
       setName("");
       setEmail("");
       setReservation("");
-      setMerchantTransactionId("");
+      setExternshipPDFForm(null);
       setTermsConditions(false);
     } catch (error) {
+      debugger;
       MySwal.fire({
         title: "Error",
-        text: error.response.data.message,
+        text: error.response?.data?.message || "An error occurred.",
         icon: "error",
         timer: 5000,
         timerProgressBar: true,
         showConfirmButton: false,
       });
-      return;
     } finally {
-      setLoading(false);
+      setFileUploading(false);
+      setFormSubmitting(false); // Stop form submission loader
     }
   };
   return (
@@ -122,7 +230,7 @@ const ExternshipForm = () => {
                 Below are the detailed terms and conditions to help you
                 understand the process and expectations:
               </b>
-              <li className="mt-3">
+              <li>
                 Program Focus: Applicants must demonstrate a genuine interest in
                 interventional pain medicine rotations.
               </li>
@@ -134,21 +242,45 @@ const ExternshipForm = () => {
                 Radiology, Surgery, Anesthesiology, and Orthopedic Surgery.
               </li>
               <li>
-                Fee Structure: The program fee is <b>$1,500</b> per rotation.
+                Fee Structure: The program fee is{" "}
+                <b style={{ color: "red" }}>$1,500</b> per rotation.
+                <ul className="">
+                  {/* <b> */}
+                  This fee is waived for Pakistani physicians, provided they
+                  fulfill the following conditions:
+                  {/* </b> */}
+                  <li className="">
+                    Acknowledge the role of{" "}
+                    <a href="/" target="_blank" rel="noopener noreferrer">
+                      USSHAPE
+                    </a>{" "}
+                    in their success upon residency matching.
+                  </li>
+                  <li>
+                    Agree to have their details listed on the USSHAPE website as
+                    an{" "}
+                    <a
+                      href="/usshape-alumni"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      alumnus
+                    </a>{" "}
+                    for others to contact them for guidance.
+                  </li>
+                  <li>
+                    Submit a public review about their experience in the
+                    program.
+                  </li>
+                </ul>
               </li>
-            </ol>
 
-            <ul>
-              <b>
-                This fee is waived for Pakistani physicians, provided they
-                fulfill the following conditions:
-              </b>
-              <li className="mt-3">
+              <li>
                 Acknowledge the role of{" "}
                 <a href="/" target="_blank">
                   USSHAPE
                 </a>{" "}
-                in their success upon residency matching, Inshallah.
+                in their success upon residency matching.
               </li>
               <li>
                 Agree to have their details listed on the USSHAPE website as an{" "}
@@ -162,13 +294,9 @@ const ExternshipForm = () => {
               </li>
               <li>
                 Cancellation Policy: If a rotation is canceled without at least
-                one month’s notice, a <b>$250</b> fine will be charged to
-                account for the wasted opportunity that could have been offered
-                to another candidate.
-              </li>
-              <li>
-                A <b>$50</b> fee is required to reserve a slot, which will be
-                reimbursed at the end of the rotation.
+                one month’s notice, a <b style={{ color: "red" }}>$250 fine</b>{" "}
+                will be charged to account for the wasted opportunity that could
+                have been offered to another candidate.
               </li>
               <li>
                 Please read all{" "}
@@ -210,15 +338,17 @@ const ExternshipForm = () => {
                 obtaining residency interviews, guidance may be provided if
                 feasible.
               </li>
-            </ul>
+            </ol>
 
             <h4 className="fw-bold">NOTE:</h4>
             <div style={{ color: "red", marginTop: "10px" }}>
-              Starting January 2024! Each applicant will pay <b>$50</b> to
-              reserve a spot. If they join on time; it will be reimbursed after
-              rotation ends. Many have reserved spots taking it granted and
-              cancelled it a few days before which takes away right of other
-              serious candidates.
+              You must obtain an LOR from a USA physician, who will email it
+              directly to{" "}
+              <a style={{ color: "red" }} href="mailto:contact@usshape.org">
+                {" "}
+                <b> contact@usshape.org</b>
+              </a>
+              . This physician can be a resident physician.
             </div>
             <br />
             <div>Thanks</div>
@@ -234,14 +364,15 @@ const ExternshipForm = () => {
             </div>
             <div className="mt-4">
               <span>
-                Before reserving a rotation, please make a payment of{" "}
-                <b className="text-dark">$50</b> by clicking
-                <span
-                  onClick={handlePayNowClick}
+                Before reserving a rotation, first{" "}
+                <a
+                  href="/images/externship-form.pdf"
+                  download
                   style={{ color: "#0046c0", cursor: "pointer" }}
                 >
-                  <b> Pay Now</b>
-                </span>
+                  <b> download </b>
+                </a>
+                and fill it out, then attach it.
               </span>
             </div>
 
@@ -278,26 +409,6 @@ const ExternshipForm = () => {
                     placeholder="Enter an Email"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
-                  />
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-6 col-sm-6">
-                <div className="form-group">
-                  <label>
-                    <b className="text-dark">
-                      Enter Merchant/Seller Transaction ID:
-                      <span className="text-danger">*</span>
-                    </b>
-                  </label>
-                  <input
-                    type="text"
-                    name="merchantTransactionId"
-                    className="form-control"
-                    placeholder="Enter Merchant Transaction ID"
-                    value={merchantTransactionId}
-                    onChange={(event) =>
-                      setMerchantTransactionId(event.target.value)
-                    }
                   />
                 </div>
               </div>
@@ -583,6 +694,23 @@ const ExternshipForm = () => {
                   </select>
                 </div>
               </div>
+
+              <div className="col-lg-3 col-md-6 col-sm-6">
+                <div className="form-group">
+                  <label>
+                    <b className="text-dark">
+                      Upload Form:
+                      <span className="text-danger">*</span>
+                    </b>
+                  </label>
+                  <input
+                    type="file"
+                    name="certificateFile"
+                    className="form-control"
+                    onChange={handleExternshipForm}
+                  />
+                </div>
+              </div>
             </div>
             <div className="mt-2">
               <div className="form-group">
@@ -611,6 +739,35 @@ const ExternshipForm = () => {
             <div className="mt-3">
               <button
                 onClick={handleButtonClick}
+                disabled={fileUploading || formSubmitting}
+                style={{
+                  display: "inline-block",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  padding: "12px 18px",
+                  borderRadius: "5px",
+                  border: "2px solid transparent",
+                  backgroundColor: fileUploading ? "#ccc" : "#0046c0",
+                  color: "white",
+                  cursor:
+                    fileUploading || formSubmitting ? "not-allowed" : "pointer",
+                }}
+              >
+                {fileUploading
+                  ? "Uploading PDF"
+                  : formSubmitting
+                  ? "Submitting Form"
+                  : "Submit"}
+                {(fileUploading || formSubmitting) && (
+                  <div
+                    className="spinner-border spinner-grow-sm ms-3"
+                    role="status"
+                  ></div>
+                )}
+              </button>
+
+              {/* <button
+                onClick={handleButtonClick}
                 disabled={loading ? true : false}
                 style={{
                   display: "inline-block",
@@ -631,7 +788,7 @@ const ExternshipForm = () => {
                     role="status"
                   ></div>
                 )}
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
