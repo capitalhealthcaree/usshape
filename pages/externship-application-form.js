@@ -43,7 +43,6 @@ const ExternshipForm = () => {
   const fetchData = async () => {
     try {
       const res = await api.get("/getReservedRotation");
-      debugger
       setBookedMonths(res.data.reservationList);
     } catch (error) {
       // Handle error
@@ -430,35 +429,7 @@ const ExternshipForm = () => {
                   >
                     <option value="">Select month</option>
                     {/* 1 */}
-                    <option
-                      value="January 1-15 2024"
-                      disabled={true}
-                      style={{
-                        color: "red",
-                      }}
-                    >
-                      January 1-15 2024 {"Reserved"}
-                    </option>
-                    {/* 2 */}
-                    <option
-                      value="January 16-31 2024"
-                      disabled={true}
-                      style={{
-                        color: "red",
-                      }}
-                    >
-                      January 16-31 2024 {"Reserved"}
-                    </option>
-                    {/* 3 */}
-                    <option
-                      value="February 1-15 2024"
-                      disabled={true}
-                      style={{
-                        color: "red",
-                      }}
-                    >
-                      February 1-15 2024 {"Reserved"}
-                    </option>
+                  
                     {/* 4 */}
                     <option
                       value="February 16-28 2024"
