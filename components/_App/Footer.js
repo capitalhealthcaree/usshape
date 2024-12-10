@@ -126,7 +126,7 @@ const Footer = () => {
             <p>
               Copyright &copy; {currentYear} All Rights Reserved |{" "}
               <a href="https://usshape.org" target="_blank">
-                usshapes.
+                USSHAPE
               </a>
             </p>
           </div>

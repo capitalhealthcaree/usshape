@@ -229,7 +229,7 @@ const ExternshipForm = () => {
                 Below are the detailed terms and conditions to help you
                 understand the process and expectations:
               </b>
-              <li>
+              <li className="mt-3">
                 Program Focus: Applicants must demonstrate a genuine interest in
                 interventional pain medicine rotations.
               </li>
@@ -670,7 +670,7 @@ const ExternshipForm = () => {
                 <div className="form-group">
                   <label>
                     <b className="text-dark">
-                      Upload Form:
+                      Submit Form:
                       <span className="text-danger">*</span>
                     </b>
                   </label>

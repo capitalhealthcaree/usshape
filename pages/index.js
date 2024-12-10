@@ -33,14 +33,14 @@ const Index = () => {
 
       <StrategicObjectives />
 
-      <Gallery />
+      {/* <Gallery /> */}
 
       <FaqSection />
 
       {/* <Faq /> */}
 
       {/* <LatestBlogPost /> */}
-      {/* <Alumnis /> */}
+      <Alumnis />
 
       <Footer />
     </>
