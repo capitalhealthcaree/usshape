@@ -61,7 +61,7 @@ const Navbar = () => {
               </button>
 
               <div className={classOne} id="navbarSupportedContent">
-                <ul className="navbar-nav">
+                <ul className="navbar-nav" >
                   <li className="nav-item">
                     <Link href="/" className="nav-link">
                       Home
@@ -73,10 +73,10 @@ const Navbar = () => {
                       className="nav-link dropdown-toggle"
                       style={{
                         fontWeight: "500",
-                        fontSize: "20px",
+                        fontSize: "16px",
                         color: "#344c5d",
                         textTransform: "capitalize",
-                        margin: "0 10px",
+                        // margin: "0 10px",
                         padding: "0",
                         position: "relative",
                       }}
@@ -270,7 +270,7 @@ const Navbar = () => {
                         currentPath == "/usshape-alumni" && "active"
                       }`}
                     >
-                      USSHAPE Alumni
+                      Alumni
                     </Link>
                   </li>
                   <li className="nav-item">
@@ -278,10 +278,10 @@ const Navbar = () => {
                       className="nav-link dropdown-toggle"
                       style={{
                         fontWeight: "500",
-                        fontSize: "20px",
+                        fontSize: "16px",
                         color: "#344c5d",
                         textTransform: "capitalize",
-                        margin: "0 10px",
+                        // margin: "0 10px",
                         padding: "0",
                         position: "relative",
                       }}
@@ -313,14 +313,14 @@ const Navbar = () => {
                   </li>
                 </ul>
               </div>
-              <div className="common-btn">
+              {/* <div className="common-btn">
                 <Link
                   href="/donation"
                   style={{ backgroundColor: "#0046c0", color: "white" }}
                 >
                   DONATE
                 </Link>
-              </div>
+              </div> */}
             </nav>
           </div>
         </div>

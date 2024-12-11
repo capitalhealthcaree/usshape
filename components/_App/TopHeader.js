@@ -1,5 +1,3 @@
-import React from "react";
-
 const TopHeader = () => {
   return (
     <>
@@ -13,7 +11,7 @@ const TopHeader = () => {
                     <li>
                       <a href="tel:+14698665222">
                         <i className="icofont-ui-call"></i>
-                        Call : +1 (469) 866-5222
+                        +1 (469) 866-5222
                       </a>
                     </li>
                     <li>
@@ -34,15 +32,6 @@ const TopHeader = () => {
             <div className="col-sm-4 col-lg-3">
               <div className="header-top-item">
                 <div className="header-top-right">
-                  <ul className="lang-list">
-                    {/* <li>
-                      <a href="/">EN</a>
-                    </li>
-                    <li>
-                      <a href="/ar">AR</a>
-                    </li> */}
-                  </ul>
-
                   <ul>
                     <li>
                       <a href="https://www.facebook.com/" target="_blank">
@@ -50,18 +39,22 @@ const TopHeader = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="https://twitter.com/" target="_blank">
-                        <i className="icofont-twitter"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/" target="_blank">
-                        <i className="icofont-linkedin"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.instagram.com/" target="_blank">
-                        <i className="icofont-instagram"></i>
+                      <a
+                        href="/donation"
+                        target="_blank"
+                        style={{
+                          display: "block",
+                          width: "80px",
+                          height: "25px",
+                          lineHeight: "25px",
+                          color: "#ffffff",
+                          fontSize: "16px",
+                          textAlign: "center",
+                          border: "1px solid transparent",
+                          backgroundColor: "#0046c0",
+                        }}
+                      >
+                        DONATE
                       </a>
                     </li>
                   </ul>

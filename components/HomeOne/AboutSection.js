@@ -2,6 +2,22 @@ import React from "react";
 import Link from "next/link";
 
 const AboutSection = () => {
+  const ulStyle = {
+    flexWrap: "wrap",
+    padding: "0",
+    listStyle: "none",
+    margin: "0",
+  };
+
+  const liStyle = {
+    flex: "1 1 calc(50% - 15px)",
+    display: "flex",
+    marginBottom: "15px",
+  };
+
+  const iconStyle = {
+    marginRight: "8px",
+  };
   return (
     <>
       <div className="about-area pt-100 pb-70">
@@ -32,107 +48,81 @@ const AboutSection = () => {
                   or other form of assistance will benefit poor and needy
                   individuals.
                 </p>
-
-                <ul>
-                  <div className="row">
-                    <div className="d-none d-sm-block col-xl-6">
-                      <li>
-                        <i className="icofont-check-circled"></i>
-                        Charity For{" "}
-                        <span style={{ color: "#0046c0", fontWeight: "bold" }}>
-                          S
-                        </span>
-                        ocial Justice
-                      </li>
-                      <li>
-                        <i className="icofont-check-circled"></i>
-                        Charity For{" "}
-                        <span style={{ color: "#0046c0", fontWeight: "bold" }}>
-                          A
-                        </span>
-                        dvocacy
-                      </li>
-                      <li>
-                        <i className="icofont-check-circled"></i>
-                        Charity For{" "}
-                        <span style={{ color: "#0046c0", fontWeight: "bold" }}>
-                          E
-                        </span>
-                        ducation
-                      </li>
-                    </div>
-
-                    <div className="d-none d-sm-block col-xl-6">
-                      <li>
-                        <i className="icofont-check-circled"></i>
-                        Charity For{" "}
-                        <span style={{ color: "#0046c0", fontWeight: "bold" }}>
-                          H
-                        </span>
-                        ealthcare
-                      </li>{" "}
-                      <li>
-                        <i className="icofont-check-circled"></i>
-                        Charity For{" "}
-                        <span style={{ color: "#0046c0", fontWeight: "bold" }}>
-                          P
-                        </span>
-                        overty
-                      </li>
-                      <li>
-                        <i className="icofont-check-circled"></i>
-                        24/7 Online Support
-                      </li>
-                    </div>
-                  </div>
-                </ul>
-                <ul>
-                  <div className="row d-xl-none">
-                    <li>
-                      <i className="icofont-check-circled"></i>
-                      Charity For{" "}
-                      <span style={{ color: "#0046c0", fontWeight: "bold" }}>
-                        S
-                      </span>
-                      ocial Justice
-                    </li>
-                    <li>
-                      <i className="icofont-check-circled"></i>
-                      Charity For{" "}
-                      <span style={{ color: "#0046c0", fontWeight: "bold" }}>
-                        H
-                      </span>
-                      ealthcare
-                    </li>{" "}
-                    <li>
-                      <i className="icofont-check-circled"></i>
-                      Charity For{" "}
-                      <span style={{ color: "#0046c0", fontWeight: "bold" }}>
-                        A
-                      </span>
-                      dvocacy
-                    </li>
-                    <li>
-                      <i className="icofont-check-circled"></i>
-                      Charity For{" "}
-                      <span style={{ color: "#0046c0", fontWeight: "bold" }}>
-                        P
-                      </span>
-                      overty
-                    </li>
-                    <li>
-                      <i className="icofont-check-circled"></i>
-                      Charity For{" "}
-                      <span style={{ color: "#0046c0", fontWeight: "bold" }}>
-                        E
-                      </span>
-                      ducation
-                    </li>
-                    <li>
-                      <i className="icofont-check-circled"></i>
-                      24/7 Online Support
-                    </li>
-                  </div>
+                <ul style={ulStyle}>
+                  <li style={liStyle}>
+                    <i className="icofont-check-circled" style={iconStyle}></i>
+                    Charity For{" "}
+                    <span
+                      style={{
+                        color: "#0046c0",
+                        fontWeight: "bold",
+                        marginLeft: "8px",
+                      }}
+                    >
+                      S
+                    </span>
+                    ocial Justice
+                  </li>
+                  <li style={liStyle}>
+                    <i className="icofont-check-circled" style={iconStyle}></i>
+                    Charity For{" "}
+                    <span
+                      style={{
+                        color: "#0046c0",
+                        fontWeight: "bold",
+                        marginLeft: "8px",
+                      }}
+                    >
+                      H
+                    </span>
+                    ealthcare
+                  </li>
+                  <li style={liStyle}>
+                    <i className="icofont-check-circled" style={iconStyle}></i>
+                    Charity For{" "}
+                    <span
+                      style={{
+                        color: "#0046c0",
+                        fontWeight: "bold",
+                        marginLeft: "8px",
+                      }}
+                    >
+                      A
+                    </span>
+                    dvocacy
+                  </li>
+                  <li style={liStyle}>
+                    <i className="icofont-check-circled" style={iconStyle}></i>
+                    Charity For{" "}
+                    <span
+                      style={{
+                        color: "#0046c0",
+                        fontWeight: "bold",
+                        marginLeft: "8px",
+                      }}
+                    >
+                      P
+                    </span>
+                    overty
+                  </li>
+                  <li style={liStyle}>
+                    <i className="icofont-check-circled" style={iconStyle}></i>
+                    Charity For{" "}
+                    <span
+                      style={{
+                        color: "#0046c0",
+                        fontWeight: "bold",
+                        marginLeft: "8px",
+                      }}
+                    >
+                      E
+                    </span>
+                    ducation
+                  </li>
+                  <li style={liStyle}>
+                    <i className="icofont-check-circled" style={iconStyle}></i>
+                    24/7 Online Support
+                  </li>
                 </ul>
                 <Link href="/donation">DONATE</Link>
               </div>
