@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import Link from "next/link";
 
 const alumniSuccessStoriesData = [
   {
@@ -206,6 +207,22 @@ const AlumniSlider = () => {
           {alumniSuccessStoriesData.map((item, index) => (
             <SwiperSlide key={index}>
               <img src={item.image} alt={item.name} />
+              <div className="doctors-area doctors-area-two">
+                <div className="container">
+                  <div className="row justify-content-center">
+                    <div className="doctor-item">
+                      <div className="doctor-bottom">
+                        <h3>
+                          <Link href="/usshape-alumni">
+                            {item.name} -{" "}
+                            {item.date && new Date(item.date).getFullYear()}
+                          </Link>
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
