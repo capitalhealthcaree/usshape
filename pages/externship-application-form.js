@@ -275,23 +275,6 @@ const ExternshipForm = () => {
               </li>
 
               <li>
-                Acknowledge the role of{" "}
-                <a href="/" target="_blank">
-                  USSHAPE
-                </a>{" "}
-                in their success upon residency matching.
-              </li>
-              <li>
-                Agree to have their details listed on the USSHAPE website as an{" "}
-                <a href="/usshape-alumni" target="_blank">
-                  alumnus
-                </a>{" "}
-                for others to contact them for guidance.
-              </li>
-              <li>
-                Submit a public review about their experience in the program.
-              </li>
-              <li>
                 Cancellation Policy: If a rotation is canceled without at least
                 one month’s notice, a <b style={{ color: "red" }}>$250 fine</b>{" "}
                 will be charged to account for the wasted opportunity that could
@@ -429,7 +412,7 @@ const ExternshipForm = () => {
                   >
                     <option value="">Select month</option>
                     {/* 1 */}
-                  
+
                     {/* 4 */}
                     <option
                       value="February 16-28 2024"

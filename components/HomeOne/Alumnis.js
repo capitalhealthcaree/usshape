@@ -175,7 +175,7 @@ const AlumniSlider = () => {
       `}</style>
       <div className="container-fluid">
         <div className="section-title">
-          <h2>Alumni Success Stories</h2>
+          <h2>Physicians Externship and Success Stories</h2>
         </div>
         <Swiper
           slidesPerView={1}

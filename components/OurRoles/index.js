@@ -19,8 +19,8 @@ const OurExpertise = () => {
                       <i className="icofont-doctor-alt"></i>
                       <h3>Poverty Alleviation</h3>
                       <p>
-                        Focused on poverty alleviation, transforming lives
-                        through empowerment.
+                        Focused on poverty, transforming lives through
+                        empowerment.
                       </p>
                     </div>
                   </div>
@@ -29,8 +29,8 @@ const OurExpertise = () => {
                       <i className="icofont-ambulance-cross"></i>
                       <h3>Charity For Live</h3>
                       <p>
-                        Supporting lives through charitable acts, making a
-                        difference.
+                        Supporting lives, making a difference through charity
+                        work.
                       </p>
                     </div>
                   </div>
@@ -39,7 +39,7 @@ const OurExpertise = () => {
                       <i className="icofont-stretcher"></i>
                       <h3>Health & Medicine</h3>
                       <p>
-                        Our focus is children's rights in health and medicine.
+                        Our focus is on children's rights in health and care.{" "}
                       </p>
                     </div>
                   </div>
@@ -48,8 +48,7 @@ const OurExpertise = () => {
                       <i className="icofont-network"></i>
                       <h3>Child Education</h3>
                       <p>
-                        We focus specifically on children's rights in the fieled
-                        of education.
+                      We focus on children's rights in education and care.
                       </p>
                     </div>
                   </div>

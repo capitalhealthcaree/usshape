@@ -13,7 +13,7 @@ const Footer = () => {
               <div className="footer-item">
                 <div className="footer-feedback">
                   <Link href="/">
-                    <h1 style={{ color: "white" }}>US SHAPE</h1>
+                    <h3 style={{ color: "white" }}>USSHAPE</h3>
                   </Link>
                   <span style={{ color: "white" }}>
                     Our organization is dedicated to serving the less fortunate
@@ -29,7 +29,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="col-sm-6 col-lg-3">
+            <div className="col-sm-6 col-lg-2">
               <div className="footer-item">
                 <div className="footer-quick">
                   <h3>What We Do</h3>
@@ -66,7 +66,7 @@ const Footer = () => {
                     <li>
                       <Link href="/contact">Contact</Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link href="#" onClick={(e) => e.preventDefault()}>
                         News
                       </Link>
@@ -75,7 +75,7 @@ const Footer = () => {
                       <Link href="#" onClick={(e) => e.preventDefault()}>
                         Blogs
                       </Link>
-                    </li>
+                    </li> */}
                     <li>
                       <Link href="/faqs">FAQs</Link>
                     </li>
@@ -83,7 +83,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="col-sm-6 col-lg-2">
+            <div className="col-sm-6 col-lg-3">
               <div className="footer-item">
                 <div className="footer-contact pe-2">
                   <h3>Contact Us</h3>
