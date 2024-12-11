@@ -58,76 +58,6 @@ const ExternshipForm = () => {
     return bookedMonths.includes(month);
   };
 
-  // const handleButtonClick = async (e) => {
-  //   e.preventDefault();
-
-  //   // Validate required fields
-  //   if (
-  //     !name ||
-  //     !email ||
-  //     !termsConditions ||
-  //     !reservation ||
-  //     !externshipPDFForm
-  //   ) {
-  //     MySwal.fire({
-  //       title: "Error",
-  //       text: "Please fill all required(*) fields.",
-  //       icon: "error",
-  //       timer: 5000,
-  //       timerProgressBar: true,
-  //       showConfirmButton: false,
-  //     });
-  //     return;
-  //   }
-  //   setLoading(true);
-  //   try {
-  //     // Upload the file to Firebase Storage
-  //     const fileRef = storage.ref(
-  //       `usshapeExternshipForm/${externshipPDFForm.name}`
-  //     );
-  //     const uploadTask = await fileRef.put(externshipPDFForm);
-
-  //     // Get the file's download URL
-  //     const fileURL = await uploadTask.ref.getDownloadURL();
-
-  //     const payload = {
-  //       name,
-  //       email,
-  //       termsConditions,
-  //       reservation,
-  //       externshipPDFForm: fileURL,
-  //     };
-  //     debugger;
-  //     const resp = await api.post("/create/rotationFormWithPaypal", payload);
-  //     if (resp.status == 200) {
-  //       MySwal.fire({
-  //         title: "Congratulations!",
-  //         text: resp?.data?.message,
-  //         icon: "success",
-  //         timer: 4000,
-  //         timerProgressBar: true,
-  //         showConfirmButton: false,
-  //       });
-  //     }
-  //     setName("");
-  //     setEmail("");
-  //     setReservation("");
-  //     setExternshipPDFForm(null);
-  //     setTermsConditions(false);
-  //   } catch (error) {
-  //     MySwal.fire({
-  //       title: "Error",
-  //       text: error.response.data.message,
-  //       icon: "error",
-  //       timer: 5000,
-  //       timerProgressBar: true,
-  //       showConfirmButton: false,
-  //     });
-  //     return;
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 
   const handleButtonClick = async (e) => {
     e.preventDefault();
@@ -411,240 +341,38 @@ const ExternshipForm = () => {
                     }}
                   >
                     <option value="">Select month</option>
-                    {/* 1 */}
+                    {(() => {
+                      const currentYear = 2025; // Change this to 2025, 2026, etc., for future years
+                      const months = Array.from({ length: 12 }, (_, i) => {
+                        const monthName = new Date(
+                          currentYear,
+                          i
+                        ).toLocaleString("default", {
+                          month: "long",
+                        });
+                        const daysInMonth = new Date(
+                          currentYear,
+                          i + 1,
+                          0
+                        ).getDate();
 
-                    {/* 4 */}
-                    <option
-                      value="February 16-28 2024"
-                      disabled={isMonthDisabled("February 16-28 2024")}
-                      style={{
-                        color: isMonthDisabled("February 16-28 2024") && "red",
-                      }}
-                    >
-                      February 16-28 2024{" "}
-                      {isMonthDisabled("February 16-28 2024") && "Reserved"}
-                    </option>
-                    {/* 5 */}
-                    <option
-                      value="March 1-15 2024"
-                      disabled={isMonthDisabled("March 1-15 2024")}
-                      style={{
-                        color: isMonthDisabled("March 1-15 2024") && "red",
-                      }}
-                    >
-                      March 1-15 2024{" "}
-                      {isMonthDisabled("March 1-15 2024") && "Reserved"}
-                    </option>
-                    {/* 6 */}
-                    <option
-                      value="March 16-31 2024"
-                      disabled={isMonthDisabled("March 16-31 2024")}
-                      style={{
-                        color: isMonthDisabled("March 16-31 2024") && "red",
-                      }}
-                    >
-                      March 16-31 2024{" "}
-                      {isMonthDisabled("March 16-31 2024") && "Reserved"}
-                    </option>
-                    {/* 7 */}
-                    <option
-                      value="April 1-15 2024"
-                      disabled={isMonthDisabled("April 1-15 2024")}
-                      style={{
-                        color: isMonthDisabled("April 1-15 2024") && "red",
-                      }}
-                    >
-                      April 1-15 2024{" "}
-                      {isMonthDisabled("April 1-15 2024") && "Reserved"}
-                    </option>
+                        return [
+                          `${monthName} 1-15 ${currentYear}`,
+                          `${monthName} 16-${daysInMonth} ${currentYear}`,
+                        ];
+                      });
 
-                    {/* 8 */}
-                    <option
-                      value="April 1-15 2024"
-                      disabled={isMonthDisabled("April 16-30 2024")}
-                      style={{
-                        color: isMonthDisabled("April 16-30 2024") && "red",
-                      }}
-                    >
-                      April 16-30 2024{" "}
-                      {isMonthDisabled("April 16-30 2024") && "Reserved"}
-                    </option>
-                    {/* 9 */}
-                    <option
-                      value="May 1-15 2024"
-                      disabled={isMonthDisabled("May 1-15 2024")}
-                      style={{
-                        color: isMonthDisabled("May 1-15 2024") && "red",
-                      }}
-                    >
-                      May 1-15 2024{" "}
-                      {isMonthDisabled("May 1-15 2024") && "Reserved"}
-                    </option>
-                    {/* 10 */}
-                    <option
-                      value="May 16-31 2024"
-                      disabled={isMonthDisabled("May 16-31 2024")}
-                      style={{
-                        color: isMonthDisabled("May 16-31 2024") && "red",
-                      }}
-                    >
-                      May 16-31 2024{" "}
-                      {isMonthDisabled("May 16-31 2024") && "Reserved"}
-                    </option>
-                    {/* 11 */}
-                    <option
-                      value="June 1-15 2024"
-                      disabled={isMonthDisabled("June 1-15 2024")}
-                      style={{
-                        color: isMonthDisabled("June 1-15 2024") && "red",
-                      }}
-                    >
-                      June 1-15 2024{" "}
-                      {isMonthDisabled("June 1-15 2024") && "Reserved"}
-                    </option>
-                    {/* 12 */}
-                    <option
-                      value="June 16-30 2024"
-                      disabled={isMonthDisabled("June 16-30 2024")}
-                      style={{
-                        color: isMonthDisabled("June 16-30 2024") && "red",
-                      }}
-                    >
-                      June 16-30 2024{" "}
-                      {isMonthDisabled("June 16-30 2024") && "Reserved"}
-                    </option>
-                    {/* 13 */}
-                    <option
-                      value="July 1-15 2024"
-                      disabled={isMonthDisabled("July 1-15 2024")}
-                      style={{
-                        color: isMonthDisabled("July 1-15 2024") && "red",
-                      }}
-                    >
-                      July 1-15 2024{" "}
-                      {isMonthDisabled("July 1-15 2024") && "Reserved"}
-                    </option>
-                    {/* 14 */}
-                    <option
-                      value="July 16-31 2024"
-                      disabled={isMonthDisabled("July 16-31 2024")}
-                      style={{
-                        color: isMonthDisabled("July 16-31 2024") && "red",
-                      }}
-                    >
-                      July 16-31 2024{" "}
-                      {isMonthDisabled("July 16-31 2024") && "Reserved"}
-                    </option>
-                    {/* 15 */}
-                    <option
-                      value="August 1-15 2024"
-                      disabled={isMonthDisabled("August 1-15 2024")}
-                      style={{
-                        color: isMonthDisabled("August 1-15 2024") && "red",
-                      }}
-                    >
-                      August 1-15 2024{" "}
-                      {isMonthDisabled("August 1-15 2024") && "Reserved"}
-                    </option>
-                    {/* 16 */}
-                    <option
-                      value="August 16-31 2024"
-                      disabled={isMonthDisabled("August 16-31 2024")}
-                      style={{
-                        color: isMonthDisabled("August 16-31 2024") && "red",
-                      }}
-                    >
-                      August 16-31 2024{" "}
-                      {isMonthDisabled("August 16-31 2024") && "Reserved"}
-                    </option>
-                    {/* 17 */}
-                    <option
-                      value="September 1-15 2024"
-                      disabled={isMonthDisabled("September 1-15 2024")}
-                      style={{
-                        color: isMonthDisabled("September 1-15 2024") && "red",
-                      }}
-                    >
-                      September 1-15 2024{" "}
-                      {isMonthDisabled("September 1-15 2024") && "Reserved"}
-                    </option>
-                    {/* 18 */}
-                    <option
-                      value="September 16-30 2024"
-                      disabled={isMonthDisabled("September 16-30 2024")}
-                      style={{
-                        color: isMonthDisabled("September 16-30 2024") && "red",
-                      }}
-                    >
-                      September 16-30 2024{" "}
-                      {isMonthDisabled("September 16-30 2024") && "Reserved"}
-                    </option>
-                    {/* 19 */}
-                    <option
-                      value="October 1-15 2024"
-                      disabled={isMonthDisabled("October 1-15 2024")}
-                      style={{
-                        color: isMonthDisabled("October 1-15 2024") && "red",
-                      }}
-                    >
-                      October 1-15 2024{" "}
-                      {isMonthDisabled("October 1-15 2024") && "Reserved"}
-                    </option>
-                    {/* 20 */}
-                    <option
-                      value="October 16-31 2024"
-                      disabled={isMonthDisabled("October 16-31 2024")}
-                      style={{
-                        color: isMonthDisabled("October 16-31 2024") && "red",
-                      }}
-                    >
-                      October 16-31 2024{" "}
-                      {isMonthDisabled("October 16-31 2024") && "Reserved"}
-                    </option>
-                    {/* 21 */}
-                    <option
-                      value="November 1-15 2024"
-                      disabled={isMonthDisabled("November 1-15 2024")}
-                      style={{
-                        color: isMonthDisabled("November 1-15 2024") && "red",
-                      }}
-                    >
-                      November 1-15 2024{" "}
-                      {isMonthDisabled("November 1-15 2024") && "Reserved"}
-                    </option>
-                    {/* 22 */}
-                    <option
-                      value="November 16-30 2024"
-                      disabled={isMonthDisabled("November 16-30 2024")}
-                      style={{
-                        color: isMonthDisabled("November 16-30 2024") && "red",
-                      }}
-                    >
-                      November 16-30 2024{" "}
-                      {isMonthDisabled("November 16-30 2024") && "Reserved"}
-                    </option>
-                    {/* 22 */}
-                    <option
-                      value="December 1-15 2024"
-                      disabled={isMonthDisabled("December 1-15 2024")}
-                      style={{
-                        color: isMonthDisabled("December 1-15 2024") && "red",
-                      }}
-                    >
-                      December 1-15 2024{" "}
-                      {isMonthDisabled("December 1-15 2024") && "Reserved"}
-                    </option>
-                    {/* 22 */}
-                    <option
-                      value="December 16-31 2024"
-                      disabled={isMonthDisabled("December 16-31 2024")}
-                      style={{
-                        color: isMonthDisabled("December 16-31 2024") && "red",
-                      }}
-                    >
-                      December 16-31 2024{" "}
-                      {isMonthDisabled("December 16-31 2024") && "Reserved"}
-                    </option>
+                      return months.flat().map((range) => (
+                        <option
+                          key={range}
+                          value={range}
+                          disabled={isMonthDisabled(range)}
+                          style={{ color: isMonthDisabled(range) && "red" }}
+                        >
+                          {range} {isMonthDisabled(range) && "Reserved"}
+                        </option>
+                      ));
+                    })()}
                   </select>
                 </div>
               </div>
