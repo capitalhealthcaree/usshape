@@ -40,24 +40,23 @@ const ExternshipForm = () => {
     }
   };
 
-  const fetchData = async () => {
-    try {
-      const res = await api.get("/getReservedRotation");
-      setBookedMonths(res.data.reservationList);
-    } catch (error) {
-      // Handle error
-      console.error("An error occurred:", error);
-    }
-  };
+  // const fetchData = async () => {
+  //   try {
+  //     const res = await api.get("/getReservedRotation");
+  //     setBookedMonths(res.data.reservationList);
+  //   } catch (error) {
+  //     // Handle error
+  //     console.error("An error occurred:", error);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
-  const isMonthDisabled = (month) => {
-    return bookedMonths.includes(month);
-  };
-
+  // const isMonthDisabled = (month) => {
+  //   return bookedMonths.includes(month);
+  // };
 
   const handleButtonClick = async (e) => {
     e.preventDefault();
@@ -102,9 +101,7 @@ const ExternshipForm = () => {
         reservation,
         externshipPDFForm: fileURL,
       };
-      debugger;
       const resp = await api.post("createRotationForm", payload);
-      debugger;
       if (resp.status == 200) {
         MySwal.fire({
           title: "Congratulations!",
@@ -363,13 +360,8 @@ const ExternshipForm = () => {
                       });
 
                       return months.flat().map((range) => (
-                        <option
-                          key={range}
-                          value={range}
-                          disabled={isMonthDisabled(range)}
-                          style={{ color: isMonthDisabled(range) && "red" }}
-                        >
-                          {range} {isMonthDisabled(range) && "Reserved"}
+                        <option key={range} value={range}>
+                          {range}
                         </option>
                       ));
                     })()}
