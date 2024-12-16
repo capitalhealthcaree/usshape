@@ -160,6 +160,17 @@ const alumniSuccessStoriesData = [
     image: "/images/alumni/stories/march-batch-2024.png",
     date: "March 13, 2024",
   },
+  {
+    id: 11,
+    name: "Muhammad Khaliq",
+    details: (
+      <div>
+        <p></p>
+      </div>
+    ),
+    image: "/images/alumni/stories/muhammad-khaliq.jpg",
+    date: "December 13, 2024",
+  },
 ];
 
 const AlumniSlider = () => {
