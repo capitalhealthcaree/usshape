@@ -64,6 +64,7 @@ const ApplicationForms = () => {
   const [certificateFile, setCertificateFile] = useState();
   const [loading, setLoading] = useState(false);
   const [contact, setContact] = useState(INITIAL_STATE);
+  const [billFiles, setBillFiles] = useState([null, null, null]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -88,13 +89,56 @@ const ApplicationForms = () => {
       setCertificateFile(selectedFile);
     }
   };
-  const handleBillFileChange = (e) => {
-    const selectedFiles = e.target.files;
+  // const handleBillFileChange = (e) => {
+  //   const selectedFiles = e.target.files;
 
-    if (selectedFiles.length !== 3) {
+  //   if (selectedFiles.length !== 3) {
+  //     MySwal.fire({
+  //       title: "Error",
+  //       text: "Please upload only last Three Electric Bill separately.",
+  //       icon: "error",
+  //       timer: 5000,
+  //       timerProgressBar: true,
+  //       showConfirmButton: false,
+  //     });
+  //     e.target.value = null;
+  //     return;
+  //   }
+
+  //   const validTypes = ["application/pdf"]; // Array of valid MIME types for PDF files
+
+  //   const validFiles = Array.from(selectedFiles).filter((file) =>
+  //     validTypes.includes(file.type)
+  //   );
+
+  //   if (validFiles.length !== 3) {
+  //     MySwal.fire({
+  //       title: "Error",
+  //       text: "Please upload only PDF files.",
+  //       icon: "error",
+  //       timer: 5000,
+  //       timerProgressBar: true,
+  //       showConfirmButton: false,
+  //     });
+  //     e.target.value = null;
+  //     return;
+  //   }
+
+  //   setBillImages(validFiles);
+  // };
+
+  const handleBillFileChange = (e, index) => {
+    const selectedFile = e.target.files[0];
+
+    if (!selectedFile) {
+      return; // If no file is selected, just return
+    }
+
+    // Validate file type
+    if (selectedFile.type !== "application/pdf") {
       MySwal.fire({
         title: "Error",
-        text: "Please upload only last Three Electric Bill separately.",
+        text: "Please upload only PDF file.",
         icon: "error",
         timer: 5000,
         timerProgressBar: true,
@@ -104,28 +148,16 @@ const ApplicationForms = () => {
       return;
     }
 
-    const validTypes = ["application/pdf"]; // Array of valid MIME types for PDF files
+    // Update state to store the selected file
+    const updatedFiles = [...billFiles];
+    updatedFiles[index - 1] = selectedFile; // Update the correct index (1-based index)
+    setBillFiles(updatedFiles);
 
-    const validFiles = Array.from(selectedFiles).filter((file) =>
-      validTypes.includes(file.type)
-    );
-
-    if (validFiles.length !== 3) {
-      MySwal.fire({
-        title: "Error",
-        text: "Please upload only PDF files.",
-        icon: "error",
-        timer: 5000,
-        timerProgressBar: true,
-        showConfirmButton: false,
-      });
-      e.target.value = null;
-      return;
+    // Check if all 3 files are selected
+    if (updatedFiles.filter((file) => file !== null).length === 3) {
+      setBillImages(updatedFiles); // If all 3 files are selected, store them in billImages state
     }
-
-    setBillImages(validFiles);
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -234,6 +266,19 @@ const ApplicationForms = () => {
         });
         return;
       }
+      // Check if all 3 files are selected
+      if (billFiles.includes(null)) {
+        MySwal.fire({
+          title: "Error",
+          text: "Please upload all three electric bills.",
+          icon: "error",
+          timer: 5000,
+          timerProgressBar: true,
+          showConfirmButton: false,
+        });
+        return;
+      }
+
       const payload = {
         firstName,
         lastName,
@@ -276,40 +321,72 @@ const ApplicationForms = () => {
 
         termsConditions,
       };
-      // Upload files to Firebase storage
-      const billImageUrls = [];
-      if (billImages.length > 0) {
-        // Create the "billImages" folder
-        await storage.ref().child("billImages/").child("dummy").put(new Blob());
+      // Reference to Firebase Storage
+      const storageRef = storage.ref();
 
-        for (const image of billImages) {
-          const imageRef = storage.ref().child(`billImages/${image.name}`);
-          await imageRef.put(image);
-          const imageUrl = await imageRef.getDownloadURL();
-          billImageUrls.push(imageUrl);
-        }
+      // Function to upload a single file and return its download URL
+      const uploadFile = async (file, folder) => {
+        const fileRef = storageRef.child(`${folder}/${file.name}`);
+        await fileRef.put(file);
+        return fileRef.getDownloadURL();
+      };
+
+      try {
+        // Upload bill images concurrently
+        const billImageUrls =
+          billImages.length > 0
+            ? await Promise.all(
+                billImages.map((image) => uploadFile(image, "billImages"))
+              )
+            : [];
+
+        // Upload certificate file if it exists
+        const certificateFileUrl = certificateFile
+          ? await uploadFile(certificateFile, "certificateFiles")
+          : "";
+
+        // Add URLs to payload
+        payload.billImageUrls = billImageUrls;
+        payload.certificateFileUrl = certificateFileUrl;
+      } catch (error) {
+        console.error("Error uploading files:", error);
+        // Handle error appropriately
       }
 
-      // Upload certificate file to Firebase storage
-      let certificateFileUrl = "";
-      if (certificateFile) {
-        // Create the "certificateFiles" folder
-        await storage
-          .ref()
-          .child("certificateFiles/")
-          .child("dummy")
-          .put(new Blob());
+      // // Upload files to Firebase storage
+      // const billImageUrls = [];
+      // if (billImages.length > 0) {
+      //   // Create the "billImages" folder
+      //   await storage.ref().child("billImages/").child("dummy").put(new Blob());
 
-        const fileRef = storage
-          .ref()
-          .child(`certificateFiles/${certificateFile.name}`);
-        await fileRef.put(certificateFile);
-        certificateFileUrl = await fileRef.getDownloadURL();
-      }
+      //   for (const image of billImages) {
+      //     const imageRef = storage.ref().child(`billImages/${image.name}`);
+      //     await imageRef.put(image);
+      //     const imageUrl = await imageRef.getDownloadURL();
+      //     billImageUrls.push(imageUrl);
+      //   }
+      // }
 
-      // Add URLs to payload
-      payload.billImageUrls = billImageUrls;
-      payload.certificateFileUrl = certificateFileUrl;
+      // // Upload certificate file to Firebase storage
+      // let certificateFileUrl = "";
+      // if (certificateFile) {
+      //   // Create the "certificateFiles" folder
+      //   await storage
+      //     .ref()
+      //     .child("certificateFiles/")
+      //     .child("dummy")
+      //     .put(new Blob());
+
+      //   const fileRef = storage
+      //     .ref()
+      //     .child(`certificateFiles/${certificateFile.name}`);
+      //   await fileRef.put(certificateFile);
+      //   certificateFileUrl = await fileRef.getDownloadURL();
+      // }
+
+      // // Add URLs to payload
+      // payload.billImageUrls = billImageUrls;
+      // payload.certificateFileUrl = certificateFileUrl;
 
       const response = await api.post("/create/applicationForm", payload);
       if (response.status === 200) {
@@ -337,7 +414,6 @@ const ApplicationForms = () => {
                   Please read FAQs before applying for the loan program at
                   <a href="https://usshape.org/faqs"> faqs</a>
                 </span>
-
                 <h4 className="fw-bold">Personal Info:</h4>
                 <div className="col-lg-6 col-md-6">
                   <div className="form-group">
@@ -475,7 +551,78 @@ const ApplicationForms = () => {
                     </ul>
                   </div>
                 </div>
-                <div className="col-lg-6 col-md-6">
+                <label className="fw-bold">
+                  Upload Last Three Electric Bills
+                </label>
+                <div className="col-lg-4 col-md-6">
+                  <div className="form-group">
+                    <label>Electric Bill 1</label>
+                    <input
+                      type="file"
+                      name="billFiles"
+                      className="form-control"
+                      onChange={(e) => handleBillFileChange(e, 1)}
+                      multiple
+                    />
+                  </div>
+                </div>{" "}
+                <div className="col-lg-4 col-md-6">
+                  <div className="form-group">
+                    <label>Electric Bill 2</label>
+                    <input
+                      type="file"
+                      name="billFiles"
+                      className="form-control"
+                      onChange={(e) => handleBillFileChange(e, 2)}
+                      multiple
+                    />
+                  </div>
+                </div>{" "}
+                <div className="col-lg-4 col-md-6">
+                  <div className="form-group">
+                    <label>Electric Bill 3</label>
+                    <input
+                      type="file"
+                      name="billFiles"
+                      className="form-control"
+                      onChange={(e) => handleBillFileChange(e, 3)}
+                      multiple
+                    />
+                  </div>
+                </div>
+                {/* <div className="col-12 col-sm-12 col-md-4 col-lg-4">
+  <div className="form-group">
+    <label>Upload Last Three Electric Bills</label>
+    <div>
+      <label>Bill 1:</label>
+      <input
+        type="file"
+        name="billFile1"
+        className="form-control"
+        onChange={(e) => handleBillFileChange(e, 1)}
+      />
+    </div>
+    <div>
+      <label>Bill 2:</label>
+      <input
+        type="file"
+        name="billFile2"
+        className="form-control"
+        onChange={(e) => handleBillFileChange(e, 2)}
+      />
+    </div>
+    <div>
+      <label>Bill 3:</label>
+      <input
+        type="file"
+        name="billFile3"
+        className="form-control"
+        onChange={(e) => handleBillFileChange(e, 3)}
+      />
+    </div>
+  </div>
+</div> */}
+                {/* <div className="col-lg-6 col-md-6">
                   <div className="form-group">
                     <label>Upload Last Three Electric Bill</label>
                     <input
@@ -486,7 +633,7 @@ const ApplicationForms = () => {
                       multiple
                     />
                   </div>
-                </div>
+                </div> */}
                 <div className="col-lg-6 col-md-6">
                   <div className="form-group">
                     <label>Passport Number</label>
