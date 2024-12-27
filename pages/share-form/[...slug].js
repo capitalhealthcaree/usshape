@@ -287,14 +287,14 @@ const FormData = ({ item }) => {
             </div>
             <div className="col-12">
               <iframe
-                src={item.billImageUrls[0]}
+                src={item.billImageUrls[1]}
                 height="600"
                 width="100%"
               ></iframe>
             </div>
             <div className="col-12">
               <iframe
-                src={item.billImageUrls[0]}
+                src={item.billImageUrls[2]}
                 height="600"
                 width="100%"
               ></iframe>
