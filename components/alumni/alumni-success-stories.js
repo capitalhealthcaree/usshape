@@ -168,6 +168,17 @@ const alumniSuccessStoriesData = [
     image: "/images/alumni/stories/muhammad-khaliq.jpg",
     date: "December 13, 2024",
   },
+  {
+    id: 12,
+    name: "Sameer Ul Haq",
+    details: (
+      <div>
+        <p></p>
+      </div>
+    ),
+    image: "/images/alumni/stories/sameer-ul-haq.png",
+    date: "July 9, 2025",
+  },
 ];
 
 const AlumniSuccessStories = () => {
