@@ -133,7 +133,7 @@ const AlumniSlider = () => {
       }
     }
 
-    return dateA - dateB; // Ascending order (earliest first)
+    return dateB - dateA; // Descending order (latest first)
   });
 
   const [startIndex, setStartIndex] = useState(0);
