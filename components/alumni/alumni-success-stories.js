@@ -216,7 +216,7 @@ const AlumniSlider = () => {
                       className="card-img-top"
                       alt={alumni.name}
                       style={{
-                        height: "250px",
+                        height: "450px",
                         objectFit: "cover",
                         aspectRatio: "364/393",
                       }}
