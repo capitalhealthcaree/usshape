@@ -106,7 +106,7 @@ const AlumniSlider = () => {
     },
     {
       id: 14,
-      name: "Sameer Ul Haq",
+      name: "Ariba Faheem",
       details: "Alumni success story from our externship program.",
       image: "/images/alumni/stories/ariba-faheem.jpg",
       date: "October, 2024",
