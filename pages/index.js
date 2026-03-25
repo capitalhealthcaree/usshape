@@ -12,7 +12,7 @@ import Gallery from "../components/Common/Gallery";
 import Footer from "../components/_App/Footer";
 import FaqSection from "../components/Common/FaqSection";
 // import Faq from "../components/Common/Faq";
-
+import AlumniSuccessStories from "../components/alumni/alumni-success-stories";
 import StrategicObjectives from "../components/HomeOne/StrategicObjectives";
 const Index = () => {
   return (
@@ -40,7 +40,7 @@ const Index = () => {
       {/* <Faq /> */}
 
       {/* <LatestBlogPost /> */}
-      <Alumnis />
+      <AlumniSuccessStories />
 
       <Footer />
     </>
