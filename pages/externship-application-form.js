@@ -719,9 +719,6 @@ const ExternshipForm = () => {
               <b className="text-dark">Rao K Ali MD</b>
             </div>
             <div>
-              <b className="text-dark">Muhammad Zulqarnain MD</b>
-            </div>
-            <div>
               <b className="text-dark">contact@usshape.org</b>
             </div>
             <div className="mt-4">
