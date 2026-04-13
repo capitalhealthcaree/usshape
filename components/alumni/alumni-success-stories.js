@@ -111,6 +111,13 @@ const AlumniSlider = () => {
       image: "/images/alumni/stories/ariba-faheem.jpg",
       date: "October, 2024",
     },
+    {
+      id: 15,
+      name: "Sarah Tariq",
+      details: "IT and Healthcare Management",
+      image: "/images/female-placeholder.png",
+      date: "March, 2026",
+    },
   ];
 
   // Sort alumni by date (latest first)
