@@ -61,13 +61,17 @@ const Navbar = () => {
               </button>
 
               <div className={classOne} id="navbarSupportedContent">
-                <ul className="navbar-nav" >
+                <ul className="navbar-nav">
                   <li className="nav-item">
                     <Link href="/" className="nav-link">
                       Home
                     </Link>
                   </li>
-
+                  <li className="nav-item">
+                    <Link href="/affiliations" className="nav-link">
+                      Affiliations
+                    </Link>
+                  </li>
                   <li className="nav-item">
                     <div
                       className="nav-link dropdown-toggle"
