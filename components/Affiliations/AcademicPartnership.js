@@ -104,7 +104,7 @@ export default function AcademicPartnership() {
             Official University <span style={s.secSpan}>Affiliation</span>
           </h2>
           <p style={s.subText}>
-            U.S. Shape, Inc. is proud to serve as an approved clinical training
+            US SHAPE INC is proud to serve as an approved clinical training
             site, bridging healthcare education with real-world community
             service.
           </p>
@@ -120,9 +120,9 @@ export default function AcademicPartnership() {
               </div>
             </div>
             <div style={s.memoBody}>
-              <div style={s.memoPill}>Memorandum · April 27, 2026</div>
+              <div style={s.memoPill}>Memorandum</div>
               <blockquote style={s.memoText}>
-                Premier Pain Center, U.S. Shape, Inc. is an approved clinical
+                Premier Pain Center, US SHAPE INC is an approved clinical
                 training site for Sam Houston State University College of
                 Osteopathic Medicine. Physicians with this practice that are
                 credentialed as preceptors supervise medical students during
