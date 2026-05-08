@@ -5,6 +5,8 @@ import HeroSlider from "../components/HomeOne/HeroSlider";
 // import Stats from "../components/HomeOne/Stats";
 import AboutSection from "../components/HomeOne/AboutSection";
 import OurRoles from "../components/OurRoles";
+import AcademicPartnership from "../components/Affiliations/AcademicPartnership";
+
 import Alumnis from "../components/HomeOne/Alumnis";
 import UsShapeTab from "../components/Common/UsShapeTab";
 // import LatestBlogPost from "../components/Common/LatestBlogPost";
@@ -28,6 +30,8 @@ const Index = () => {
       <AboutSection />
 
       <OurRoles />
+
+      <AcademicPartnership />
 
       <UsShapeTab />
 

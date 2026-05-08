@@ -18,18 +18,9 @@ export default function AcademicPartnership() {
       textAlign: "center",
       marginBottom: "1rem",
     },
-    secLabel: {
-      fontSize: ".72rem",
-      fontWeight: 700,
-      letterSpacing: ".12em",
-      textTransform: "uppercase",
-      color: BRAND,
-      marginBottom: ".5rem",
-    },
     secTitle: {
-      fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
-      fontWeight: 900,
-      lineHeight: 1.15,
+      fontSize: "38px",
+      fontWeight: 700,
       color: "#111",
     },
     secSpan: { color: BRAND },
@@ -37,7 +28,7 @@ export default function AcademicPartnership() {
       fontSize: "1rem",
       color: "black",
       maxWidth: 760,
-      margin: "1rem auto 0",
+      margin: "0 auto 0",
       lineHeight: 1.7,
     },
     row: {
@@ -56,21 +47,10 @@ export default function AcademicPartnership() {
     },
     memoHeader: {
       background: BRAND,
-      padding: "2rem 2.5rem",
+      padding: "1rem 2.5rem",
       display: "flex",
       alignItems: "center",
       gap: "1.2rem",
-    },
-    memoHeaderIcon: {
-      width: 56,
-      height: 56,
-      borderRadius: "50%",
-      background: "rgba(255,255,255,.15)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      fontSize: "1.6rem",
-      flexShrink: 0,
     },
     memoHeaderTitle: {
       fontSize: "1.4rem",
@@ -83,7 +63,7 @@ export default function AcademicPartnership() {
       fontSize: ".85rem",
       margin: 0,
     },
-    memoBody: { padding: "2.5rem" },
+    memoBody: { padding: "1rem" },
     memoPill: {
       display: "inline-flex",
       alignItems: "center",
@@ -99,7 +79,7 @@ export default function AcademicPartnership() {
     },
     memoText: {
       fontSize: ".95rem",
-      color: "#333",
+      color: "black",
       lineHeight: 1.8,
       borderLeft: `3px solid ${BRAND}`,
       paddingLeft: "1.2rem",
@@ -113,53 +93,6 @@ export default function AcademicPartnership() {
       marginBottom: 2,
     },
     memoSigSub: { fontSize: ".875rem", color: "black" },
-    univBadge: {
-      display: "flex",
-      alignItems: "center",
-      gap: 12,
-      background: "linear-gradient(135deg, #fff8f0 0%, #fff3e0 100%)",
-      border: "1.5px solid #f5a623",
-      borderRadius: 14,
-      padding: "1rem 1.4rem",
-      marginTop: "1.5rem",
-    },
-    univBadgeName: { fontWeight: 500, fontSize: ".95rem", color: "#7a4100" },
-    univBadgeSub: { fontSize: ".75rem", color: "#a0622a" },
-    // Verified card
-    verifiedCard: {
-      flex: "1 1 240px",
-      background: BRAND,
-      borderRadius: 20,
-      padding: "1rem 2rem",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      position: "relative",
-      overflow: "hidden",
-      color: "#fff",
-    },
-    verifiedTitle: {
-      fontSize: "1.8rem",
-      fontWeight: 900,
-      color: "black",
-    },
-    verifiedDesc: { fontSize: ".9rem" },
-    checkRow: {
-      display: "flex",
-      alignItems: "center",
-      gap: 10,
-    },
-    checkText: { fontSize: ".85rem", opacity: 0.9 },
-    verifiedTag: {
-      display: "inline-block",
-      background: "rgba(255,255,255,.15)",
-      borderRadius: 50,
-      fontSize: ".75rem",
-      fontWeight: 600,
-      padding: ".3rem .8rem",
-      marginTop: "1.5rem",
-      alignSelf: "flex-start",
-    },
   };
 
   return (
@@ -167,7 +100,6 @@ export default function AcademicPartnership() {
       <div className="container">
         {/* Header */}
         <div style={s.header}>
-          <div style={s.secLabel}>Academic Partnership</div>
           <h2 style={s.secTitle}>
             Official University <span style={s.secSpan}>Affiliation</span>
           </h2>
@@ -182,16 +114,13 @@ export default function AcademicPartnership() {
           {/* Memo Card */}
           <div style={s.memoCard}>
             <div style={s.memoHeader}>
-              <div style={s.memoHeaderIcon}>🏫</div>
               <div>
                 <h3 style={s.memoHeaderTitle}>Sam Houston State University</h3>
-                <p style={s.memoHeaderSub}>
-                  College of Osteopathic Medicine · Official Memorandum
-                </p>
+                <p style={s.memoHeaderSub}>College of Osteopathic Medicine</p>
               </div>
             </div>
             <div style={s.memoBody}>
-              <div style={s.memoPill}>📋 Memorandum · April 27, 2026</div>
+              <div style={s.memoPill}>Memorandum · April 27, 2026</div>
               <blockquote style={s.memoText}>
                 Premier Pain Center, U.S. Shape, Inc. is an approved clinical
                 training site for Sam Houston State University College of
@@ -207,41 +136,7 @@ export default function AcademicPartnership() {
                   Medicine
                 </span>
               </div>
-              <div style={s.univBadge}>
-                <span style={{ fontSize: "1.8rem" }}>🟠</span>
-                <div>
-                  <div style={s.univBadgeName}>
-                    Sam Houston State University
-                  </div>
-                  <div style={s.univBadgeSub}>
-                    Member · The Texas State University System · Conroe, TX
-                    77304
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-
-          {/* Verified Card */}
-          <div style={s.verifiedCard}>
-            <h4 style={s.verifiedTitle}>
-              Officially Approved Clinical Training Site
-            </h4>
-            <p style={s.verifiedDesc}>
-              Our physicians serve as credentialed preceptors, directly
-              mentoring future osteopathic physicians in real clinical settings,
-              providing hands-on training, practical experience, and guidance to
-              support professional growth and medical excellence.
-            </p>
-            <div style={{ marginTop: "0.3rem" }}>
-              {checkItems.map((item) => (
-                <div key={item} style={s.checkRow}>
-                  <span style={{ fontSize: "1rem" }}>✓</span>
-                  <span style={s.checkText}>{item}</span>
-                </div>
-              ))}
-            </div>
-            <span style={s.verifiedTag}>📜 Verified April 2026</span>
           </div>
         </div>
       </div>

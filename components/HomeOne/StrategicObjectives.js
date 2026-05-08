@@ -3,7 +3,7 @@ import React from "react";
 const AboutUs = () => {
   return (
     <>
-      <div className="welcome-area ptb-100">
+      <div className="welcome-area py-5">
         <div className="container-fluid p-0">
           <div className="row m-0">
             <div className="col-lg-6 p-0">
