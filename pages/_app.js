@@ -15,10 +15,12 @@ import "../styles/responsive.css";
 import "../styles/rtl.css";
 
 import Layout from "../components/_App/Layout";
+import Affiliations from "../components/Popup";
 
 const MyApp = ({ Component, pageProps }) => {
   return (
     <Layout>
+      <Affiliations />
       <Component {...pageProps} />
     </Layout>
   );
