@@ -31,7 +31,7 @@ const Index = () => {
 
       <OurRoles />
 
-      <AcademicPartnership />
+      {/* <AcademicPartnership /> */}
 
       <UsShapeTab />
 
