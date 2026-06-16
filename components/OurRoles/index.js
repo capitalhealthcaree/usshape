@@ -4,7 +4,7 @@ import Link from "next/link";
 const OurExpertise = () => {
   return (
     <>
-      <div className="expertise-area">
+      <div className="expertise-area pb-4">
         <div className="container">
           <div className="section-title">
             <h2>OUR ROLES</h2>
