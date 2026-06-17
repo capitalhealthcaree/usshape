@@ -1,9 +1,12 @@
 import TopHeader from "../components/_App/TopHeader";
 import Navbar from "../components/_App/Navbar";
-import PageBanner from "../components/Common/PageBanner";
-import WhatWeDo from "../components/Affiliations/WhatWeDo";
-import AcademicPartnership from "../components/Affiliations/AcademicPartnership";
-import OurPrograms from "../components/Affiliations/OurPrograms";
+
+import Banner from "../components/Affiliations/Banner";
+import Stats from "../components/Affiliations/Stats";
+
+// import AcademicPartnership from "../components/Affiliations/AcademicPartnership";
+// import OurPrograms from "../components/Affiliations/OurPrograms";
+
 import Footer from "../components/_App/Footer";
 
 const Education = () => {
@@ -11,16 +14,10 @@ const Education = () => {
     <>
       <TopHeader />
       <Navbar />
-      <PageBanner
-        pageTitle="Approved Clinical Training Affiliation"
-        homePageUrl="/"
-        homePageText="Home"
-        activePageText="Affiliations"
-        bgImage="/images/about-bg.jpg"
-      />
-      <WhatWeDo />
-      <AcademicPartnership />
-      <OurPrograms />
+      <Banner />
+      <Stats />
+      {/* <AcademicPartnership /> */}
+      {/* <OurPrograms /> */}
       <Footer />
     </>
   );
