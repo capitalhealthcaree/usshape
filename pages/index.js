@@ -2,6 +2,8 @@ import React from "react";
 import TopHeader from "../components/_App/TopHeader";
 import Navbar from "../components/_App/Navbar";
 import HeroSlider from "../components/HomeOne/HeroSlider";
+import Banner from "../components/Affiliations/Banner";
+
 // import Stats from "../components/HomeOne/Stats";
 import AboutSection from "../components/HomeOne/AboutSection";
 import OurRoles from "../components/OurRoles";
@@ -23,7 +25,8 @@ const Index = () => {
 
       <Navbar />
 
-      <HeroSlider />
+      <Banner />
+      {/* <HeroSlider /> */}
 
       {/* <Stats /> */}
 
