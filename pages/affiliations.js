@@ -2,6 +2,13 @@ import TopHeader from "../components/_App/TopHeader";
 import Navbar from "../components/_App/Navbar";
 
 import Banner from "../components/Affiliations/Banner";
+import Banner2 from "../components/Affiliations/2";
+import Banner3 from "../components/Affiliations/3";
+import Banner4 from "../components/Affiliations/4";
+import Banner5 from "../components/Affiliations/5";
+import Banner6 from "../components/Affiliations/6";
+import Banner7 from "../components/Affiliations/7";
+
 import Stats from "../components/Affiliations/Stats";
 
 // import AcademicPartnership from "../components/Affiliations/AcademicPartnership";
@@ -14,7 +21,13 @@ const Education = () => {
     <>
       <TopHeader />
       <Navbar />
-      <Banner />
+      <Banner2 />
+      <Banner3 />
+      <Banner4 />
+      <Banner5 />
+      <Banner6 />
+      <Banner7 />
+
       <Stats />
       {/* <AcademicPartnership /> */}
       {/* <OurPrograms /> */}
