@@ -20,7 +20,7 @@ import Affiliations from "../components/Popup";
 const MyApp = ({ Component, pageProps }) => {
   return (
     <Layout>
-      <Affiliations />
+      {/* <Affiliations /> */}
       <Component {...pageProps} />
     </Layout>
   );
