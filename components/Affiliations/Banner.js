@@ -1,855 +1,864 @@
-// import Link from "next/link";
-
-// export default function Hero() {
-//   return (
-//     <section className="hero-section position-relative overflow-hidden">
-//       <div className="container position-relative" style={{ zIndex: 2 }}>
-//         <div className="row align-items-center g-5">
-//           {/* LEFT */}
-//           <div className="col-lg-7">
-//             <h1 className="hero-title">
-//               A Landmark Affiliation in Clinical Education
-//             </h1>
-
-//             <div className="partners-row d-flex align-items-center flex-wrap gap-2 gap-md-3">
-//               <span className="brand-usshape">
-//                 <span className="us">US</span>{" "}
-//                 <span className="shape">SHAPE</span>
-//               </span>
-//               <span className="divider-line d-none d-md-inline-block" />
-//               <span className="joins-text">joins forces with</span>
-//               <span className="divider-line d-none d-md-inline-block" />
-//               <span className="brand-shsu w-100 w-md-auto">
-//                 Sam Houston <br className="d-none d-md-block" /> State
-//                 University
-//               </span>
-//             </div>
-
-//             <p className="hero-desc">
-//               Effective immediately,{" "}
-//               <strong className="text-navy">Premier Pain Centers</strong> serves
-//               as the official clinical rotation site for SHSU&apos;s College of
-//               Osteopathic Medicine — pairing medical students with credentialed
-//               preceptors in a live patient-care environment.
-//             </p>
-
-//             <div className="d-flex flex-wrap gap-3 mt-4">
-//               <Link
-//                 href="/externship-application-form"
-//                 className="btn btn-cta-outline px-4 py-2 rounded-pill fw-semibold"
-//               >
-//                 Apply for Externship
-//               </Link>
-//             </div>
-//           </div>
-
-//           {/* RIGHT */}
-//           <div className="col-lg-5">
-//             <div className="hero-visual position-relative">
-//               <div className="hero-frame">
-//                 <div className="hero-image" />
-//                 <div className="hero-overlay" />
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* scoped CSS */}
-//       <style jsx>{`
-//         .hero-section {
-//           background: linear-gradient(
-//             135deg,
-//             #f4f7fc 0%,
-//             #ffffff 60%,
-//             #eaf1fb 70%
-//           );
-//         }
-
-//         .hero-title {
-//           font-size: 40px;
-//           font-weight: 900;
-//           color: #0a2756;
-//           line-height: 1.15;
-//           margin-bottom: 0;
-//         }
-
-//         .partners-row {
-//           margin: 36px 0 28px;
-//         }
-//         .brand-usshape {
-//           font-size: 34px;
-//           font-weight: 800;
-//           letter-spacing: 1px;
-//           line-height: 1;
-//         }
-//         .brand-usshape .us {
-//           color: #0a2756;
-//         }
-//         .brand-usshape .shape {
-//           color: #e63946;
-//         }
-//         .divider-line {
-//           width: 40px;
-//           height: 1px;
-//           background: #cbd2dd;
-//         }
-//         .joins-text {
-//           color: #0a2756;
-//           font-size: 13px;
-//           font-weight: 500;
-//           letter-spacing: 2px;
-//           text-transform: uppercase;
-//         }
-//         .brand-shsu {
-//           font-size: 28px;
-//           font-weight: 900;
-//           color: #f36f21;
-//           line-height: 1.15;
-//         }
-
-//         .hero-desc {
-//           font-size: 17px;
-//           color: #1a1a1a;
-//           line-height: 1.7;
-//           max-width: 560px;
-//           margin-top: 8px;
-//         }
-//         .text-navy {
-//           color: #0a2756;
-//         }
-
-//         :global(.btn-cta-outline) {
-//           background: transparent;
-//           color: #0a2756;
-//           border: 2px solid #0a2756;
-//           transition: all 0.25s ease;
-//         }
-//         :global(.btn-cta-outline:hover) {
-//           background: #0a2756;
-//           color: #fff;
-//         }
-
-//         /* RIGHT visual */
-//         .hero-visual {
-//           height: 540px;
-//         }
-//         .hero-frame {
-//           position: absolute;
-//           inset: 0;
-//           border-radius: 20px;
-//           overflow: hidden;
-//           box-shadow: 0 20px 50px rgba(10, 39, 86, 0.18);
-//         }
-//         .hero-image {
-//           position: absolute;
-//           inset: 0;
-//           background-image: url("/images/sam-uni.webp");
-//           background-size: cover;
-//           background-position: center;
-//         }
-
-//         /* ========== RESPONSIVE ========== */
-
-//         /* tablet */
-//         @media (max-width: 991px) {
-//           .hero-title {
-//             font-size: 36px;
-//           }
-//           .hero-visual {
-//             height: auto;
-//             aspect-ratio: 4 / 3;
-//             margin-top: 30px;
-//           }
-//           .brand-usshape {
-//             font-size: 30px;
-//           }
-//           .brand-shsu {
-//             font-size: 24px;
-//           }
-//         }
-
-//         /* mobile */
-//         @media (max-width: 576px) {
-//           .hero-section {
-//             padding: 40px 0 50px;
-//           }
-
-//           .hero-title {
-//             font-size: 28px;
-//             line-height: 1.2;
-//             letter-spacing: -0.5px;
-//           }
-
-//           .partners-row {
-//             margin: 24px 0 20px;
-//             gap: 6px 12px !important;
-//           }
-//           .brand-usshape {
-//             font-size: 24px;
-//             letter-spacing: 0.5px;
-//           }
-//           .joins-text {
-//             font-size: 11px;
-//             letter-spacing: 1.5px;
-//             color: #6c757d;
-//             display: block;
-//             width: 100%;
-//             order: 1;
-//           }
-//           .brand-shsu {
-//             font-size: 22px;
-//             line-height: 1.2;
-//             order: 2;
-//             width: 100%;
-//           }
-//           .brand-usshape {
-//             order: 0;
-//           }
-
-//           .hero-desc {
-//             font-size: 15px;
-//             line-height: 1.65;
-//             margin-top: 4px;
-//           }
-
-//           .hero-visual {
-//             height: auto;
-//             aspect-ratio: 4 / 3;
-//             margin-top: 24px;
-//             border-radius: 16px;
-//             overflow: hidden;
-//           }
-//           .hero-frame {
-//             border-radius: 16px;
-//           }
-//           .hero-image {
-//             background-size: cover;
-//             background-position: center center;
-//           }
-
-//           :global(.btn-cta-outline) {
-//             font-size: 14px;
-//             padding: 10px 20px !important;
-//           }
-//         }
-
-//         /* tiny screens */
-//         @media (max-width: 360px) {
-//           .hero-title {
-//             font-size: 24px;
-//           }
-//           .brand-usshape {
-//             font-size: 22px;
-//           }
-//           .brand-shsu {
-//             font-size: 20px;
-//           }
-//         }
-//       `}</style>
-//     </section>
-//   );
-// }
-
 import Link from "next/link";
 
 export default function Hero() {
   return (
     <section className="hero-section position-relative overflow-hidden">
-      {/* decorative background */}
-      <span className="blob blob-1" />
-      <span className="blob blob-2" />
-      <span className="blob blob-3" />
-      <div className="grid-pattern" />
+      {/* animated background */}
+      <div className="bg-orbs">
+        <span className="orb orb-1" />
+        <span className="orb orb-2" />
+        <span className="orb orb-3" />
+      </div>
+      <div className="bg-grid" />
 
-      <div className="container position-relative" style={{ zIndex: 2 }}>
-        {/* announcement chip */}
-        <div className="announce-chip d-inline-flex align-items-center gap-2 mb-4">
-          <span className="pulse-dot" />
-          <span className="chip-text">Official Announcement · 2026</span>
-        </div>
+      {/* watermark year */}
+      <div className="watermark d-none d-md-block">2026</div>
 
-        <div className="row align-items-center g-5">
-          {/* LEFT */}
+      <div className="container position-relative" style={{ zIndex: 3 }}>
+        <div className="row align-items-center g-5 g-lg-4">
+          {/* ===== LEFT — content ===== */}
           <div className="col-lg-7">
-            <h1 className="hero-title">
-              A Landmark Affiliation in{" "}
-              <span className="title-highlight">
-                <span className="title-highlight-text">Clinical Education</span>
+            {/* announcement pill */}
+            <div className="announce-pill d-inline-flex align-items-center gap-2 mb-4">
+              <span className="pill-icon">
+                <span className="pill-dot" />
               </span>
+              <span className="pill-text">
+                Now Active · Clinical Affiliation
+              </span>
+              <span className="pill-arrow">→</span>
+            </div>
+
+            {/* headline */}
+            <h1 className="hero-title">
+              A Landmark
+              <br />
+              <span className="title-accent">
+                Affiliation
+                <svg
+                  className="title-underline"
+                  viewBox="0 0 300 12"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M2 8 Q 75 2, 150 6 T 298 4"
+                    fill="none"
+                    stroke="url(#underGrad)"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                  />
+                  <defs>
+                    <linearGradient id="underGrad" x1="0" x2="1">
+                      <stop offset="0%" stopColor="#e63946" />
+                      <stop offset="100%" stopColor="#f36f21" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </span>
+              <br />
+              <span className="title-soft">in Clinical Education</span>
             </h1>
 
-            <div className="partners-row d-flex align-items-center flex-wrap gap-2 gap-md-3">
+            {/* partners */}
+            <div className="partners-row d-flex align-items-center flex-wrap gap-3 my-4">
               <span className="brand-usshape">
-                <span className="us">US</span>{" "}
-                <span className="shape">SHAPE</span>
+                <span className="us">US </span>{" "}
+                <span className="shape">SHAPE INC</span>
               </span>
-              <span className="divider-line d-none d-md-inline-block" />
-              <span className="joins-text">joins forces with</span>
-              <span className="divider-line d-none d-md-inline-block" />
-              <span className="brand-shsu w-100 w-md-auto">
-                Sam Houston <br className="d-none d-md-block" /> State
+              <span className="cross-mark">×</span>
+              <span className="brand-shsu">
+                Sam Houston <br className="d-none d-md-inline" /> State
                 University
               </span>
             </div>
 
             <p className="hero-desc">
               Effective immediately,{" "}
-              <strong className="text-navy">Premier Pain Centers</strong> serves
-              as the official clinical rotation site for SHSU&apos;s College of
-              Osteopathic Medicine — pairing medical students with credentialed
-              preceptors in a live patient-care environment.
+              <strong>
+                <a
+                  style={{ color: "#e63946" }}
+                  href="https://www.mypremierpain.com/"
+                >
+                  Premier Pain Centers
+                </a>
+              </strong>{" "}
+              serves as the official clinical rotation site for SHSU&apos;s
+              College of Osteopathic Medicine — pairing students with
+              credentialed preceptors in a live patient-care environment.
             </p>
 
+            {/* CTAs */}
             <div className="d-flex flex-wrap align-items-center gap-3 mt-4">
               <Link
                 href="/externship-application-form"
-                className="btn btn-cta-primary px-4 py-3 rounded-pill fw-semibold d-inline-flex align-items-center gap-2"
+                className="btn-glow d-inline-flex align-items-center gap-2"
               >
                 Apply for Externship
+                <span className="arrow-wrap">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                  >
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
+              <Link
+                href="#partnership"
+                className="btn-ghost d-inline-flex align-items-center gap-2"
+              >
+                <span className="play-circle">▸</span>
+                Watch the Story
+              </Link>
+            </div>
+          </div>
+
+          {/* ===== RIGHT — image stack ===== */}
+          <div className="col-lg-5">
+            <div className="visual-stack position-relative">
+              {/* glow ring behind */}
+              <div className="glow-ring d-none d-md-block" />
+
+              {/* main image card */}
+              <div className="card-main">
+                <div className="card-img" />
+                <div className="card-shade" />
+
+                <div className="card-caption">
+                  <div className="cap-meta">CAMPUS · SHSU</div>
+                  <div className="cap-title">
+                    College of <br /> Osteopathic Medicine
+                  </div>
+                </div>
+              </div>
+
+              {/* floating stat */}
+              <div className="floating-stat d-none d-lg-flex">
                 <svg
-                  width="16"
-                  height="16"
+                  width="20"
+                  height="20"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2.5"
                   strokeLinecap="round"
-                  className="cta-arrow"
                 >
-                  <path d="M5 12h14M13 5l7 7-7 7" />
+                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
                 </svg>
-              </Link>
-              <Link
-                href="#partnership"
-                className="btn btn-cta-text fw-semibold d-inline-flex align-items-center gap-2"
-              >
-                <span className="play-icon">▸</span>
-                Read the Story
-              </Link>
-            </div>
-
-            {/* trust mini-row */}
-            <div className="trust-row d-flex align-items-center flex-wrap gap-3 mt-4 pt-3">
-              <div className="trust-item d-flex align-items-center gap-2">
-                <span className="check-dot">✓</span>
-                <span>SHSU-Credentialed</span>
-              </div>
-              <span className="trust-divider d-none d-sm-inline-block" />
-              <div className="trust-item d-flex align-items-center gap-2">
-                <span className="check-dot">✓</span>
-                <span>DO Track</span>
-              </div>
-              <span className="trust-divider d-none d-sm-inline-block" />
-              <div className="trust-item d-flex align-items-center gap-2">
-                <span className="check-dot">✓</span>
-                <span>Richardson, TX</span>
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT */}
-          <div className="col-lg-5">
-            <div className="hero-visual position-relative">
-              {/* decorative dots behind image */}
-              <div className="dot-grid d-none d-lg-block" />
-
-              <div className="hero-frame">
-                <div className="hero-image" />
-                <div className="hero-shade" />
-                <span className="location-tag">📍 Huntsville, TX</span>
-              </div>
-
-              {/* floating badge */}
-              <div className="float-badge d-none d-md-flex">
-                <div className="badge-icon">🎓</div>
-                <div>
-                  <div className="badge-title">SHSU College of</div>
-                  <div className="badge-sub">Osteopathic Medicine</div>
-                </div>
+                <span>Officially Approved</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* scoped CSS */}
       <style jsx>{`
         .hero-section {
-          background: linear-gradient(
-            135deg,
-            #f4f7fc 0%,
-            #ffffff 55%,
-            #eaf1fb 100%
+          background: radial-gradient(
+            ellipse at top left,
+            #102f63 0%,
+            #0a2756 35%,
+            #061a3d 100%
           );
-          padding: 90px 0 100px;
+          color: #fff;
+          padding: 80px 0 0;
+          min-height: 100vh;
         }
 
-        /* ===== Background decoration ===== */
-        .blob {
+        /* ===== Background ===== */
+        .bg-orbs {
           position: absolute;
-          border-radius: 50%;
-          filter: blur(90px);
-          z-index: 0;
+          inset: 0;
+          z-index: 1;
           pointer-events: none;
         }
-        .blob-1 {
+        .orb {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(110px);
+          opacity: 0.6;
+        }
+        .orb-1 {
           width: 500px;
           height: 500px;
-          top: -180px;
-          right: -150px;
-          background: radial-gradient(
-            circle,
-            rgba(10, 39, 86, 0.12),
-            transparent 70%
-          );
+          top: -100px;
+          right: -100px;
+          background: radial-gradient(circle, #e63946, transparent 70%);
+          animation: orbFloat 12s ease-in-out infinite;
         }
-        .blob-2 {
-          width: 450px;
-          height: 450px;
-          bottom: -180px;
-          left: -120px;
-          background: radial-gradient(
-            circle,
-            rgba(230, 57, 70, 0.1),
-            transparent 70%
-          );
+        .orb-2 {
+          width: 400px;
+          height: 400px;
+          bottom: -50px;
+          left: -100px;
+          background: radial-gradient(circle, #f36f21, transparent 70%);
+          animation: orbFloat 14s ease-in-out infinite reverse;
         }
-        .blob-3 {
-          width: 300px;
-          height: 300px;
-          top: 45%;
-          left: 45%;
-          background: radial-gradient(
-            circle,
-            rgba(243, 111, 33, 0.1),
-            transparent 70%
-          );
+        .orb-3 {
+          width: 350px;
+          height: 350px;
+          top: 40%;
+          left: 40%;
+          background: radial-gradient(circle, #2a5cb0, transparent 70%);
+          animation: orbFloat 16s ease-in-out infinite;
         }
-        .grid-pattern {
+        @keyframes orbFloat {
+          0%,
+          100% {
+            transform: translate(0, 0);
+          }
+          50% {
+            transform: translate(40px, -30px);
+          }
+        }
+        .bg-grid {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(10, 39, 86, 0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(10, 39, 86, 0.04) 1px, transparent 1px);
-          background-size: 50px 50px;
+            linear-gradient(rgba(168, 197, 236, 0.05) 1px, transparent 1px),
+            linear-gradient(
+              90deg,
+              rgba(168, 197, 236, 0.05) 1px,
+              transparent 1px
+            );
+          background-size: 60px 60px;
           mask-image: radial-gradient(
             ellipse at center,
-            black 30%,
-            transparent 70%
+            black 20%,
+            transparent 65%
           );
           -webkit-mask-image: radial-gradient(
             ellipse at center,
-            black 30%,
-            transparent 70%
+            black 20%,
+            transparent 65%
           );
-          z-index: 0;
+          z-index: 1;
           pointer-events: none;
         }
 
-        /* ===== Announce chip ===== */
-        .announce-chip {
-          background: rgba(255, 255, 255, 0.85);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(10, 39, 86, 0.15);
-          padding: 8px 18px;
+        .watermark {
+          position: absolute;
+          right: -30px;
+          top: 12%;
+          font-family: "Merriweather", Georgia, serif;
+          font-size: 280px;
+          font-weight: 900;
+          line-height: 1;
+          color: transparent;
+          -webkit-text-stroke: 1.5px rgba(243, 111, 33, 0.12);
+          z-index: 1;
+          letter-spacing: -8px;
+          pointer-events: none;
+        }
+
+        /* ===== Announcement pill ===== */
+        .announce-pill {
+          background: rgba(255, 255, 255, 0.07);
+          backdrop-filter: blur(14px);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          padding: 6px 6px 6px 8px;
           border-radius: 50px;
-          box-shadow: 0 4px 14px rgba(10, 39, 86, 0.06);
+          transition: all 0.3s ease;
         }
-        .pulse-dot {
-          width: 8px;
-          height: 8px;
-          background: #e63946;
+        .announce-pill:hover {
+          background: rgba(255, 255, 255, 0.1);
+          border-color: rgba(230, 57, 70, 0.4);
+        }
+        .pill-icon {
+          width: 22px;
+          height: 22px;
           border-radius: 50%;
-          display: inline-block;
-          animation: pulseDot 1.8s infinite;
+          background: linear-gradient(135deg, #e63946, #f36f21);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
         }
-        @keyframes pulseDot {
+        .pill-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #fff;
+          animation: pillPulse 1.5s infinite;
+        }
+        @keyframes pillPulse {
           0%,
           100% {
-            opacity: 1;
             transform: scale(1);
-            box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.5);
+            opacity: 1;
           }
           50% {
-            opacity: 0.6;
-            transform: scale(1.3);
-            box-shadow: 0 0 0 8px rgba(230, 57, 70, 0);
+            transform: scale(1.4);
+            opacity: 0.5;
           }
         }
-        .chip-text {
+        .pill-text {
           font-size: 12px;
           font-weight: 700;
-          letter-spacing: 2.5px;
+          letter-spacing: 2px;
           text-transform: uppercase;
-          color: #0a2756;
+          color: #fff;
+        }
+        .pill-arrow {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.1);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+          margin-left: 4px;
         }
 
-        /* ===== Title ===== */
+        /* ===== Headline ===== */
         .hero-title {
-          font-size: 48px;
+          font-family: "Merriweather", Georgia, serif;
+          font-size: 72px;
           font-weight: 900;
-          color: #0a2756;
-          line-height: 1.1;
-          letter-spacing: -1px;
-          margin-bottom: 0;
+          line-height: 1;
+          letter-spacing: -2.5px;
+          margin: 0 0 20px;
+          color: #fff;
         }
-        .title-highlight {
+        .title-accent {
           position: relative;
           display: inline-block;
+          font-style: italic;
+          font-weight: 400;
+          background: linear-gradient(135deg, #f36f21 30%, #ffa46b);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
-        .title-highlight-text {
-          position: relative;
-          z-index: 2;
-        }
-        .title-highlight::after {
-          content: "";
+        .title-underline {
           position: absolute;
           left: 0;
-          bottom: 4px;
+          bottom: -8px;
           width: 100%;
-          height: 14px;
-          background: linear-gradient(
-            90deg,
-            rgba(230, 57, 70, 0.25),
-            rgba(243, 111, 33, 0.25)
-          );
-          border-radius: 4px;
-          z-index: 1;
+          height: 12px;
+        }
+        .title-soft {
+          color: rgba(255, 255, 255, 0.55);
+          font-weight: 400;
+          font-size: 0.55em;
+          letter-spacing: -0.5px;
         }
 
-        /* ===== Partners row ===== */
+        /* ===== Partners ===== */
         .partners-row {
-          margin: 32px 0 24px;
+          margin: 28px 0 24px !important;
         }
         .brand-usshape {
-          font-size: 32px;
+          font-family: -apple-system, "Segoe UI", sans-serif;
+          font-size: 30px;
           font-weight: 800;
           letter-spacing: 1px;
           line-height: 1;
         }
         .brand-usshape .us {
-          color: #0a2756;
+          color: #fff;
         }
         .brand-usshape .shape {
           color: #e63946;
         }
-        .divider-line {
-          width: 36px;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, #cbd2dd, transparent);
-        }
-        .joins-text {
-          color: #6c757d;
-          font-size: 12px;
-          font-weight: 600;
-          letter-spacing: 2.5px;
-          text-transform: uppercase;
+        .cross-mark {
+          font-family: Georgia, serif;
+          font-size: 28px;
+          color: #f36f21;
+          opacity: 0.6;
+          font-weight: 200;
         }
         .brand-shsu {
-          font-size: 26px;
+          font-family: "Merriweather", Georgia, serif;
+          font-size: 24px;
           font-weight: 900;
           color: #f36f21;
           line-height: 1.15;
         }
 
-        /* ===== Description ===== */
         .hero-desc {
           font-size: 17px;
-          color: #1a1a1a;
           line-height: 1.7;
+          color: rgba(255, 255, 255, 0.72);
           max-width: 560px;
-          margin-top: 4px;
+          margin-bottom: 0;
         }
-        .text-navy {
-          color: #0a2756;
+        .hero-desc strong {
+          color: #fff;
+          font-weight: 600;
         }
 
         /* ===== Buttons ===== */
-        :global(.btn-cta-primary) {
+        :global(.btn-glow) {
           background: linear-gradient(135deg, #e63946, #c92e3a);
           color: #fff !important;
-          border: none;
-          box-shadow: 0 10px 24px rgba(230, 57, 70, 0.35);
+          font-size: 15px;
+          font-weight: 700;
+          padding: 14px 28px;
+          border-radius: 60px;
+          text-decoration: none;
+          box-shadow:
+            0 12px 32px rgba(230, 57, 70, 0.45),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
           transition: all 0.3s ease;
           position: relative;
-          overflow: hidden;
         }
-        :global(.btn-cta-primary:hover) {
+        :global(.btn-glow:hover) {
           transform: translateY(-2px);
-          box-shadow: 0 14px 30px rgba(230, 57, 70, 0.45);
+          box-shadow: 0 16px 40px rgba(230, 57, 70, 0.6);
         }
-        :global(.btn-cta-primary:hover .cta-arrow) {
-          transform: translateX(4px);
+        :global(.btn-glow:hover .arrow-wrap) {
+          background: #fff;
+          color: #e63946;
         }
-        :global(.cta-arrow) {
-          transition: transform 0.25s ease;
-        }
-        :global(.btn-cta-text) {
-          color: #0a2756 !important;
-          background: transparent;
-          border: none;
-          padding: 12px 4px;
-        }
-        :global(.btn-cta-text:hover) {
-          color: #e63946 !important;
-        }
-        .play-icon {
-          display: inline-flex;
+        .arrow-wrap {
           width: 26px;
           height: 26px;
-          align-items: center;
-          justify-content: center;
           border-radius: 50%;
-          background: rgba(10, 39, 86, 0.08);
-          font-size: 12px;
-        }
-
-        /* ===== Trust row ===== */
-        .trust-row {
-          border-top: 1px dashed rgba(10, 39, 86, 0.15);
-          font-size: 13px;
-          color: #4a5568;
-        }
-        .trust-item {
-          font-weight: 600;
-        }
-        .check-dot {
+          background: rgba(255, 255, 255, 0.2);
           display: inline-flex;
-          width: 20px;
-          height: 20px;
           align-items: center;
           justify-content: center;
-          border-radius: 50%;
-          background: rgba(40, 167, 69, 0.12);
-          color: #28a745;
-          font-size: 11px;
-          font-weight: 900;
+          transition: all 0.3s ease;
         }
-        .trust-divider {
-          width: 1px;
-          height: 14px;
-          background: rgba(10, 39, 86, 0.2);
+        :global(.btn-ghost) {
+          background: transparent;
+          color: #fff !important;
+          font-size: 14px;
+          font-weight: 600;
+          padding: 12px 4px;
+          text-decoration: none;
+          transition: color 0.25s;
+        }
+        :global(.btn-ghost:hover) {
+          color: #f36f21 !important;
+        }
+        .play-circle {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 13px;
         }
 
-        /* ===== Visual ===== */
-        .hero-visual {
+        /* ===== Trust strip ===== */
+        .trust-strip {
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .trust-num {
+          font-family: "Merriweather", Georgia, serif;
+          font-size: 28px;
+          font-weight: 900;
+          background: linear-gradient(135deg, #fff, #a8c5ec);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          line-height: 1;
+        }
+        .trust-lbl {
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          color: #a8c5ec;
+          margin-top: 6px;
+        }
+        .trust-sep {
+          width: 1px;
+          height: 36px;
+          background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* ===== Visual Stack ===== */
+        .visual-stack {
           height: 540px;
         }
-        .dot-grid {
+        .glow-ring {
           position: absolute;
-          width: 120px;
-          height: 120px;
-          right: -25px;
-          bottom: -25px;
-          background-image: radial-gradient(
-            circle,
-            rgba(243, 111, 33, 0.5) 1.5px,
-            transparent 1.5px
+          width: 100%;
+          height: 100%;
+          inset: 0;
+          background: radial-gradient(
+            circle at 60% 50%,
+            rgba(243, 111, 33, 0.3),
+            transparent 50%
           );
-          background-size: 14px 14px;
-          z-index: 1;
+          filter: blur(40px);
+          z-index: 0;
         }
-        .hero-frame {
+        .card-main {
           position: absolute;
           inset: 0;
-          border-radius: 24px 80px 24px 24px;
+          border-radius: 28px;
           overflow: hidden;
-          box-shadow: 0 25px 60px rgba(10, 39, 86, 0.22);
+          box-shadow:
+            0 30px 60px rgba(0, 0, 0, 0.4),
+            0 0 0 1px rgba(255, 255, 255, 0.06);
           z-index: 2;
+          transform: rotate(2deg);
+          transition: transform 0.5s ease;
         }
-        .hero-image {
+        .card-main:hover {
+          transform: rotate(0deg) scale(1.02);
+        }
+        .card-img {
           position: absolute;
           inset: 0;
           background-image: url("/images/sam-uni.webp");
           background-size: cover;
           background-position: center;
-          transition: transform 0.6s ease;
+          animation: kenBurns 18s ease-in-out infinite alternate;
         }
-        .hero-frame:hover .hero-image {
-          transform: scale(1.05);
+        @keyframes kenBurns {
+          from {
+            transform: scale(1) translate(0, 0);
+          }
+          to {
+            transform: scale(1.1) translate(-15px, -10px);
+          }
         }
-        .hero-shade {
+        .card-shade {
           position: absolute;
           inset: 0;
           background: linear-gradient(
             180deg,
-            transparent 50%,
-            rgba(10, 39, 86, 0.4)
+            rgba(10, 39, 86, 0.2) 0%,
+            transparent 30%,
+            rgba(6, 26, 61, 0.85)
           );
         }
-        .location-tag {
+        .card-tag {
           position: absolute;
-          top: 18px;
-          right: 18px;
+          top: 20px;
+          left: 20px;
           background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(8px);
+          backdrop-filter: blur(10px);
           color: #0a2756;
           font-size: 11px;
-          font-weight: 700;
+          font-weight: 800;
           letter-spacing: 1.5px;
           text-transform: uppercase;
           padding: 7px 14px;
           border-radius: 50px;
-          z-index: 3;
-          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-        }
-
-        .float-badge {
-          position: absolute;
-          bottom: -28px;
-          left: -28px;
-          background: #fff;
-          border-radius: 16px;
-          padding: 14px 18px;
-          box-shadow: 0 18px 40px rgba(10, 39, 86, 0.18);
-          display: flex;
+          display: inline-flex;
           align-items: center;
-          gap: 12px;
+          gap: 8px;
           z-index: 4;
-          border: 1px solid rgba(10, 39, 86, 0.06);
         }
-        .badge-icon {
-          width: 42px;
-          height: 42px;
-          border-radius: 12px;
-          background: linear-gradient(135deg, #f36f21, #ffa46b);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 20px;
-          box-shadow: 0 6px 14px rgba(243, 111, 33, 0.3);
+        .tag-dot {
+          width: 6px;
+          height: 6px;
+          background: #e63946;
+          border-radius: 50%;
+          animation: pillPulse 1.6s infinite;
         }
-        .badge-title {
-          font-size: 11px;
-          font-weight: 600;
-          color: #6c757d;
-          letter-spacing: 0.5px;
+        .card-caption {
+          position: absolute;
+          bottom: 24px;
+          left: 24px;
+          right: 24px;
+          color: #fff;
+          z-index: 4;
         }
-        .badge-sub {
-          font-size: 14px;
+        .cap-meta {
+          font-size: 10px;
+          letter-spacing: 3px;
+          color: #f36f21;
           font-weight: 800;
-          color: #0a2756;
+          margin-bottom: 6px;
+        }
+        .cap-title {
+          font-family: "Merriweather", Georgia, serif;
+          font-size: 22px;
+          font-weight: 900;
           line-height: 1.2;
         }
 
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 991px) {
-          .hero-section {
-            padding: 70px 0 80px;
+        .logo-card {
+          position: absolute;
+          bottom: -30px;
+          left: -40px;
+          background: #fff;
+          color: #0a2756;
+          padding: 14px 18px 14px 14px;
+          border-radius: 16px;
+          z-index: 5;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+          transform: rotate(-3deg);
+          transition: transform 0.4s ease;
+        }
+        .logo-card:hover {
+          transform: rotate(0deg) translateY(-4px);
+        }
+        .logo-mark {
+          width: 44px;
+          height: 44px;
+          background: linear-gradient(135deg, #f36f21, #ffa46b);
+          color: #fff;
+          font-family: "Merriweather", Georgia, serif;
+          font-weight: 900;
+          font-size: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10px;
+          box-shadow: 0 6px 14px rgba(243, 111, 33, 0.4);
+        }
+        .logo-name {
+          font-size: 13px;
+          font-weight: 800;
+          line-height: 1.1;
+        }
+        .logo-sub {
+          font-size: 11px;
+          color: #6c757d;
+          font-weight: 600;
+        }
+
+        .floating-stat {
+          position: absolute;
+          top: 30px;
+          right: -30px;
+          background: rgba(10, 39, 86, 0.85);
+          backdrop-filter: blur(14px);
+          border: 1px solid rgba(243, 111, 33, 0.3);
+          color: #fff;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 1.2px;
+          padding: 10px 16px 10px 12px;
+          border-radius: 50px;
+          z-index: 5;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          text-transform: uppercase;
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+        .floating-stat :global(svg) {
+          color: #4ade80;
+        }
+
+        /* ===== Marquee strip ===== */
+        .marquee-strip {
+          margin-top: 80px;
+          background: linear-gradient(90deg, #e63946, #c92e3a, #e63946);
+          color: #fff;
+          padding: 14px 0;
+          overflow: hidden;
+          position: relative;
+          z-index: 4;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .marquee-track {
+          display: flex;
+          width: max-content;
+          animation: marquee 30s linear infinite;
+        }
+        .marquee-group {
+          gap: 24px;
+          padding-right: 24px;
+          font-size: 12px;
+          font-weight: 800;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+        .marquee-group .dot {
+          color: #ffa46b;
+        }
+        @keyframes marquee {
+          from {
+            transform: translateX(0);
           }
-          .hero-title {
-            font-size: 38px;
-          }
-          .hero-visual {
-            height: auto;
-            aspect-ratio: 4 / 3;
-            margin-top: 40px;
-          }
-          .brand-usshape {
-            font-size: 28px;
-          }
-          .brand-shsu {
-            font-size: 22px;
-          }
-          .hero-frame {
-            border-radius: 20px 60px 20px 20px;
+          to {
+            transform: translateX(-50%);
           }
         }
 
+        /* ========== RESPONSIVE ========== */
+
+        /* Tablet ≤ 991 */
+        @media (max-width: 991px) {
+          .hero-section {
+            padding: 60px 0 0;
+            min-height: auto;
+          }
+          .watermark {
+            font-size: 180px;
+            top: 8%;
+          }
+          .hero-title {
+            font-size: 52px;
+            letter-spacing: -1.5px;
+          }
+          .visual-stack {
+            height: auto;
+            aspect-ratio: 4 / 3;
+            margin-top: 60px;
+          }
+          .card-main {
+            transform: rotate(0deg);
+          }
+          .logo-card {
+            left: -20px;
+            bottom: -20px;
+          }
+          .floating-stat {
+            right: -10px;
+          }
+          .marquee-strip {
+            margin-top: 70px;
+          }
+        }
+
+        /* Mobile ≤ 576 */
         @media (max-width: 576px) {
           .hero-section {
-            padding: 40px 0 50px;
+            padding: 40px 0 0;
           }
-          .announce-chip {
-            padding: 6px 14px;
+          .watermark {
+            display: none;
           }
-          .chip-text {
+          .orb {
+            filter: blur(70px);
+          }
+          .orb-1 {
+            width: 300px;
+            height: 300px;
+          }
+          .orb-2 {
+            width: 280px;
+            height: 280px;
+          }
+
+          .announce-pill {
+            padding: 4px 4px 4px 6px;
+          }
+          .pill-text {
             font-size: 10px;
-            letter-spacing: 1.8px;
+            letter-spacing: 1.5px;
+          }
+          .pill-icon {
+            width: 18px;
+            height: 18px;
+          }
+          .pill-arrow {
+            width: 20px;
+            height: 20px;
+            font-size: 10px;
           }
 
           .hero-title {
-            font-size: 26px;
-            line-height: 1.25;
-            letter-spacing: -0.3px;
+            font-size: 34px;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
           }
-          .title-highlight::after {
-            height: 10px;
-            bottom: 2px;
+          .title-underline {
+            height: 8px;
+            bottom: -4px;
           }
 
           .partners-row {
-            margin: 20px 0 18px;
-            gap: 4px 10px !important;
+            margin: 20px 0 18px !important;
+            gap: 10px !important;
           }
           .brand-usshape {
             font-size: 22px;
-            letter-spacing: 0.5px;
-          }
-          .joins-text {
-            font-size: 10px;
-            letter-spacing: 1.5px;
-            display: block;
-            width: 100%;
-            order: 1;
           }
           .brand-shsu {
-            font-size: 20px;
-            line-height: 1.2;
-            order: 2;
-            width: 100%;
+            font-size: 18px;
           }
-          .brand-usshape {
-            order: 0;
+          .cross-mark {
+            font-size: 22px;
           }
 
           .hero-desc {
             font-size: 14.5px;
             line-height: 1.65;
-            margin-top: 2px;
           }
 
-          .trust-row {
-            font-size: 12px;
-            margin-top: 16px !important;
-            padding-top: 14px !important;
+          :global(.btn-glow) {
+            font-size: 13px;
+            padding: 12px 20px;
+            width: 100%;
+            justify-content: center;
           }
-          .check-dot {
-            width: 16px;
-            height: 16px;
+          :global(.btn-ghost) {
+            font-size: 13px;
+            width: 100%;
+            justify-content: center;
+            padding: 10px 4px;
+          }
+
+          .trust-strip {
+            gap: 20px !important;
+            margin-top: 30px !important;
+            padding-top: 24px !important;
+            justify-content: space-between;
+          }
+          .trust-num {
+            font-size: 22px;
+          }
+          .trust-lbl {
             font-size: 9px;
+            letter-spacing: 1.2px;
           }
 
-          .hero-visual {
-            margin-top: 24px;
+          .visual-stack {
+            margin-top: 36px;
+            aspect-ratio: 4 / 3.2;
           }
-          .hero-frame {
-            border-radius: 16px;
+          .card-main {
+            border-radius: 20px;
           }
-          .location-tag {
+          .card-tag {
             font-size: 9px;
             padding: 5px 10px;
+            letter-spacing: 1.2px;
+          }
+          .cap-title {
+            font-size: 16px;
+          }
+          .cap-meta {
+            font-size: 9px;
+            letter-spacing: 2px;
           }
 
-          :global(.btn-cta-primary) {
-            font-size: 14px;
-            padding: 10px 20px !important;
+          .marquee-strip {
+            margin-top: 40px;
+            padding: 10px 0;
           }
-          :global(.btn-cta-text) {
-            font-size: 14px;
+          .marquee-group {
+            font-size: 10px;
+            letter-spacing: 2px;
+            gap: 16px;
+            padding-right: 16px;
           }
         }
 
         @media (max-width: 360px) {
           .hero-title {
-            font-size: 23px;
+            font-size: 28px;
           }
           .brand-usshape {
-            font-size: 20px;
+            font-size: 19px;
           }
           .brand-shsu {
-            font-size: 18px;
+            font-size: 16px;
           }
         }
       `}</style>
