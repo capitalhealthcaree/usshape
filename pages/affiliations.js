@@ -9,6 +9,9 @@ import Banner5 from "../components/Affiliations/5";
 import Banner6 from "../components/Affiliations/6";
 import Banner7 from "../components/Affiliations/7";
 
+import Banner8 from "../components/Affiliations/8";
+
+
 import Stats from "../components/Affiliations/Stats";
 
 // import AcademicPartnership from "../components/Affiliations/AcademicPartnership";
@@ -27,8 +30,10 @@ const Education = () => {
       <Banner5 />
       <Banner6 />
       <Banner7 />
+      <Banner8 />
 
-      <Stats />
+
+      {/* <Stats /> */}
       {/* <AcademicPartnership /> */}
       {/* <OurPrograms /> */}
       <Footer />

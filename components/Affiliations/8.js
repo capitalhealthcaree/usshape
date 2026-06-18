@@ -1,416 +1,256 @@
-import Link from "next/link";
+const steps = [
+  {
+    n: "Step 01",
+    title: "Submit Your Application",
+    desc: "Fill the externship form on usshape.org — credentials, clerkship goals, and preferred dates. Reviewed by the Director of Clinical Education at SHSU COM.",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      >
+        <path d="M9 11l3 3 6-6" />
+        <path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9c1.5 0 3 .4 4.3 1" />
+      </svg>
+    ),
+  },
+  {
+    n: "Step 02",
+    title: "Get Paired With a Preceptor",
+    desc: "Matched with a credentialed physician at Premier Pain Centers whose subspecialty aligns with your interests — interventional, palliative, or musculoskeletal.",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      >
+        <circle cx="9" cy="8" r="3.5" />
+        <circle cx="17" cy="10" r="2.5" />
+        <path d="M2 20v-1.5a4 4 0 014-4h6a4 4 0 014 4V20" />
+        <path d="M17 20v-1a3 3 0 013-3" />
+      </svg>
+    ),
+  },
+  {
+    n: "Step 03",
+    title: "Rotate On-Site in Richardson",
+    desc: "Four-week immersive rotation at our Collins Boulevard clinic. Morning patient consults, afternoon procedures, weekly case-review with your preceptor.",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      >
+        <path d="M12 2L4 7v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-5z" />
+        <path d="M9 12l2 2 4-4" />
+      </svg>
+    ),
+  },
+  {
+    n: "Step 04",
+    title: "Earn Verified Hours & Join Alumni",
+    desc: "SHSU COM logs your competencies. Top performers are profiled in our alumni network — opening doors to Nagy Loan recipients and residency referrals.",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      >
+        <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z" />
+      </svg>
+    ),
+  },
+];
 
-export default function Hero() {
+export default function RotationJourney() {
   return (
-    <section className="hero-section">
-      {/* thin accent stripe */}
-      <div className="accent-stripe">
-        <div className="stripe-red" />
-        <div className="stripe-navy" />
-        <div className="stripe-orange" />
-      </div>
+    <section className="journey-section position-relative">
+      <div className="container py-5">
+        {/* header */}
+        <div className="mb-5 pb-2" style={{ maxWidth: 640 }}>
+          <p className="eyebrow mb-2">Inside the Rotation</p>
+          <h2 className="section-title">
+            From Application <br className="d-none d-md-block" />
+            <span className="title-red">to Stethoscope.</span>
+          </h2>
+          <p className="section-sub mt-3 mb-0">
+            A clear, four-stage path from the day you click &ldquo;apply&rdquo;
+            to the day you sign your final evaluation.
+          </p>
+        </div>
 
-      <div className="container">
-        <div className="row align-items-center g-5 g-lg-5 py-5">
-          {/* ===== LEFT — content ===== */}
-          <div className="col-lg-7">
-            {/* eyebrow */}
-            <div className="eyebrow d-flex align-items-center gap-3 mb-4">
-              <span className="eyebrow-line" />
-              <span className="eyebrow-text">
-                Clinical Affiliation Announcement
-              </span>
-            </div>
+        {/* timeline */}
+        <div className="position-relative">
+          {/* connector line (desktop only) */}
+          <div className="connector-line d-none d-lg-block" />
 
-            {/* headline */}
-            <h1 className="hero-headline">
-              A Landmark Affiliation in
-              <br />
-              Clinical Education
-            </h1>
-
-            {/* subheadline */}
-            <p className="hero-sub">
-              <span className="brand-usshape">
-                <span className="us">US</span>{" "}
-                <span className="shape">SHAPE</span>
-              </span>
-              <span className="sub-and">in partnership with</span>
-              <span className="brand-shsu">Sam Houston State University</span>
-            </p>
-
-            {/* body */}
-            <p className="hero-body">
-              Effective immediately,{" "}
-              <strong>Premier Pain Centers</strong> serves as the official
-              clinical rotation site for SHSU&apos;s College of Osteopathic
-              Medicine. Medical students will train under credentialed
-              preceptors in a live patient-care environment — advancing
-              osteopathic education and serving the communities US SHAPE was
-              founded to support.
-            </p>
-
-            {/* CTAs */}
-            <div className="d-flex flex-wrap align-items-center gap-4 mt-4 pt-2">
-              <Link
-                href="/externship-application-form"
-                className="btn-primary-pro"
-              >
-                Apply for Externship
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                >
-                  <path d="M5 12h14M13 5l7 7-7 7" />
-                </svg>
-              </Link>
-              <Link href="#about" className="btn-secondary-pro">
-                Learn About the Affiliation
-              </Link>
-            </div>
-
-            {/* authority row */}
-            <div className="authority-row d-flex flex-wrap align-items-center gap-4 mt-5 pt-4">
-              <div className="auth-item">
-                <div className="auth-label">Accredited By</div>
-                <div className="auth-value">SHSU College of Osteopathic Medicine</div>
+          <div className="row g-4">
+            {steps.map((s, i) => (
+              <div key={i} className="col-md-6 col-lg-3">
+                <div className="step-card h-100 position-relative">
+                  <div className="step-icon">
+                    <div className="icon-wrap">{s.icon}</div>
+                  </div>
+                  <div className="step-body">
+                    <p className="step-num mb-1">{s.n}</p>
+                    <h3 className="step-title mb-2">{s.title}</h3>
+                    <p className="step-desc mb-0">{s.desc}</p>
+                  </div>
+                </div>
               </div>
-              <div className="auth-divider d-none d-md-block" />
-              <div className="auth-item">
-                <div className="auth-label">Clinical Site</div>
-                <div className="auth-value">Premier Pain Centers · Richardson, TX</div>
-              </div>
-            </div>
-          </div>
-
-          {/* ===== RIGHT — image ===== */}
-          <div className="col-lg-5">
-            <div className="visual-wrap">
-              <div className="visual-frame">
-                <div className="visual-img" />
-              </div>
-              <div className="visual-caption">
-                <div className="cap-label">Huntsville, Texas</div>
-                <div className="cap-name">Sam Houston State University</div>
-                <div className="cap-sub">College of Osteopathic Medicine</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
 
       <style jsx>{`
-        .hero-section {
-          background: #fafbfc;
-          position: relative;
+        .journey-section {
+          background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
         }
 
-        /* thin accent stripe at top */
-        .accent-stripe {
-          display: flex;
-          height: 4px;
-        }
-        .stripe-red {
-          flex: 2;
-          background: #b91c1c;
-        }
-        .stripe-navy {
-          flex: 5;
-          background: #0a2756;
-        }
-        .stripe-orange {
-          flex: 3;
-          background: #f36f21;
-        }
-
-        /* ===== Eyebrow ===== */
-        .eyebrow-line {
-          width: 40px;
-          height: 2px;
-          background: #b91c1c;
-        }
-        .eyebrow-text {
+        /* header */
+        .eyebrow {
           font-size: 12px;
           font-weight: 700;
-          letter-spacing: 3px;
+          letter-spacing: 4px;
           text-transform: uppercase;
-          color: #b91c1c;
-        }
-
-        /* ===== Headline ===== */
-        .hero-headline {
-          font-family: "Merriweather", "Georgia", "Times New Roman", serif;
-          font-size: 52px;
-          font-weight: 900;
-          line-height: 1.1;
-          color: #0a2756;
-          letter-spacing: -1px;
-          margin: 0 0 24px;
-        }
-
-        /* ===== Subheadline ===== */
-        .hero-sub {
-          font-size: 18px;
-          color: #0a2756;
-          margin-bottom: 24px;
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          gap: 10px;
-          line-height: 1.5;
-        }
-        .brand-usshape {
-          font-weight: 800;
-          font-size: 22px;
-          letter-spacing: 0.5px;
-        }
-        .brand-usshape .us {
-          color: #0a2756;
-        }
-        .brand-usshape .shape {
-          color: #b91c1c;
-        }
-        .sub-and {
-          color: #6c757d;
-          font-size: 15px;
-          font-weight: 500;
-        }
-        .brand-shsu {
-          font-family: "Merriweather", Georgia, serif;
-          font-weight: 700;
           color: #f36f21;
-          font-size: 20px;
         }
-
-        /* ===== Body ===== */
-        .hero-body {
-          font-size: 17px;
-          line-height: 1.75;
-          color: #3a4a5e;
-          max-width: 600px;
-          margin-bottom: 0;
-        }
-        .hero-body strong {
+        .section-title {
+          font-family: "Merriweather", Georgia, serif;
+          font-size: 44px;
+          font-weight: 900;
           color: #0a2756;
-          font-weight: 700;
+          line-height: 1.15;
+          letter-spacing: -1px;
+          margin: 0;
+        }
+        .title-red {
+          color: #e63946;
+        }
+        .section-sub {
+          color: #4a5568;
+          font-size: 16px;
+          line-height: 1.7;
         }
 
-        /* ===== Buttons ===== */
-        :global(.btn-primary-pro) {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          background: #0a2756;
-          color: #fff !important;
-          padding: 14px 28px;
-          font-size: 14px;
-          font-weight: 700;
-          letter-spacing: 0.5px;
-          text-decoration: none;
-          border-radius: 4px;
-          transition: all 0.25s ease;
-          border: 2px solid #0a2756;
-        }
-        :global(.btn-primary-pro:hover) {
-          background: #061a3d;
-          border-color: #061a3d;
-          color: #fff !important;
-          transform: translateY(-1px);
-          box-shadow: 0 8px 20px rgba(10, 39, 86, 0.25);
-        }
-        :global(.btn-primary-pro svg) {
-          transition: transform 0.25s ease;
-        }
-        :global(.btn-primary-pro:hover svg) {
-          transform: translateX(4px);
-        }
-
-        :global(.btn-secondary-pro) {
-          color: #0a2756 !important;
-          font-size: 14px;
-          font-weight: 700;
-          letter-spacing: 0.3px;
-          text-decoration: none;
-          padding: 14px 4px;
-          border-bottom: 2px solid #0a2756;
-          transition: all 0.25s ease;
-        }
-        :global(.btn-secondary-pro:hover) {
-          color: #b91c1c !important;
-          border-bottom-color: #b91c1c;
-        }
-
-        /* ===== Authority row ===== */
-        .authority-row {
-          border-top: 1px solid #d8dde5;
-        }
-        .auth-label {
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          color: #6c757d;
-          margin-bottom: 4px;
-        }
-        .auth-value {
-          font-size: 14px;
-          font-weight: 600;
-          color: #0a2756;
-        }
-        .auth-divider {
-          width: 1px;
-          height: 40px;
-          background: #d8dde5;
-        }
-
-        /* ===== Visual ===== */
-        .visual-wrap {
-          position: relative;
-        }
-        .visual-frame {
-          position: relative;
-          aspect-ratio: 4 / 5;
-          overflow: hidden;
-          border-radius: 4px;
-          box-shadow:
-            0 20px 50px rgba(10, 39, 86, 0.15),
-            0 0 0 1px rgba(10, 39, 86, 0.06);
-        }
-        .visual-img {
+        /* connector line */
+        .connector-line {
           position: absolute;
-          inset: 0;
-          background-image: url("/images/sam-uni.webp");
-          background-size: cover;
-          background-position: center;
-          transition: transform 0.8s ease;
+          top: 48px;
+          left: 12%;
+          right: 12%;
+          height: 1px;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            #cbd2dd 20%,
+            #cbd2dd 80%,
+            transparent
+          );
+          z-index: 0;
         }
-        .visual-frame:hover .visual-img {
-          transform: scale(1.04);
+
+        /* card */
+        .step-card {
+          background: #fff;
+          border: 1px solid #e5e8ee;
+          border-radius: 18px;
+          padding: 24px 22px 22px;
+          transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease,
+            border-color 0.3s ease;
+          z-index: 1;
         }
-        .visual-caption {
-          margin-top: 18px;
-          padding-left: 16px;
-          border-left: 3px solid #f36f21;
+        .step-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 20px 40px rgba(10, 39, 86, 0.1);
+          border-color: #d8dde5;
         }
-        .cap-label {
-          font-size: 11px;
-          font-weight: 700;
+
+        /* icon */
+        .step-icon {
+          position: absolute;
+          top: -22px;
+          left: 22px;
+        }
+        .icon-wrap {
+          width: 48px;
+          height: 48px;
+          border-radius: 14px;
+          background: linear-gradient(135deg, #0a2756, #1a4a8f);
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 10px 22px rgba(10, 39, 86, 0.3);
+          transition: transform 0.3s ease;
+        }
+        .step-card:hover .icon-wrap {
+          transform: scale(1.06) rotate(-4deg);
+          background: linear-gradient(135deg, #e63946, #f36f21);
+          box-shadow: 0 12px 26px rgba(230, 57, 70, 0.35);
+        }
+        .icon-wrap :global(svg) {
+          width: 22px;
+          height: 22px;
+        }
+
+        /* card content */
+        .step-body {
+          margin-top: 30px;
+        }
+        .step-num {
+          font-size: 10.5px;
+          font-weight: 800;
           letter-spacing: 2.5px;
           text-transform: uppercase;
-          color: #f36f21;
-          margin-bottom: 4px;
+          color: #e63946;
         }
-        .cap-name {
+        .step-title {
           font-family: "Merriweather", Georgia, serif;
-          font-size: 16px;
-          font-weight: 800;
+          font-size: 17px;
+          font-weight: 900;
           color: #0a2756;
           line-height: 1.3;
         }
-        .cap-sub {
-          font-size: 13px;
-          color: #6c757d;
-          margin-top: 2px;
+        .step-desc {
+          font-size: 13.5px;
+          color: #5b6478;
+          line-height: 1.65;
         }
 
-        /* ========== RESPONSIVE ========== */
-
-        /* Tablet ≤ 991 */
+        /* responsive */
         @media (max-width: 991px) {
-          .hero-headline {
-            font-size: 40px;
-          }
-          .visual-frame {
-            aspect-ratio: 16 / 10;
-            margin-top: 20px;
+          .section-title {
+            font-size: 34px;
           }
         }
-
-        /* Mobile ≤ 576 */
         @media (max-width: 576px) {
-          .accent-stripe {
-            height: 3px;
-          }
-          .hero-section :global(.py-5) {
-            padding-top: 2.5rem !important;
-            padding-bottom: 2.5rem !important;
-          }
-          .eyebrow-line {
-            width: 28px;
-          }
-          .eyebrow-text {
-            font-size: 10.5px;
-            letter-spacing: 2px;
-          }
-
-          .hero-headline {
-            font-size: 28px;
+          .section-title {
+            font-size: 26px;
             letter-spacing: -0.5px;
-            line-height: 1.18;
-            margin-bottom: 18px;
           }
-
-          .hero-sub {
-            font-size: 15px;
-            gap: 6px 10px;
-            margin-bottom: 18px;
+          .eyebrow {
+            font-size: 10.5px;
+            letter-spacing: 3px;
           }
-          .brand-usshape {
-            font-size: 18px;
+          .section-sub {
+            font-size: 14.5px;
           }
-          .brand-shsu {
+          .step-card {
+            padding: 22px 18px 20px;
+          }
+          .step-title {
             font-size: 16px;
           }
-          .sub-and {
+          .step-desc {
             font-size: 13px;
-            width: 100%;
-          }
-
-          .hero-body {
-            font-size: 15px;
-            line-height: 1.7;
-          }
-
-          :global(.btn-primary-pro) {
-            padding: 12px 22px;
-            font-size: 13px;
-            width: 100%;
-            justify-content: center;
-          }
-          :global(.btn-secondary-pro) {
-            font-size: 13px;
-            padding: 10px 0;
-          }
-
-          .authority-row {
-            gap: 16px !important;
-            margin-top: 30px !important;
-            padding-top: 20px !important;
-          }
-          .auth-value {
-            font-size: 13px;
-          }
-
-          .visual-frame {
-            aspect-ratio: 4 / 3;
-            margin-top: 14px;
-          }
-          .visual-caption {
-            margin-top: 14px;
-          }
-          .cap-name {
-            font-size: 15px;
-          }
-        }
-
-        @media (max-width: 360px) {
-          .hero-headline {
-            font-size: 24px;
           }
         }
       `}</style>
