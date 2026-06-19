@@ -3,7 +3,6 @@ import "../styles/animate.css";
 import "../styles/icofont.min.css";
 import "../styles/meanmenu.css";
 import "react-tabs/style/react-tabs.css";
-import "../node_modules/react-modal-video/css/modal-video.min.css";
 import "react-accessible-accordion/dist/fancy-example.css";
 import "swiper/css";
 import "swiper/css/bundle";
