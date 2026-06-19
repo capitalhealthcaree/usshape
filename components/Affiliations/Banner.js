@@ -6927,7 +6927,6 @@ export default function Hero() {
                   href="https://www.mypremierpain.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="ppc-link"
                 >
                   Premier Pain Centers
                 </a>{" "}
@@ -7000,16 +6999,26 @@ export default function Hero() {
             </h1>
 
             <p className="m-hero-desc">
-              <a
+              {/* <a
                 href="https://www.mypremierpain.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ppc-link"
               >
                 Premier Pain Centers
+              </a>{" "} */}
+              US SHAPE INC is proud to announce its affiliation with Sam Houston
+              State University, with{" "}
+              <a
+                href="https://www.mypremierpain.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                // className="ppc-link"
+              >
+                {" "}
+                Premier Pain Centers
               </a>{" "}
-              is now the official clinical rotation site for SHSU&apos;s College
-              of Osteopathic Medicine.
+              serving as the official clinical rotation site.
             </p>
           </div>
 
