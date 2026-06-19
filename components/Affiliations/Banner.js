@@ -6987,7 +6987,7 @@ export default function Hero() {
         <div className="containers">
           <div className="m-image-wrap">
             <img
-              src="/images/7.png"
+              src="/images/11.jpeg"
               alt="Premier Pain Centers x Sam Houston State University Partnership"
               className="m-image"
             />
