@@ -139,7 +139,7 @@ export default function Hero() {
             </Link>
 
             <Link
-              href="/alumni"
+              href="/usshape-alumni"
               className="btn-outline d-inline-flex align-items-center justify-content-center gap-2"
             >
               <span className="alumni-icon">
