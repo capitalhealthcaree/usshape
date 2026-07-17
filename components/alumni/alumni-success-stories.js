@@ -121,6 +121,13 @@ const alumniData = [
     image: "/images/female-placeholder.png",
     date: "March, 2026",
   },
+  {
+    id: 16,
+    name: "Masuma Firoze",
+    details: "IT and Healthcare Management",
+    image: "/images/alumni/stories/masuma-firoze.png",
+    date: "July 17, 2026",
+  },
 ];
 
 // truncate helper
