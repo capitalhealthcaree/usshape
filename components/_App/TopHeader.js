@@ -34,7 +34,7 @@ const TopHeader = () => {
                 <div className="header-top-right">
                   <ul>
                     <li>
-                      <a href="https://www.facebook.com/" target="_blank">
+                      <a href="https://www.facebook.com/usshapeorg/" target="_blank">
                         <i className="icofont-facebook"></i>
                       </a>
                     </li>
