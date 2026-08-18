@@ -146,7 +146,7 @@ const alumniData = [
   },
   {
     id: 16,
-    name: "Masuma Firoze",
+    name: "Faisal Naseer",
     details: "IT and Healthcare Management",
     image: "/images/alumni/stories/faisal-naseer.jpeg",
     sortDate: "2026-08-18",
